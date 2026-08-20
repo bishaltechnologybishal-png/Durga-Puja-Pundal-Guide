@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durga Puja Pandal Guide 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🎪 দুর্গাপূজা প্যান্ডেল গাইড</h1>
+        <p>কলকাতা, কল্যাণীয়সহ সকল সেরা পূজা প্যান্ডেল এক ক্লিকে খুঁজে নাও</p>
+        <input type="text" id="searchInput" onkeyup="searchPandals()" placeholder="এলাকা, প্যান্ডেল বা স্টেশনের নাম লিখে সার্চ করো (যেমন: Kalyani, New Town, Kalighat)...">
+    </header>
+
+    <main>
+        <div class="container" id="pandalContainer">
+            <!-- JS Cards -->
+        </div>
+    </main>
+
+    <!-- Modal Popup for Details -->
+    <div id="pandalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <span id="modalZone" class="tag"></span>
+            
+            <div class="modal-details">
+                <p><strong>🚆 নিকটস্থ রেল স্টেশন:</strong> <span id="modalRailway"></span></p>
+                <p><strong>🚇 নিকটস্থ মেট্রো স্টেশন:</strong> <span id="modalMetro"></span></p>
+                <p><strong>✨ বিশেষত্ব ও থিম:</strong> <span id="modalFamous"></span></p>
+                <p><strong>ℹ️ বিবরণ ও রুট গাইড:</strong> <span id="modalDesc"></span></p>
+            </div>
+
+            <a id="modalMap" href="#" target="_blank" class="map-btn">📍 Google Maps-এ লোকেশন দেখুন</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
