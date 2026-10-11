@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Durga Puja Pandal Guide 2026</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>শারদোৎসব পরিক্রমা | Durga Puja Guide</title>
+
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>🎪 দুর্গাপূজা প্যান্ডেল গাইড</h1>
-        <p>কলকাতা, কল্যাণীয়সহ সকল সেরা পূজা প্যান্ডেল এক ক্লিকে খুঁজে নাও</p>
-        <input type="text" id="searchInput" onkeyup="searchPandals()" placeholder="এলাকা, প্যান্ডেল বা স্টেশনের নাম লিখে সার্চ করো (যেমন: Kalyani, New Town, Kalighat)...">
-    </header>
-
-    <main>
-        <div class="container" id="pandalContainer">
-            <!-- JS Cards -->
-        </div>
-    </main>
-
-    <!-- Modal Popup for Details -->
-    <div id="pandalModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <span id="modalZone" class="tag"></span>
-            
-            <div class="modal-details">
-                <p><strong>🚆 নিকটস্থ রেল স্টেশন:</strong> <span id="modalRailway"></span></p>
-                <p><strong>🚇 নিকটস্থ মেট্রো স্টেশন:</strong> <span id="modalMetro"></span></p>
-                <p><strong>✨ বিশেষত্ব ও থিম:</strong> <span id="modalFamous"></span></p>
-                <p><strong>ℹ️ বিবরণ ও রুট গাইড:</strong> <span id="modalDesc"></span></p>
-            </div>
-
-            <a id="modalMap" href="#" target="_blank" class="map-btn">📍 Google Maps-এ লোকেশন দেখুন</a>
-        </div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-badge"><i class="fa-solid fa-om"></i> শুভ শারদোৎসব</div>
+    <h1>কলকাতা ও সংলগ্ন দুর্গোৎসব পরিক্রমা</h1>
+    <p>কাশফুলের ছোঁয়া আর ঢাকের কাঠি—খুঁজে নিন উত্তর, দক্ষিণ, মধ্য, বেহালা, সল্টলেক ও কল্যাণীর সেরা সেরা পুজো প্যান্ডেল, নিকটবর্তী মেট্রো, ট্রেন ও গুগল ম্যাপস লোকেশন।</p>
+    
+    <!-- Live Search Bar -->
+    <div class="search-wrapper">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="প্যান্ডেল, এলাকা বা মেট্রোর নাম দিয়ে খুঁজুন (যেমন: বাগবাজার, একডালিয়া, কল্যাণী)...">
     </div>
 
-    <script src="script.js"></script>
+    <!-- Category Filters -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">সব পুজো (All)</button>
+      <button class="filter-btn" data-filter="North">উত্তর কলকাতা</button>
+      <button class="filter-btn" data-filter="South">দক্ষিণ কলকাতা</button>
+      <button class="filter-btn" data-filter="Central">সেন্ট্রাল কলকাতা</button>
+      <button class="filter-btn" data-filter="Behala">বেহালা চত্বর</button>
+      <button class="filter-btn" data-filter="Salt Lake">সল্টলেক / শ্রীভূমি</button>
+      <button class="filter-btn" data-filter="Kalyani">কল্যাণী</button>
+    </div>
+  </header>
+
+  <!-- Main Grid Section -->
+  <main class="container">
+    <div class="section-title">
+      <h2>সেরা দুর্গোৎসব তালিকা</h2>
+    </div>
+
+    <div class="grid" id="pandalGrid">
+      <!-- JavaScript will populate cards here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>শারদ শুভেচ্ছা সহ প্রস্তুতকৃত | পুজো পরিক্রমা সহায়িকা</p>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
