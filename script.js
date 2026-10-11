@@ -1,242 +1,473 @@
-/* =====================================================
-   ১ম অংশ: ডেটা
-   নতুন প্যান্ডেল যোগ করতে RAW_PANDALS-এ একটি লাইন লিখলেই হবে:
-   ["নাম", "areaKey", "বিশেষত্ব (ঐচ্ছিক)"]
-   ===================================================== */
+// Search is case-insensitive and supports English/Bengali aliases.
+const pandals = [
+  {
+    id: 1,
+    name: "Kalyani ITI More",
+    zone: "কল্যাণী",
+    zoneLabel: "কল্যাণী (নদীয়া)",
+    railway: "কল্যাণী মেইন স্টেশন / ঘোষপাড়া",
+    metro: "মেট্রো নেই; ট্রেন ও টোটো",
+    famous: "বড় আয়োজন ও থিম",
+    desc: "কল্যাণী মেইন স্টেশন থেকে অটো বা টোটো নিয়ে যাওয়া যায়।",
+    map: "Kalyani ITI More Durga Puja",
+    keywords: "kalyani nadia কল্যাণী আইটিআই মোড়",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20pandal%20decorations%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 2,
+    name: "Luminous Park (A9)",
+    zone: "কল্যাণী",
+    zoneLabel: "কল্যাণী (নদীয়া)",
+    railway: "কল্যাণী মেইন স্টেশন",
+    metro: "মেট্রো নেই",
+    famous: "আলোকসজ্জা ও সৃজনশীল শিল্পকর্ম",
+    desc: "কল্যাণীর A9 এলাকার পূজার লোকেশন আগে যাচাই করে নাও।",
+    map: "Kalyani A9 Luminous Park Durga Puja",
+    keywords: "kalyani a9 luminous park কল্যাণী",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Vibrant%20decorations%20at%20a%20Durga%20Puja%20pandal%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 3,
+    name: "Kalyani Central Park",
+    zone: "কল্যাণী",
+    zoneLabel: "কল্যাণী (নদীয়া)",
+    railway: "কল্যাণী মেইন স্টেশন",
+    metro: "মেট্রো নেই",
+    famous: "থিম প্যান্ডেল ও সাংস্কৃতিক অনুষ্ঠান",
+    desc: "কল্যাণীর কেন্দ্রীয় এলাকার প্যান্ডেল; যাওয়ার আগে লোকেশন যাচাই করো।",
+    map: "Kalyani Central Park Durga Puja",
+    keywords: "kalyani central park কল্যাণী",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20Durga%20Puja%20pandal%20decorations%20from%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 4,
+    name: "New Town Sarbojanin (AK Block)",
+    zone: "নিউ টাউন",
+    zoneLabel: "নিউ টাউন",
+    railway: "নিকটবর্তী রেল সংযোগ রুট যাচাই করুন",
+    metro: "নিকটবর্তী মেট্রো/বাস সংযোগ যাচাই করুন",
+    famous: "আধুনিক থিম ও সাজ",
+    desc: "নিউ টাউনের নির্দিষ্ট প্যান্ডেল ও প্রবেশপথ ম্যাপে দেখে নাও।",
+    map: "New Town Sarbojanin Durga Puja AK Block",
+    keywords: "new town ak block নিউ টাউন",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20wide%20variety%20of%20decorations%20are%20used%20at%20Durga%20Puja%20pandals%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 5,
+    name: "FD Block, Salt Lake",
+    zone: "সল্টলেক",
+    zoneLabel: "সল্টলেক",
+    railway: "বিধাননগর রোড",
+    metro: "করুণাময়ী / সল্টলেক সেক্টর V—রুট যাচাই করুন",
+    famous: "পরিবার-বান্ধব বড় থিম",
+    desc: "সল্টলেকের FD ব্লকের বর্তমান ট্রাফিক ও রুট দেখে নাও।",
+    map: "FD Block Durga Puja Salt Lake",
+    keywords: "fd block salt lake সল্টলেক ফেডি ব্লক",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/2014%20Durga%20Puja%20Bagbazar%20Pandal%2C%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 6,
+    name: "BJ Block, Salt Lake",
+    zone: "সল্টলেক",
+    zoneLabel: "সল্টলেক",
+    railway: "বিধাননগর রোড",
+    metro: "করুণাময়ী—রুট যাচাই করুন",
+    famous: "সাবেকি সাজ ও সাংস্কৃতিক পরিবেশ",
+    desc: "পরিবার ও বন্ধুদের নিয়ে ঘোরার আগে রুট দেখে নাও।",
+    map: "BJ Block Durga Puja Salt Lake",
+    keywords: "bj block salt lake সল্টলেক",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Artistic%20decorations%20at%20a%20Durga%20Puja%20pandal%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 7,
+    name: "Sree Bhumi Sporting Club",
+    zone: "উত্তর কলকাতা",
+    zoneLabel: "লেক টাউন",
+    railway: "বিধাননগর রোড",
+    metro: "দমদম / বেলগাছিয়া—রুট যাচাই করুন",
+    famous: "বড় থিম ও আলোকসজ্জা",
+    desc: "লেক টাউন এলাকার জনপ্রিয় আয়োজন; উৎসবের সময় ভিড় হতে পারে।",
+    map: "Sree Bhumi Sporting Club Lake Town",
+    keywords: "sree bhumi lake town শ্রীভূমি",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Durga%20Puja%20pandal%20designed%20like%20the%20head%20of%20the%20Buffalo%20demon%20Mahishasura.jpg?width=900"
+  },
+  {
+    id: 8,
+    name: "Ahiritola Youth Club",
+    zone: "উত্তর কলকাতা",
+    zoneLabel: "উত্তর কলকাতা",
+    railway: "নিকটবর্তী রেল/ফেরি সংযোগ ম্যাপে যাচাই করুন",
+    metro: "শোভাবাজার সুতানুটি",
+    famous: "ঐতিহ্য ও বাংলার শিল্পকলা",
+    desc: "উত্তর কলকাতার পুরনো পাড়ার পূজার আবহ উপভোগ করতে পারো।",
+    map: "Ahiritola Youth Club Durga Puja",
+    keywords: "ahiritola youth club ahiritola আহিরীটোলা",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/5459g%20ahiritolla%20traffic-jam-crowds-at-0418AM.jpg?width=900"
+  },
+  {
+    id: 9,
+    name: "Kumartuli Park",
+    zone: "উত্তর কলকাতা",
+    zoneLabel: "কুমোরটুলি",
+    railway: "শোভাবাজার আহিরীটোলা—রুট যাচাই করুন",
+    metro: "শোভাবাজার সুতানুটি",
+    famous: "প্রতিমা শিল্প ও থিমের মেলবন্ধন",
+    desc: "কুমোরটুলি শিল্পাঞ্চলের কাছে; সরু রাস্তা ও ভিড়ের জন্য প্রস্তুত থাকো।",
+    map: "Kumartuli Park Durga Puja",
+    keywords: "kumartuli park kumartuly কুমোরটুলি",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/DurgaPuja2019%20-%20Durga%20Puja%20pandal%20of%20Kumartoli%20Park%20in%20Kolkata%2003.jpg?width=900"
+  },
+  {
+    id: 10,
+    name: "Bagbazar Sarbojonin",
+    zone: "উত্তর কলকাতা",
+    zoneLabel: "বাগবাজার",
+    railway: "বাগবাজার স্টেশন",
+    metro: "শ্যামবাজার—রুট যাচাই করুন",
+    famous: "ঐতিহ্যবাহী সাবেকি দুর্গাপূজা",
+    desc: "বাগবাজারের ঐতিহ্যবাহী পূজা; যাত্রার আগে লোকেশন নিশ্চিত করো।",
+    map: "Bagbazar Sarbojanin Durga Puja",
+    keywords: "bagbazar baghbazar sarbojonin বাগবাজার",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20Pandal%20-%20Baghbazar%20Sarbojanin%20Durgotsav%20-%20Nivedita%20Park%20-%20Kolkata%202013-10-13%2001809.jpg?width=900"
+  },
+  {
+    id: 11,
+    name: "College Square",
+    zone: "মধ্য কলকাতা",
+    zoneLabel: "মধ্য কলকাতা",
+    railway: "শিয়ালদহ / কেন্দ্রীয় রেল সংযোগ",
+    metro: "মহাত্মা গান্ধী রোড—রুট যাচাই করুন",
+    famous: "জলের উপর আলোর প্রতিফলন",
+    desc: "কলেজ স্কোয়ারের জলাশয় ও আলোকসজ্জা দেখতে ভিড়ের সময় আগে পৌঁছনো ভালো।",
+    map: "College Square Durga Puja Kolkata",
+    keywords: "college square কলেজ স্কোয়ার",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/P0121g%20college-square-puja.jpg?width=900"
+  },
+  {
+    id: 12,
+    name: "Santosh Mitra Square",
+    zone: "মধ্য কলকাতা",
+    zoneLabel: "মধ্য কলকাতা",
+    railway: "শিয়ালদহ",
+    metro: "চাঁদনি চক / সেন্ট্রাল—রুট যাচাই করুন",
+    famous: "বড় স্থাপত্য-অনুপ্রাণিত থিম",
+    desc: "মধ্য কলকাতার জনপ্রিয় প্যান্ডেল; ভিড় ও রাস্তার বিধিনিষেধ দেখে নাও।",
+    map: "Santosh Mitra Square Durga Puja",
+    keywords: "santosh mitra square সন্তোষ মিত্র স্কোয়ার",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Artisitic%20decorations%20at%20a%20pandal%20during%20Kolkata%27s%20Durga%20Puja.jpg?width=900"
+  },
+  {
+    id: 13,
+    name: "Chetla Agrani Club",
+    zone: "দক্ষিণ কলকাতা",
+    zoneLabel: "চেতলা",
+    railway: "মাঝেরহাট—রুট যাচাই করুন",
+    metro: "নিকটবর্তী মেট্রো রুট যাচাই করুন",
+    famous: "নতুন ভাবনা ও থিম প্রতিমা",
+    desc: "চেতলা এলাকার পরিচিত থিম পূজা।",
+    map: "Chetla Agrani Club Durga Puja",
+    keywords: "chetla agrani চেতলা অগ্রণী",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/5429g%20suruchi-pratima.jpg?width=900"
+  },
+  {
+    id: 14,
+    name: "Suruchi Sangha",
+    zone: "দক্ষিণ কলকাতা",
+    zoneLabel: "নিউ আলিপুর",
+    railway: "মাঝেরহাট",
+    metro: "নিকটবর্তী মেট্রো রুট যাচাই করুন",
+    famous: "বিভিন্ন অঞ্চলের সংস্কৃতি ও শিল্প",
+    desc: "নিউ আলিপুর অঞ্চলের জনপ্রিয় পূজা; নির্দিষ্ট প্রবেশপথ ম্যাপে দেখে নাও।",
+    map: "Suruchi Sangha Durga Puja",
+    keywords: "suruchi sangha new alipore নিউ আলিপুর",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20Pandal%20-%20New%20Alipore%20Suruchi%20Sangha%20-%20Kolkata%202011-10-23%20030330.JPG?width=900"
+  },
+  {
+    id: 15,
+    name: "Tridhara Sammilani",
+    zone: "দক্ষিণ কলকাতা",
+    zoneLabel: "দক্ষিণ কলকাতা",
+    railway: "বালিগঞ্জ জংশন",
+    metro: "নিকটবর্তী মেট্রো রুট যাচাই করুন",
+    famous: "আধুনিক শিল্প ও ঐতিহ্যের মেলবন্ধন",
+    desc: "দক্ষিণ কলকাতার ব্যস্ত পূজা এলাকা; চলাচলের আপডেট দেখে নাও।",
+    map: "Tridhara Sammilani Durga Puja",
+    keywords: "tridhara sammilani ত্রিধারা",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20pandal%20image%20from%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 16,
+    name: "Ekdalia Evergreen Club",
+    zone: "দক্ষিণ কলকাতা",
+    zoneLabel: "গড়িয়াহাট",
+    railway: "বালিগঞ্জ স্টেশন",
+    metro: "নিকটবর্তী মেট্রো রুট যাচাই করুন",
+    famous: "সাবেকি প্রতিমা ও ঝাড়বাতির সাজ",
+    desc: "গড়িয়াহাট এলাকার ঐতিহ্যবাহী পূজাগুলোর একটি।",
+    map: "Ekdalia Evergreen Club Durga Puja",
+    keywords: "ekdalia evergreen gariahat একডালিয়া",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20Pandal%20-%20Ekdalia%20Evergreen%20-%20Ekdalia%20Road%20-%20Kolkata%202013-10-11%203312.JPG?width=900"
+  },
+  {
+    id: 17,
+    name: "Shobhabazar Rajbari",
+    zone: "উত্তর কলকাতা",
+    zoneLabel: "শোভাবাজার",
+    railway: "নিকটবর্তী রেল সংযোগ ম্যাপে যাচাই করুন",
+    metro: "শোভাবাজার সুতানুটি",
+    famous: "রাজবাড়ির ঐতিহ্য ও সাবেকি দুর্গাপূজা",
+    desc: "ঐতিহাসিক পূজা দেখতে যাওয়ার আগে প্রবেশের নিয়ম ও সময় যাচাই করো।",
+    map: "Shobhabazar Rajbari Durga Puja Kolkata",
+    keywords: "shobhabazar sobhabazar rajbari শোভাবাজার রাজবাড়ি",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/2014%20Durga%20Puja%20Bagbazar%20Pandal%2C%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 18,
+    name: "Rani Rashmoni Bhavan",
+    zone: "মধ্য কলকাতা",
+    zoneLabel: "মধ্য কলকাতা",
+    railway: "লোকেশন অনুযায়ী যাচাই করুন",
+    metro: "লোকেশন অনুযায়ী যাচাই করুন",
+    famous: "ঐতিহাসিক স্থাপত্য ও ঐতিহ্যের আবহ",
+    desc: "এই নামে নির্দিষ্ট পূজা/অনুষ্ঠানস্থল যাওয়ার আগে ম্যাপে নিশ্চিত করো।",
+    map: "Rani Rashmoni Bhavan Kolkata",
+    keywords: "rani rashmoni bhavan রানী রাসমণি ভবন",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Mata%20Images%20-%20A%20Durga%20Puja%20pandal%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 19,
+    name: "City Centre Durga Puja",
+    zone: "সল্টলেক",
+    zoneLabel: "সল্টলেক / সিটি সেন্টার",
+    railway: "বিধাননগর রোড—রুট যাচাই করুন",
+    metro: "করুণাময়ী—রুট যাচাই করুন",
+    famous: "শপিং এলাকার আশেপাশের পূজার আয়োজন",
+    desc: "কোন শাখা ও কোন প্যান্ডেল বোঝানো হয়েছে, যাওয়ার আগে ম্যাপে নিশ্চিত করো।",
+    map: "City Centre Salt Lake Durga Puja pandal",
+    keywords: "city centre city center salt lake সিটি সেন্টার",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Colorful%20Durga%20Puja%20pandal%20decorations%20from%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 20,
+    name: "Axis Mall Durga Puja",
+    zone: "নিউ টাউন",
+    zoneLabel: "নিউ টাউন",
+    railway: "নিকটবর্তী রেল সংযোগ যাচাই করুন",
+    metro: "নিকটবর্তী মেট্রো/বাস সংযোগ যাচাই করুন",
+    famous: "মল এলাকার উৎসব ও আশেপাশের পূজা",
+    desc: "অ্যাক্সিস মলের সংলগ্ন নির্দিষ্ট পূজার নাম ও আয়োজন যাচাই করে নাও।",
+    map: "Axis Mall New Town Durga Puja pandal",
+    keywords: "axis mall new town অ্যাক্সিস মল",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/A%20wide%20variety%20of%20decorations%20are%20used%20at%20Durga%20Puja%20pandals%20in%20Kolkata.jpg?width=900"
+  },
+  {
+    id: 21,
+    name: "Kalighat 66 Pally",
+    zone: "দক্ষিণ কলকাতা",
+    zoneLabel: "কালীঘাট",
+    railway: "নিকটবর্তী রেল সংযোগ ম্যাপে যাচাই করুন",
+    metro: "কালীঘাট / জতীন দাস পার্ক—রুট যাচাই করুন",
+    famous: "কালীঘাট এলাকার দুর্গাপূজা",
+    desc: "কালীঘাট এলাকার নির্দিষ্ট প্যান্ডেল ও প্রবেশপথ ম্যাপে দেখে নাও।",
+    map: "Kalighat 66 Pally Durga Puja Kolkata",
+    keywords: "kalighat kali ghat কালীঘাট 66 pally ৬৬ পল্লী",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Deshpriyo%20Park%20Pandal%20Arnab%20Dutta%202010.JPG?width=900"
+  },
+  {
+    id: 22,
+    name: "Debi Priya Das (নাম যাচাই প্রয়োজন)",
+    zone: "কলকাতা",
+    zoneLabel: "কলকাতা — তথ্য যাচাই প্রয়োজন",
+    railway: "সঠিক নাম/ঠিকানা নিশ্চিত করা বাকি",
+    metro: "সঠিক নাম/ঠিকানা নিশ্চিত করা বাকি",
+    famous: "প্যান্ডেলের পরিচয় নিশ্চিত করা বাকি",
+    desc: "এই নামটি আগের বার্তায় যেমন এসেছিল তেমনই রাখা হয়েছে; সঠিক বানান/এলাকা নিশ্চিত হলে তথ্য আপডেট করা যাবে।",
+    map: "Debi Priya Das Durga Puja Kolkata",
+    keywords: "debi priya das debipriya das দেব প্রিয়া দাশ",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20pandal%20decorations%20in%20Kolkata.jpg?width=900"
+  }
+];
 
-const wiki = file =>
-  "https://commons.wikimedia.org/wiki/Special:FilePath/" + file + "?width=900";
+const container = document.getElementById("pandalContainer");
+const input = document.getElementById("searchInput");
+const resultsLine = document.getElementById("resultsLine");
+const noResults = document.getElementById("noResults");
+const modal = document.getElementById("pandalModal");
 
-const IMAGE_POOL = [
-  "Durga%20Puja%20pandal%20decorations%20in%20Kolkata.jpg",
-  "Vibrant%20decorations%20at%20a%20Durga%20Puja%20pandal%20in%20Kolkata.jpg",
-  "Colorful%20Durga%20Puja%20pandal%20decorations%20from%20Kolkata.jpg",
-  "A%20wide%20variety%20of%20decorations%20are%20used%20at%20Durga%20Puja%20pandals%20in%20Kolkata.jpg",
-  "Artistic%20decorations%20at%20a%20Durga%20Puja%20pandal%20in%20Kolkata.jpg",
-  "Artisitic%20decorations%20at%20a%20pandal%20during%20Kolkata%27s%20Durga%20Puja.jpg",
-  "Durga%20Puja%20pandal%20image%20from%20Kolkata.jpg",
-  "Durga%20Mata%20Images%20-%20A%20Durga%20Puja%20pandal%20in%20Kolkata.jpg",
-  "2014%20Durga%20Puja%20Bagbazar%20Pandal%2C%20Kolkata.jpg"
-].map(wiki);
+let selectedZone = "সব এলাকা";
 
-const METRO_NONE = "কাছাকাছি সরাসরি মেট্রো নেই; বাস / অটো / ক্যাব সুবিধাজনক";
-const RAIL_NONE = "কাছাকাছি সরাসরি রেল স্টেশন নেই; বাস / অটো / ক্যাব সুবিধাজনক";
-const BLUE = " (ব্লু লাইন)";
-const GREEN = " (গ্রিন লাইন)";
+function normalise(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .toLocaleLowerCase()
+    .trim()
+    .replace(/[’'`]/g, "")
+    .replace(/[.,/#!$%^&*;:{}=\-_~()]/g, " ")
+    .replace(/\s+/g, " ");
+}
 
-/* key: [এলাকার নাম, জোন, মেট্রো, রেল, সার্চ-অ্যালিয়াস (ইংরেজি/বাংলা স্টেশন ও জায়গার নাম)] */
-const AREAS = {
-  /* ---------- কল্যাণী ---------- */
-  kalyani: ["কল্যাণী (নদীয়া)", "কল্যাণী", "মেট্রো নেই; ট্রেন, অটো ও টোটো", "কল্যাণী মেইন স্টেশন / ঘোষপাড়া",
-    "kalyani nadia kalyani main kalyani station ghoshpara কল্যাণী নদীয়া ঘোষপাড়া"],
+function searchableText(item) {
+  return normalise([
+    item.name,
+    item.zone,
+    item.zoneLabel,
+    item.railway,
+    item.metro,
+    item.famous,
+    item.desc,
+    item.keywords,
+    item.map
+  ].join(" "));
+}
 
-  /* ---------- উত্তর কলকাতা ---------- */
-  bagbazar: ["বাগবাজার", "উত্তর কলকাতা", "শ্যামবাজার" + BLUE, "বাগবাজার (সার্কুলার রেল)",
-    "bagbazar baghbazar bag bazar bagbazar station shyambazar nivedita park বাগবাজার শ্যামবাজার"],
-  shyambazar: ["শ্যামবাজার", "উত্তর কলকাতা", "শ্যামবাজার" + BLUE, "বাগবাজার (সার্কুলার রেল)",
-    "shyambazar shyam bazar five point crossing bagbazar শ্যামবাজার পাঁচমাথা"],
-  sovabazar: ["শোভাবাজার", "উত্তর কলকাতা", "শোভাবাজার সুতানুটি" + BLUE, "বাগবাজার (সার্কুলার রেল)",
-    "shobhabazar sovabazar sobhabazar shobha bazar sutanuti benitola hatkhola শোভাবাজার সুতানুটি বেনিটোলা হাটখোলা"],
-  ahiritola: ["আহিরীটোলা", "উত্তর কলকাতা", "শোভাবাজার সুতানুটি" + BLUE, "বাগবাজার / আহিরীটোলা ঘাট (ফেরি)",
-    "ahiritola ahiritolla ahiritola ghat sobhabazar sutanuti bagbazar আহিরীটোলা"],
-  kumartuli: ["কুমোরটুলি", "উত্তর কলকাতা", "শোভাবাজার সুতানুটি" + BLUE, "বাগবাজার (সার্কুলার রেল)",
-    "kumartuli kumortuli kumartoli kumortully sobhabazar sutanuti bagbazar কুমোরটুলি কুমারটুলি"],
-  hatibagan: ["হাতিবাগান", "উত্তর কলকাতা", "শ্যামবাজার / গিরিশ পার্ক" + BLUE, RAIL_NONE,
-    "hatibagan hati bagan cornwallis street bidhan sarani shyambazar girish park nalin sarkar street kashi bose lane simla হাতিবাগান"],
-  girishpark: ["গিরিশ পার্ক", "উত্তর কলকাতা", "গিরিশ পার্ক" + BLUE, RAIL_NONE,
-    "girish park girishpark beadon street chitpur গিরিশ পার্ক বিডন স্ট্রিট চিৎপুর"],
-  jorasanko: ["জোড়াসাঁকো", "উত্তর কলকাতা", "গিরিশ পার্ক / মহাত্মা গান্ধী রোড" + BLUE, RAIL_NONE,
-    "jorasanko jorabagan pathuriaghata thakur bari rabindra sarani girish park mahatma gandhi road জোড়াসাঁকো ঠাকুরবাড়ি"],
-  maniktala: ["মানিকতলা", "উত্তর কলকাতা", "ফুলবাগান" + GREEN, "শিয়ালদহ",
-    "maniktala manicktala chaltabagan lohapatty phoolbagan sealdah মানিকতলা চালতাবাগান"],
-  phoolbagan: ["ফুলবাগান / নারকেলডাঙা", "উত্তর কলকাতা", "ফুলবাগান" + GREEN, "শিয়ালদহ",
-    "phoolbagan phulbagan narkeldanga narkel danga sealdah ফুলবাগান নারকেলডাঙা"],
-  kankurgachi: ["কাঁকুড়গাছি", "উত্তর কলকাতা", "ফুলবাগান" + GREEN, "বিধাননগর রোড / শিয়ালদহ",
-    "kankurgachi kankurgacchi phoolbagan bidhannagar road কাঁকুড়গাছি"],
-  ultadanga: ["উল্টোডাঙা / তেলেঙ্গাবাগান", "উত্তর কলকাতা", "ফুলবাগান" + GREEN, "শিয়ালদহ / বিধাননগর রোড",
-    "ultadanga ultodanga telengabagan telenga bagan vip road phoolbagan উল্টোডাঙা তেলেঙ্গাবাগান"],
-  paikpara: ["পাইকপাড়া", "উত্তর কলকাতা", "বেলগাছিয়া" + BLUE, RAIL_NONE,
-    "paikpara paikpara indra sangha belgachia belgachhia পাইকপাড়া বেলগাছিয়া"],
-  sinthee: ["সিঁথি", "উত্তর কলকাতা", "নোয়াপাড়া / বরানগর" + BLUE, "বরানগর রোড",
-    "sinthee sinthi sinthee more noapara baranagar baranagar road সিঁথি নোয়াপাড়া"],
-  belgachia: ["বেলগাছিয়া", "উত্তর কলকাতা", "বেলগাছিয়া" + BLUE, RAIL_NONE,
-    "belgachia belgachhia belgachiya belgachia metro বেলগাছিয়া"],
-  tala: ["টালা", "উত্তর কলকাতা", "বেলগাছিয়া / শ্যামবাজার" + BLUE, RAIL_NONE,
-    "tala tala park tala barowari tala prattoy belgachia shyambazar টালা টালা পার্ক"],
-  dumdum: ["দমদম", "উত্তর কলকাতা", "দমদম" + BLUE, "দমদম জংশন",
-    "dum dum dumdum dum dum junction dum dum metro nagerbazar nager bazar দমদম নাগেরবাজার"],
-  dumdumpark: ["দমদম পার্ক", "উত্তর কলকাতা", "দমদম ক্যান্টনমেন্ট (ইয়েলো লাইন) / দমদম" + BLUE, "দমদম জংশন / দমদম ক্যান্টনমেন্ট",
-    "dum dum park dumdum park dum dum cantonment jessore road airport yellow line দমদম পার্ক"],
-  laketown: ["লেক টাউন", "উত্তর কলকাতা", "দমদম" + BLUE, "বিধাননগর রোড",
-    "lake town laketown bangur avenue bangur vip road dum dum belgachia লেক টাউন বাঙ্গুর"],
-  baguiati: ["বাগুইআটি", "উত্তর কলকাতা", METRO_NONE, "বিধাননগর রোড (বাস/অটো সংযোগ)",
-    "baguiati baguihati vip road kaikhali বাগুইআটি কৈখালি"],
-  kestopur: ["কেষ্টপুর", "উত্তর কলকাতা", METRO_NONE, "বিধাননগর রোড (বাস/অটো সংযোগ)",
-    "kestopur keshtopur prafullakanan vip road কেষ্টপুর প্রফুল্লকানন"],
-  baranagar: ["বরানগর", "উত্তর কলকাতা", "বরানগর" + BLUE, "বরানগর রোড",
-    "baranagar baranagore baranagar metro baranagar road বরানগর"],
-  dakshineswar: ["দক্ষিণেশ্বর", "উত্তর কলকাতা", "দক্ষিণেশ্বর" + BLUE, "দক্ষিণেশ্বর",
-    "dakshineswar dakshineshwar dakshineswar metro dakshineswar station দক্ষিণেশ্বর"],
+function displayPandals() {
+  const query = normalise(input.value);
 
-  /* ---------- মধ্য কলকাতা ---------- */
-  collegest: ["কলেজ স্ট্রিট / কলেজ স্কোয়ার", "মধ্য কলকাতা", "মহাত্মা গান্ধী রোড" + BLUE, "শিয়ালদহ",
-    "college square college street boi para mahatma gandhi road mg road sealdah কলেজ স্কোয়ার কলেজ স্ট্রিট"],
-  sealdah: ["শিয়ালদহ", "মধ্য কলকাতা", "শিয়ালদহ" + GREEN, "শিয়ালদহ",
-    "sealdah sealdaha santosh mitra square sealdah station sealdah metro শিয়ালদহ সন্তোষ মিত্র"],
-  mgroad: ["বড়বাজার / এমজি রোড", "মধ্য কলকাতা", "মহাত্মা গান্ধী রোড / সেন্ট্রাল" + BLUE, "হাওড়া / শিয়ালদহ",
-    "burrabazar barabazar bara bazar mahatma gandhi road mg road mohammad ali park central posta howrah বড়বাজার"],
-  chandnichowk: ["চাঁদনি চক / ওয়েলিংটন", "মধ্য কলকাতা", "চাঁদনি চক / সেন্ট্রাল" + BLUE, RAIL_NONE,
-    "chandni chowk chandnichowk wellington wellington square central metro esplanade চাঁদনি চক ওয়েলিংটন"],
-  bowbazar: ["বউবাজার", "মধ্য কলকাতা", "সেন্ট্রাল" + BLUE + " / শিয়ালদহ" + GREEN, "শিয়ালদহ",
-    "bowbazar bow bazar bubazar central sealdah বউবাজার বৌবাজার"],
-  entally: ["এন্টালি", "মধ্য কলকাতা", "শিয়ালদহ" + GREEN + " (হেঁটে/অটো)", "শিয়ালদহ",
-    "entally sealdah picnic garden entaly এন্টালি"],
-  parkcircus: ["পার্ক সার্কাস", "মধ্য কলকাতা", METRO_NONE, "পার্ক সার্কাস",
-    "park circus park circus station parkcircus ballygunge পার্ক সার্কাস"],
-  esplanade: ["এসপ্ল্যানেড / ধর্মতলা", "মধ্য কলকাতা", "এসপ্ল্যানেড" + BLUE + " / " + GREEN, RAIL_NONE,
-    "esplanade dharmatala dharamtala esplanade metro park street maidan এসপ্ল্যানেড ধর্মতলা"],
-  beleghata: ["বেলেঘাটা", "মধ্য কলকাতা", "ফুলবাগান" + GREEN + " (বাস/অটো সংযোগ)", "শিয়ালদহ",
-    "beleghata beliaghata beliaghata 33 pally phoolbagan sealdah বেলেঘাটা"],
+  const filtered = pandals.filter(item => {
+    // Search করলে আগের নির্বাচিত এলাকার বাধা থাকবে না।
+    const zoneMatches =
+      query ||
+      selectedZone === "সব এলাকা" ||
+      item.zone === selectedZone ||
+      (
+        selectedZone === "কলকাতা" &&
+        item.zone !== "কল্যাণী" &&
+        item.zone !== "নিউ টাউন" &&
+        item.zone !== "সল্টলেক"
+      );
 
-  /* ---------- দক্ষিণ কলকাতা ---------- */
-  kalighat: ["কালীঘাট", "দক্ষিণ কলকাতা", "কালীঘাট / জতীন দাস পার্ক" + BLUE, "কালীঘাট (রেল) / মাঝেরহাট",
-    "kalighat kali ghat kalighat metro jatin das park kalighat temple mudiali badamtala কালীঘাট জতীন দাস পার্ক"],
-  hazra: ["হাজরা", "দক্ষিণ কলকাতা", "জতীন দাস পার্ক / কালীঘাট" + BLUE, "বালিগঞ্জ জংশন (বাস/অটো সংযোগ)",
-    "hazra hazra more hazra park jatin das park kalighat হাজরা"],
-  chetla: ["চেতলা", "দক্ষিণ কলকাতা", "কালীঘাট" + BLUE + " (বাস/অটো সংযোগ)", "মাঝেরহাট",
-    "chetla chetla agrani majerhat kalighat চেতলা অগ্রণী মাঝেরহাট"],
-  newalipore: ["নিউ আলিপুর", "দক্ষিণ কলকাতা", "জতীন দাস পার্ক / কালীঘাট" + BLUE + " (বাস/অটো সংযোগ)", "মাঝেরহাট",
-    "new alipore alipore newalipore suruchi sangha majerhat নিউ আলিপুর মাঝেরহাট"],
-  alipore: ["আলিপুর", "দক্ষিণ কলকাতা", "জতীন দাস পার্ক" + BLUE, "মাঝেরহাট",
-    "alipore alipur zoo alipore road jatin das park majerhat আলিপুর"],
-  bhowanipore: ["ভবানীপুর", "দক্ষিণ কলকাতা", "নেতাজি ভবন / জতীন দাস পার্ক" + BLUE, RAIL_NONE,
-    "bhowanipore bhawanipur bhowanipur 75 pally netaji bhawan netaji bhavan jatin das park ভবানীপুর নেতাজি ভবন"],
-  deshapriyapark: ["দেশপ্রিয় পার্ক", "দক্ষিণ কলকাতা", "কালীঘাট / রবীন্দ্র সরোবর" + BLUE + " — রুট যাচাই করুন", "বালিগঞ্জ জংশন",
-    "deshapriya park deshapriyo park deshopriyo rashbehari avenue kalighat rabindra sarobar দেশপ্রিয় পার্ক রাসবিহারী"],
-  ballygunge: ["বালিগঞ্জ", "দক্ষিণ কলকাতা", "রবীন্দ্র সরোবর / কালীঘাট" + BLUE + " — রুট যাচাই করুন", "বালিগঞ্জ জংশন",
-    "ballygunge bally gunge ballygunge junction maddox square singhi park hindustan park tridhara ballygunje বালিগঞ্জ ম্যাডক্স স্কোয়ার"],
-  gariahat: ["গড়িয়াহাট", "দক্ষিণ কলকাতা", "রবীন্দ্র সরোবর / কালীঘাট" + BLUE + " — রুট যাচাই করুন", "বালিগঞ্জ জংশন / ঢাকুরিয়া",
-    "gariahat gariahaat ekdalia lake market rashbehari ballygunge gariahat more গড়িয়াহাট একডালিয়া লেক মার্কেট"],
-  dhakuria: ["ঢাকুরিয়া", "দক্ষিণ কলকাতা", "রবীন্দ্র সরোবর" + BLUE, "ঢাকুরিয়া",
-    "dhakuria dhakurya dhakuria station rabindra sarobar lake ঢাকুরিয়া রবীন্দ্র সরোবর"],
-  lakegardens: ["লেক গার্ডেন্স", "দক্ষিণ কলকাতা", "রবীন্দ্র সরোবর" + BLUE + " — রুট যাচাই করুন", "লেক গার্ডেন্স / ঢাকুরিয়া",
-    "lake gardens lakegardens lake garden rabindra sarobar dhakuria লেক গার্ডেন্স"],
-  jodhpurpark: ["যোধপুর পার্ক", "দক্ষিণ কলকাতা", METRO_NONE, "ঢাকুরিয়া / যাদবপুর",
-    "jodhpur park jodhpurpark jodhpore dhakuria jadavpur যোধপুর পার্ক"],
-  selimpur: ["সেলিমপুর", "দক্ষিণ কলকাতা", METRO_NONE, "ঢাকুরিয়া",
-    "selimpur selimpore dhakuria সেলিমপুর"],
-  jadavpur: ["যাদবপুর", "দক্ষিণ কলকাতা", METRO_NONE, "যাদবপুর",
-    "jadavpur jadavpore 8b bus stand bijoygarh vijaygarh jadavpur station যাদবপুর ৮বি বিজয়গড়"],
-  bagha: ["বাঘাযতীন", "দক্ষিণ কলকাতা", METRO_NONE, "বাঘাযতীন",
-    "baghajatin bagha jatin baghajatin station baghajatin pally বাঘাযতীন"],
-  santoshpur: ["সন্তোষপুর", "দক্ষিণ কলকাতা", METRO_NONE, "যাদবপুর / বাঘাযতীন (অটো সংযোগ)",
-    "santoshpur santoshpore lake pally jadavpur baghajatin সন্তোষপুর"],
-  tollygunge: ["টালিগঞ্জ", "দক্ষিণ কলকাতা", "মহানায়ক উত্তম কুমার (টালিগঞ্জ)" + BLUE, "টালিগঞ্জ",
-    "tollygunge tollygunj tolly gunge mahanayak uttam kumar tollygunge metro tollygunge station টালিগঞ্জ মহানায়ক উত্তম কুমার"],
-  naktala: ["নাকতলা / নেতাজি নগর", "দক্ষিণ কলকাতা", "নেতাজি / মাস্টারদা সূর্য সেন" + BLUE + " — রুট যাচাই করুন", "যাদবপুর (অটো সংযোগ)",
-    "naktala naktola netaji nagar udayan sangha netaji masterda surya sen নাকতলা নেতাজি নগর"],
-  kasba: ["কসবা", "দক্ষিণ কলকাতা", METRO_NONE, "কসবা / ঢাকুরিয়া (বাস/অটো সংযোগ)",
-    "kasba kasbah bosepukur bose pukur talbagan sitala mandir ruby কসবা বোসপুকুর"],
-  garia: ["গড়িয়া", "দক্ষিণ কলকাতা", "কবি সুভাষ (নিউ গড়িয়া)" + BLUE, "গড়িয়া",
-    "garia garia station new garia kavi subhash kavi nazrul shahid khudiram গড়িয়া নিউ গড়িয়া কবি সুভাষ"],
-  behala: ["বেহালা", "দক্ষিণ কলকাতা", "বেহালা চৌরাস্তা / সখেরবাজার (পার্পল লাইন)", RAIL_NONE,
-    "behala behala chowrasta chowrasta barisha sakher bazar sakherbazar thakurpukur taratala purple line বেহালা বড়িশা সখেরবাজার"],
+    return zoneMatches &&
+      (!query || searchableText(item).includes(query));
+  });
 
-  /* ---------- সল্টলেক / নিউ টাউন ---------- */
-  saltlake: ["সল্টলেক", "সল্টলেক", "সল্টলেক স্টেডিয়াম / সেক্টর V" + GREEN + "; করুণাময়ী বাস টার্মিনাস", "বিধাননগর রোড",
-    "salt lake saltlake bidhannagar bidhan nagar karunamoyee karunamayee salt lake stadium sector v sector 5 sector five city centre সল্টলেক বিধাননগর করুণাময়ী"],
-  newtown: ["নিউ টাউন", "নিউ টাউন", "নিকটবর্তী মেট্রো: সল্টলেক সেক্টর V" + GREEN + " (বাস/ক্যাব সংযোগ)", "নিকটবর্তী রেল সংযোগ ম্যাপে যাচাই করুন",
-    "new town newtown rajarhat action area eco park chinar park axis mall biswa bangla gate sector v নিউ টাউন রাজারহাট ইকো পার্ক"]
-};
+  container.innerHTML = "";
 
-/* জোন অনুযায়ী ইংরেজি সার্চ শব্দ */
-const ZONE_EN = {
-  "কল্যাণী": "kalyani nadia",
-  "উত্তর কলকাতা": "north kolkata calcutta",
-  "মধ্য কলকাতা": "central kolkata calcutta",
-  "দক্ষিণ কলকাতা": "south kolkata calcutta",
-  "সল্টলেক": "salt lake bidhannagar",
-  "নিউ টাউন": "new town rajarhat"
-};
+  filtered.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "card";
 
-/* ["নাম", areaKey, বিশেষত্ব, {ঐচ্ছিক: image, map, keywords, desc}] */
-const RAW_PANDALS = [
-  /* ===== বিখ্যাত ২২টি (আগের তালিকা) ===== */
-  ["Kalyani ITI More", "kalyani", "বড় আয়োজন ও থিম", { map: "Kalyani ITI More Durga Puja", keywords: "আইটিআই মোড় iti more", image: IMAGE_POOL[0] }],
-  ["Luminous Park (A9)", "kalyani", "আলোকসজ্জা ও সৃজনশীল শিল্পকর্ম", { map: "Kalyani A9 Luminous Park Durga Puja", keywords: "a9 luminous", image: IMAGE_POOL[1] }],
-  ["Kalyani Central Park", "kalyani", "থিম প্যান্ডেল ও সাংস্কৃতিক অনুষ্ঠান", { map: "Kalyani Central Park Durga Puja", image: IMAGE_POOL[2] }],
-  ["New Town Sarbojanin (AK Block)", "newtown", "আধুনিক থিম ও সাজ", { map: "New Town Sarbojanin Durga Puja AK Block", keywords: "ak block", image: IMAGE_POOL[3] }],
-  ["FD Block, Salt Lake", "saltlake", "পরিবার-বান্ধব বড় থিম", { map: "FD Block Durga Puja Salt Lake", keywords: "fd block ফেডি ব্লক", image: IMAGE_POOL[8] }],
-  ["BJ Block, Salt Lake", "saltlake", "সাবেকি সাজ ও সাংস্কৃতিক পরিবেশ", { map: "BJ Block Durga Puja Salt Lake", keywords: "bj block", image: IMAGE_POOL[4] }],
-  ["Sree Bhumi Sporting Club", "laketown", "বড় থিম ও আলোকসজ্জা", { map: "Sree Bhumi Sporting Club Lake Town", keywords: "sree bhumi sribhumi শ্রীভূমি", image: wiki("A%20Durga%20Puja%20pandal%20designed%20like%20the%20head%20of%20the%20Buffalo%20demon%20Mahishasura.jpg") }],
-  ["Ahiritola Youth Club", "ahiritola", "ঐতিহ্য ও বাংলার শিল্পকলা", { map: "Ahiritola Youth Club Durga Puja", image: wiki("5459g%20ahiritolla%20traffic-jam-crowds-at-0418AM.jpg") }],
-  ["Kumartuli Park", "kumartuli", "প্রতিমা শিল্প ও থিমের মেলবন্ধন", { map: "Kumartuli Park Durga Puja", image: wiki("DurgaPuja2019%20-%20Durga%20Puja%20pandal%20of%20Kumartoli%20Park%20in%20Kolkata%2003.jpg") }],
-  ["Bagbazar Sarbojonin", "bagbazar", "ঐতিহ্যবাহী সাবেকি দুর্গাপূজা", { map: "Bagbazar Sarbojanin Durga Puja", keywords: "sarbojanin sarbojonin", image: wiki("Durga%20Puja%20Pandal%20-%20Baghbazar%20Sarbojanin%20Durgotsav%20-%20Nivedita%20Park%20-%20Kolkata%202013-10-13%2001809.jpg") }],
-  ["College Square", "collegest", "জলের উপর আলোর প্রতিফলন", { map: "College Square Durga Puja Kolkata", image: wiki("P0121g%20college-square-puja.jpg") }],
-  ["Santosh Mitra Square", "sealdah", "বড় স্থাপত্য-অনুপ্রাণিত থিম", { map: "Santosh Mitra Square Durga Puja", image: IMAGE_POOL[5] }],
-  ["Chetla Agrani Club", "chetla", "নতুন ভাবনা ও থিম প্রতিমা", { map: "Chetla Agrani Club Durga Puja", image: wiki("5429g%20suruchi-pratima.jpg") }],
-  ["Suruchi Sangha", "newalipore", "বিভিন্ন অঞ্চলের সংস্কৃতি ও শিল্প", { map: "Suruchi Sangha Durga Puja", image: wiki("Durga%20Puja%20Pandal%20-%20New%20Alipore%20Suruchi%20Sangha%20-%20Kolkata%202011-10-23%20030330.JPG") }],
-  ["Tridhara Sammilani", "ballygunge", "আধুনিক শিল্প ও ঐতিহ্যের মেলবন্ধন", { map: "Tridhara Sammilani Durga Puja", image: IMAGE_POOL[6] }],
-  ["Ekdalia Evergreen Club", "gariahat", "সাবেকি প্রতিমা ও ঝাড়বাতির সাজ", { map: "Ekdalia Evergreen Club Durga Puja", image: wiki("Durga%20Puja%20Pandal%20-%20Ekdalia%20Evergreen%20-%20Ekdalia%20Road%20-%20Kolkata%202013-10-11%203312.JPG") }],
-  ["Shobhabazar Rajbari", "sovabazar", "রাজবাড়ির ঐতিহ্য ও সাবেকি দুর্গাপূজা", { map: "Shobhabazar Rajbari Durga Puja Kolkata", keywords: "rajbari raj bari রাজবাড়ি", image: IMAGE_POOL[8] }],
-  ["Rani Rashmoni Bhavan", "esplanade", "ঐতিহাসিক স্থাপত্য ও ঐতিহ্যের আবহ", { map: "Rani Rashmoni Bhavan Kolkata", keywords: "রানী রাসমণি ভবন", image: IMAGE_POOL[7] }],
-  ["City Centre Durga Puja", "saltlake", "শপিং এলাকার আশেপাশের পূজার আয়োজন", { map: "City Centre Salt Lake Durga Puja pandal", keywords: "city centre city center সিটি সেন্টার", image: IMAGE_POOL[2] }],
-  ["Axis Mall Durga Puja", "newtown", "মল এলাকার উৎসব ও আশেপাশের পূজা", { map: "Axis Mall New Town Durga Puja pandal", keywords: "axis mall অ্যাক্সিস মল", image: IMAGE_POOL[3] }],
-  ["Kalighat 66 Pally", "kalighat", "কালীঘাট এলাকার দুর্গাপূজা", { map: "Kalighat 66 Pally Durga Puja Kolkata", keywords: "66 pally ৬৬ পল্লী", image: wiki("Deshpriyo%20Park%20Pandal%20Arnab%20Dutta%202010.JPG") }],
+    const image = document.createElement("img");
+    image.className = "card-image";
+    image.src = item.image;
+    image.alt = item.name + " প্যান্ডেলের ছবি";
+    image.loading = "lazy";
 
-  /* ===== উত্তর কলকাতা ===== */
-  ["Kumartuli Sarbojanin", "kumartuli", "প্রতিমা শিল্পীদের পাড়ার পূজা"],
-  ["Ahiritola Sarbojanin", "ahiritola", "উত্তর কলকাতার পুরনো পাড়ার আবহ"],
-  ["Shobhabazar Benitola Sarbojanin", "sovabazar", "বেনিটোলার সাবেকি পূজা"],
-  ["Hatkhola Dutta Bari", "sovabazar", "বনেদি বাড়ির পূজা"],
-  ["Hatibagan Nabin Pally", "hatibagan", "হাতিবাগানের জনপ্রিয় থিম পূজা"],
-  ["Hatibagan Sarbojanin", "hatibagan", "বিধান সরণি এলাকার পূজা"],
-  ["Simla Byayam Samity", "hatibagan", "ঐতিহ্যবাহী ক্লাব পূজা"],
-  ["Nalin Sarkar Street Sarbojanin", "hatibagan", "সাবেকি ঘরানার পূজা"],
-  ["Kashi Bose Lane Sarbojanin", "hatibagan", "পাড়ার ঐতিহ্যের পূজা"],
-  ["Girish Park Sarbojanin", "girishpark", "গিরিশ পার্ক এলাকার জনপ্রিয় পূজা"],
-  ["Chhatubabu Latubabu Bari, Beadon Street", "girishpark", "বনেদি বাড়ির পূজা"],
-  ["Jorasanko Thakur Bari", "jorasanko", "ঠাকুরবাড়ির ঐতিহ্যের পূজা"],
-  ["Jorasanko Daw Bari", "jorasanko", "বনেদি বাড়ির পূজা"],
-  ["Mohammad Ali Park", "mgroad", "থিম ও বিশাল প্যান্ডেল"],
-  ["Maniktala Chaltabagan Lohapatty", "maniktala", "বিখ্যাত থিম পূজা"],
-  ["Telengabagan Sarbojanin", "ultadanga", "বড় থিম ও আলোকসজ্জা"],
-  ["Kankurgachi Yuvak Brindo", "kankurgachi", "থিম ও প্রতিমা শিল্প"],
-  ["Phoolbagan Sarbojanin", "phoolbagan", "থিম ও আলোকসজ্জা"],
-  ["Narkeldanga Sarbojanin", "phoolbagan", "পাড়ার জনপ্রিয় পূজা"],
-  ["Ultadanga Sarbojanin", "ultadanga", "এলাকার সর্বজনীন পূজা"],
-  ["Paikpara Indra Sangha", "paikpara", "জমজমাট পাড়ার পূজা"],
-  ["Sinthee Sarbojanin", "sinthee", "সিঁথি এলাকার সর্বজনীন পূজা"],
-  ["Belgachia Sarbojanin", "belgachia", "এলাকার সর্বজনীন পূজা"],
-  ["Shyambazar Pally Sarbojanin", "shyambazar", "শ্যামবাজার এলাকার পূজা"],
-  ["Shyampukur Sarbojanin", "shyambazar", "শ্যামপুকুর এলাকার পূজা"],
-  ["Tala Prattoy", "tala", "থিম ও শিল্পকর্ম"],
-  ["Tala Barowari", "tala", "বারোয়ারি ঐতিহ্যের পূজা"],
-  ["Tala Park Sarbojanin", "tala", "টালা পার্ক এলাকার পূজা"],
-  ["Dum Dum Park Bharat Chakra", "dumdumpark", "থিম ও বিশাল প্যান্ডেল"],
-  ["Dum Dum Park Tarun Sangha", "dumdumpark", "থিম ও আলোকসজ্জা"],
-  ["Dum Dum Tarun Dal", "dumdum", "দমদমের জনপ্রিয় পূজা"],
-  ["Nagerbazar Sarbojanin", "dumdum", "নাগেরবাজার এলাকার পূজা"],
-  ["Lake Town Adhibasi Brinda", "laketown", "লেক টাউনের থিম পূজা"],
-  ["Bangur Avenue Sarbojanin", "laketown", "বাঙ্গুর অ্যাভিনিউ এলাকার পূজা"],
-  ["Kestopur Prafullakanan Pallimangal Samity", "kestopur", "বড় থিম ও আলোকসজ্জা"],
-  ["Baguiati Sarbojanin", "baguiati", "ভিআইপি রোড এলাকার পূজা"],
-  ["Baranagar Sarbojanin", "baranagar", "এলাকার সর্বজনীন পূজা"],
-  ["Dakshineswar Sarbojanin", "dakshineswar", "মন্দির এলাকার পূজার আবহ"],
+    image.onerror = () => {
+      image.onerror = null;
+      image.src =
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20pandal%20decorations%20in%20Kolkata.jpg?width=900";
+      image.alt = item.name +
+        " — সাধারণ দুর্গাপূজা প্যান্ডেলের রেফারেন্স ছবি";
+    };
 
-  /* ===== মধ্য কলকাতা ===== */
-  ["Wellington Square Sarbojanin", "chandnichowk", "মধ্য কলকাতার জনপ্রিয় পূজা"],
-  ["Bowbazar Sarbojanin", "bowbazar", "পুরনো কলকাতার আবহ"],
-  ["Burrabazar Sarbojanin", "mgroad", "বড়বাজার এলাকার পূজা"],
-  ["Entally Sarbojanin", "entally", "এন্টালি এলাকার পূজা"],
-  ["Park Circus Sarbojanin", "parkcircus", "পার্ক সার্কাস এলাকার পূজা"],
-  ["Beleghata 33 Pally", "beleghata", "বেলেঘাটার জনপ্রিয় পূজা"],
+    const content = document.createElement("div");
+    content.className = "card-content";
 
-  /* ===== দক্ষিণ কলকাতা ===== */
-  ["Deshapriya Park", "deshapriyapark", "কলকাতার অন্যতম বড় ও বিখ্যাত পূজা"],
-  ["Singhi Park", "ballygunge", "থিম ও প্রতিমা শিল্প"],
-  ["Ballygunge Cultural Association", "ballygunge", "সাংস্কৃতিক পরিবেশ ও থিম"],
-  ["Maddox Square", "ballygunge", "ঐতিহ্যবাহী ক্লাব পূজা"],
-  ["Hindustan Park Sarbojanin", "ballygunge", "দক্ষিণ কলকাতার পাড়ার পূজা"],
-  ["Badamtala Ashar Sangha", "kalighat", "থিম ও আলোকসজ্জা"],
-  ["Mudiali Club", "kalighat", "ঐতিহ্য ও থি
+    const title = document.createElement("h3");
+    title.textContent = item.name;
+
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = "📍 " + item.zoneLabel;
+
+    const famous = document.createElement("p");
+    famous.className = "famous";
+    famous.textContent = "✨ " + item.famous;
+
+    const button = document.createElement("button");
+    button.className = "card-btn";
+    button.type = "button";
+    button.textContent = "বিস্তারিত দেখুন →";
+    button.addEventListener("click", () => openModal(item));
+
+    content.append(title, tag, famous, button);
+    card.append(image, content);
+    container.append(card);
+  });
+
+  noResults.hidden = filtered.length !== 0;
+
+  resultsLine.textContent = query
+    ? `${filtered.length}টি প্যান্ডেল পাওয়া গেছে: “${input.value.trim()}”`
+    : selectedZone !== "সব এলাকা"
+      ? `${filtered.length}টি প্যান্ডেল পাওয়া গেছে`
+      : `মোট ${filtered.length}টি প্যান্ডেল — সার্চ করে নিজের পছন্দেরটি খুঁজে নাও`;
+}
+
+function openModal(item) {
+  document.getElementById("modalTitle").textContent = item.name;
+  document.getElementById("modalZone").textContent = "📍 " + item.zoneLabel;
+  document.getElementById("modalRailway").textContent = item.railway;
+  document.getElementById("modalMetro").textContent = item.metro;
+  document.getElementById("modalFamous").textContent = item.famous;
+  document.getElementById("modalDesc").textContent = item.desc;
+
+  const modalImage = document.getElementById("modalImage");
+  modalImage.src = item.image;
+  modalImage.alt = item.name + " প্যান্ডেলের ছবি";
+
+  modalImage.onerror = () => {
+    modalImage.onerror = null;
+    modalImage.src =
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Puja%20pandal%20decorations%20in%20Kolkata.jpg?width=900";
+  };
+
+  document.getElementById("modalMap").href =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(item.map);
+
+  modal.showModal();
+}
+
+document.getElementById("closeModal").addEventListener("click", () => {
+  modal.close();
+});
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) {
+    modal.close();
+  }
+});
+
+document.getElementById("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  displayPandals();
+
+  document.getElementById("pandals").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+input.addEventListener("input", displayPandals);
+
+document.getElementById("clearSearch").addEventListener("click", () => {
+  input.value = "";
+  selectedZone = "সব এলাকা";
+
+  document.querySelectorAll(".zone-chip").forEach(chip => {
+    chip.classList.toggle("active", chip.dataset.zone === selectedZone);
+  });
+
+  displayPandals();
+  input.focus();
+});
+
+document.querySelectorAll(".zone-chip").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedZone = button.dataset.zone;
+
+    document.querySelectorAll(".zone-chip").forEach(chip => {
+      chip.classList.toggle("active", chip === button);
+    });
+
+    displayPandals();
+
+    document.getElementById("pandals").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+
+displayPandals();
