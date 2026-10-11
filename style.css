@@ -1,260 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Hind Siliguri', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background: #fbf7ee;
-  color: #2b2b2b;
+    font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a0808 0%, #0d0d1a 100%);
+    color: #ffffff;
+    padding: 20px;
+    min-height: 100vh;
 }
 
-/* হিরো সেকশন - দুর্গা প্রতিমা ও কাশফুলের ব্যাকগ্রাউন্ড */
-.puja-hero {
-  position: relative;
-  min-height: 520px;
-  background: linear-gradient(180deg, rgba(140, 15, 15, 0.82) 0%, rgba(60, 5, 5, 0.92) 100%),
-              url('https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 3rem 1.2rem;
-  color: #fff;
-  border-bottom: 5px solid #d4af37;
+/* হেডার সেকশন: দুর্গা ঠাকুর ও কাশফুলের ভাইব সহ সুন্দর ব্যানার */
+header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 45px 20px;
+    border-radius: 16px;
+    border: 2px solid #ffcc00;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(128, 0, 0, 0.88) 0%, rgba(60, 0, 0, 0.92) 100%),
+                url('https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.hero-content {
-  position: relative;
-  max-width: 800px;
-  width: 100%;
-  z-index: 2;
+.header-content {
+    position: relative;
+    z-index: 2;
 }
 
-.trishul-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.2rem;
-  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.6));
+.durga-art {
+    font-size: 26px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
 }
 
-.puja-hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #ffdf79;
-  text-shadow: 0 4px 18px rgba(0,0,0,0.6);
-  letter-spacing: 1px;
+h1 {
+    font-size: 2.4rem;
+    color: #ffd700;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-.tagline {
-  font-size: 1.15rem;
-  color: #faebd7;
-  margin: 0.6rem 0 2rem;
+header p {
+    color: #ffe680;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-/* সার্চ বক্স */
-.search-box {
-  position: relative;
-  max-width: 620px;
-  margin: 0 auto 1.5rem;
+#searchInput {
+    width: 100%;
+    max-width: 580px;
+    padding: 14px 24px;
+    font-size: 15.5px;
+    border: 2px solid #ffd700;
+    border-radius: 30px;
+    outline: none;
+    background: #ffffff;
+    color: #111;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
-.search-ico {
-  position: absolute;
-  left: 1.3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9c1515;
-  font-size: 1.2rem;
+#searchInput:focus {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    border-color: #ffffff;
 }
 
-.search-box input {
-  width: 100%;
-  padding: 1.1rem 1.4rem 1.1rem 3.4rem;
-  border-radius: 40px;
-  border: 2px solid #d4af37;
-  outline: none;
-  font-size: 1.05rem;
-  background: #ffffff;
-  color: #222;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
+/* প্যান্ডেল কন্টেইনার */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1150px;
+    margin: 0 auto;
 }
 
-.search-box input:focus {
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-  border-color: #f1c40f;
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-top: 4px solid #ffd700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* চিপ বাটন */
-.chip-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.25);
 }
 
-.chip {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border: 1px solid rgba(255, 223, 121, 0.5);
-  backdrop-filter: blur(8px);
-  padding: 0.45rem 1.1rem;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
+.card h3 {
+    color: #ffd700;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
 }
 
-.chip:hover, .chip.active {
-  background: #ffdf79;
-  color: #7b0d0d;
-  border-color: #ffdf79;
-  transform: scale(1.04);
+.tag {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.15);
+    color: #ffeb3b;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    width: fit-content;
+    border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-/* গ্রিড কন্টেইনার */
-.main-wrapper {
-  max-width: 1220px;
-  margin: -35px auto 40px;
-  padding: 0 1.2rem;
-  position: relative;
-  z-index: 3;
+.view-btn {
+    margin-top: 15px;
+    padding: 10px;
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
 }
 
-.counter-text {
-  background: #fff;
-  width: fit-content;
-  margin: 0 auto 1.8rem;
-  padding: 0.4rem 1.3rem;
-  border-radius: 20px;
-  font-weight: 600;
-  color: #8c0f0f;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-  border: 1px solid #ebd9b5;
+.view-btn:hover {
+    background: #ffe680;
 }
 
-.pandal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.6rem;
+/* Modal Popup */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
 }
 
-/* প্যান্ডেল কার্ড */
-.p-card {
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  border: 1px solid #f0e6d2;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
+.modal-content {
+    background: #1a0a0a;
+    border: 2px solid #ffd700;
+    border-radius: 16px;
+    padding: 25px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
-.p-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(140, 15, 15, 0.14);
-  border-color: #d4af37;
+.close-btn {
+    position: absolute;
+    right: 18px;
+    top: 12px;
+    font-size: 28px;
+    color: #ffd700;
+    cursor: pointer;
 }
 
-.card-top {
-  background: linear-gradient(135deg, #991313 0%, #680505 100%);
-  color: white;
-  padding: 1.1rem 1.3rem;
-  position: relative;
+.modal-details {
+    margin: 20px 0;
+    line-height: 1.8;
 }
 
-.card-top h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  padding-right: 60px;
-  line-height: 1.3;
+.modal-details p {
+    font-size: 14.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    color: #dddddd;
 }
 
-.zone-tag {
-  position: absolute;
-  right: 1.1rem;
-  top: 1.1rem;
-  background: #ffdf79;
-  color: #6a0b0b;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.2rem 0.65rem;
-  border-radius: 12px;
+.map-btn {
+    display: block;
+    padding: 12px;
+    background: linear-gradient(135deg, #d32f2f 0%, #990000 100%);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 1px solid #ff6666;
 }
 
-.card-info {
-  padding: 1.3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  flex-grow: 1;
-}
-
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-}
-
-.info-item i {
-  color: #a01515;
-  font-size: 1.1rem;
-  margin-top: 0.15rem;
-  width: 18px;
-  text-align: center;
-}
-
-.info-item strong {
-  color: #4a0808;
-}
-
-.card-action {
-  padding: 1rem 1.3rem;
-  background: #faf7f0;
-  border-top: 1px solid #eee5d0;
-}
-
-.map-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: #a01515;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 0.65rem;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-}
-
-.map-link:hover {
-  background: #790c0c;
-  color: #ffdf79;
-}
-
-.empty-view {
-  grid-column: 1/-1;
-  text-align: center;
-  padding: 3rem;
-  color: #777;
-  font-size: 1.2rem;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #790c0c;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-@media(max-width: 600px) {
-  .puja-hero h1 { font-size: 2.2rem; }
-  .pandal-grid { grid-template-columns: 1fr; }
+.map-btn:hover {
+    background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
 }
