@@ -3,101 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#160504">
+  <meta name="theme-color" content="#210707">
   <title>দুর্গাপূজা প্যান্ডেল গাইড ২০২৬</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="hero" id="home">
-    <nav class="navbar">
+    <nav class="top-nav" aria-label="প্রধান মেনু">
       <a class="brand" href="#home">
         <span class="brand-icon">ॐ</span>
         <span>দুর্গাপূজা প্যান্ডেল গাইড</span>
       </a>
       <div class="nav-links">
         <a href="#home">⌂ হোম</a>
-        <a href="#pandals">♥ প্যান্ডেলের তালিকা</a>
+        <a href="#pandals">♡ প্যান্ডেলের তালিকা</a>
       </div>
     </nav>
 
-    <div class="hero-content">
-      <p class="welcome">শারদীয়ার শুভেচ্ছা</p>
-      <h1>শুভ দুর্গাপূজা<br><span>২০২৬</span></h1>
-      <p class="hero-subtitle">
-        কলকাতা, কল্যাণী ও আশেপাশের সেরা প্যান্ডেল এক ক্লিকে খুঁজে নাও
-      </p>
-      <a class="explore-btn" href="#pandals">প্যান্ডেল ঘোরা শুরু করো ↓</a>
+    <div class="hero-copy">
+      <p class="eyebrow">শারদীয়ার আনন্দে স্বাগতম</p>
+      <h1>শুভ <span>দুর্গাপূজা</span></h1>
+      <p class="year">✦ ২০২৬ ✦</p>
+      <p class="hero-subtitle">কলকাতা, কল্যাণী ও আশেপাশের বিখ্যাত প্যান্ডেল খুঁজে নাও এক ক্লিকেই</p>
     </div>
-    <div class="hero-bottom">✦ মা আসছেন ✦ আনন্দে কাটুক শারদীয়া ✦</div>
+
+    <form class="search-wrap" id="searchForm" role="search">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="searchInput" type="search"
+        placeholder="Area, pandal, station or theme — e.g. Kalighat"
+        aria-label="প্যান্ডেল সার্চ" autocomplete="off">
+      <button id="searchButton" type="submit">⌕ <span>সার্চ</span></button>
+      <button id="clearSearch" class="clear-search" type="button"
+        aria-label="সার্চ মুছুন" title="সার্চ মুছুন">×</button>
+    </form>
   </header>
 
   <main>
-    <section class="search-section">
-      <form id="searchForm" class="search-box">
-        <span class="search-icon">⌕</span>
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="এলাকা, প্যান্ডেল, স্টেশন বা থিম লিখে সার্চ করো..."
-          aria-label="প্যান্ডেল খুঁজুন"
-        >
-        <button type="submit">🔍 সার্চ</button>
-      </form>
-      <p class="search-hint">যেমন: Kalyani, Shobhabazar, Kalighat, Traditional</p>
+    <section class="zone-bar" aria-label="এলাকা বেছে নাও">
+      <button class="zone-chip active" data-zone="সব এলাকা" type="button">✦ <span>সব প্যান্ডেল</span></button>
+      <button class="zone-chip" data-zone="কলকাতা" type="button">♜ <span>কলকাতা</span></button>
+      <button class="zone-chip" data-zone="কল্যাণী" type="button">♜ <span>কল্যাণী ও নদীয়া</span></button>
+      <button class="zone-chip" data-zone="নিউ টাউন" type="button">▦ <span>নিউ টাউন</span></button>
+      <button class="zone-chip" data-zone="সল্টলেক" type="button">▦ <span>সল্টলেক</span></button>
+      <button class="zone-chip" data-zone="উত্তর কলকাতা" type="button">♙ <span>উত্তর কলকাতা</span></button>
+      <button class="zone-chip" data-zone="দক্ষিণ কলকাতা" type="button">♙ <span>দক্ষিণ কলকাতা</span></button>
     </section>
 
-    <section class="zones" aria-label="এলাকা বেছে নাও">
-      <button class="zone-btn active" data-zone="all">✦ সব প্যান্ডেল</button>
-      <button class="zone-btn" data-zone="কলকাতা">♜ কলকাতা</button>
-      <button class="zone-btn" data-zone="কল্যাণী">♜ কল্যাণী ও নদীয়া</button>
-      <button class="zone-btn" data-zone="নিউ টাউন">▦ নিউ টাউন</button>
-      <button class="zone-btn" data-zone="সল্টলেক">▦ সল্টলেক</button>
-      <button class="zone-btn" data-zone="উত্তর কলকাতা">♜ উত্তর কলকাতা</button>
-      <button class="zone-btn" data-zone="দক্ষিণ কলকাতা">♜ দক্ষিণ কলকাতা</button>
-    </section>
-
-    <section id="pandals" class="pandals-section">
+    <section class="pandal-section" id="pandals">
       <div class="section-heading">
-        <span>━━━━ ✧</span>
+        <span></span>
         <h2>ফেমাস প্যান্ডেল সমূহ</h2>
-        <span>✧ ━━━━</span>
+        <span></span>
       </div>
-      <p class="section-subtitle">তোমার পছন্দের প্যান্ডেল খুঁজে নাও</p>
-      <p id="resultCount" class="result-count"></p>
-      <div id="pandalContainer" class="container"></div>
+      <p class="results-line" id="resultsLine" aria-live="polite">সব বিখ্যাত প্যান্ডেল একসঙ্গে দেখো</p>
+      <div class="pandal-grid" id="pandalContainer"></div>
+      <p class="no-results" id="noResults" hidden>
+        দুঃখিত, এই নামে কোনো প্যান্ডেল পাওয়া যায়নি। অন্য নাম বা এলাকার নাম দিয়ে সার্চ করো।
+      </p>
     </section>
   </main>
 
-  <div id="pandalModal" class="modal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true"
-         aria-labelledby="modalTitle">
-      <button class="close-btn" id="closeModal" aria-label="বন্ধ করো">×</button>
-      <span class="modal-kicker">✦ প্যান্ডেলের বিস্তারিত ✦</span>
-      <h2 id="modalTitle"></h2>
-      <span id="modalZone" class="tag"></span>
-
-      <div class="modal-details">
-        <p><strong>🚆 নিকটস্থ রেল স্টেশন:</strong><br>
-          <span id="modalRailway"></span></p>
-        <p><strong>🚇 নিকটস্থ মেট্রো স্টেশন:</strong><br>
-          <span id="modalMetro"></span></p>
-        <p><strong>✨ বিশেষত্ব ও থিম:</strong><br>
-          <span id="modalFamous"></span></p>
-        <p><strong>ℹ️ বিবরণ ও রুট গাইড:</strong><br>
-          <span id="modalDesc"></span></p>
-      </div>
-      <a id="modalMap" href="#" target="_blank" rel="noopener noreferrer"
-         class="map-btn">📍 Google Maps-এ লোকেশন দেখুন ↗</a>
-    </div>
-  </div>
-
   <footer>
-    <div class="footer-ornament">✦ ❁ ✦</div>
-    <p>মায়ের আগমনে সবার জীবন হোক আলোকিত</p>
+    <span>☼</span> মায়ের আগমনে সবার জীবন হোক আলোকিত <span>☼</span>
     <small>© ২০২৬ দুর্গাপূজা প্যান্ডেল গাইড</small>
   </footer>
+
+  <dialog id="pandalModal" class="modal">
+    <button class="close-btn" id="closeModal" aria-label="বন্ধ করো">×</button>
+    <img class="modal-image" id="modalImage" alt="প্যান্ডেলের ছবি">
+    <div class="modal-body">
+      <span class="modal-tag" id="modalZone"></span>
+      <h2 id="modalTitle"></h2>
+      <p><strong>🚆 নিকটস্থ রেল স্টেশন:</strong> <span id="modalRailway"></span></p>
+      <p><strong>🚇 নিকটস্থ মেট্রো:</strong> <span id="modalMetro"></span></p>
+      <p><strong>✨ বিশেষত্ব:</strong> <span id="modalFamous"></span></p>
+      <p><strong>ℹ️ রুট গাইড:</strong> <span id="modalDesc"></span></p>
+      <a id="modalMap" class="map-btn" href="#" target="_blank" rel="noopener noreferrer">
+        📍 Google Maps-এ লোকেশন দেখুন ↗
+      </a>
+      <p class="verify-note">
+        যাত্রার আগে ২০২৬ সালের পূজার সময়সূচি, রাস্তা বন্ধ ও পরিবহণের তথ্য যাচাই করে নাও।
+        ছবিগুলি রেফারেন্স ছবি; সব ছবি বর্তমান বছরের নাও হতে পারে।
+      </p>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
