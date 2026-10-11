@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0404">
   <title>দুর্গাপূজা প্যান্ডেল গাইড ২০২৬</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
@@ -28,7 +28,7 @@
     <p class="hero-subtitle">কলকাতা, কল্যাণীসহ সকল সেরা পূজা প্যান্ডেল<br>এক ক্লিকে খুঁজে নাও</p>
 
     <div class="hero-copy">
-      <p class="shubho">शुभ</p>
+      <p class="shubho">শুভ</p>
       <h1>দুর্গাপূজা</h1>
       <p class="year"><span>২০২৬</span></p>
       <p class="lotus" aria-hidden="true">🪷</p>
@@ -62,12 +62,6 @@
         <h2>ফেমাস প্যান্ডেল সমূহ</h2>
         <span class="line"></span>
       </div>
-
-      <!-- এখানে আপনার নতুন আপলোড করা JPEG ছবিটি যুক্ত করা হয়েছে -->
-      <div class="pandal-featured-image" style="text-align: center; margin-bottom: 20px;">
-        <img src="images/photo.jpg" alt="দুর্গাপূজা প্যান্ডেল ছবি" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
-
       <p class="results-line" id="resultsLine" aria-live="polite"></p>
       <div class="pandal-grid" id="pandalContainer"></div>
       <p class="no-results" id="noResults" hidden></p>
@@ -92,7 +86,9 @@
       <span>🪷</span>
     </div>
     <small>© ২০২৬ দুর্গাপূজা প্যান্ডেল গাইড | সর্বস্বত্ব সংরক্ষিত</small>
-  </footer> <dialog id="pandalModal" class="modal">
+  </footer>
+
+  <dialog id="pandalModal" class="modal">
     <button class="close-btn" id="closeModal" aria-label="বন্ধ করো">×</button>
     <img class="modal-image" id="modalImage" alt="প্যান্ডেলের ছবি">
     <div class="modal-body">
@@ -106,9 +102,12 @@
         📍 Google Maps-এ লোকেশন দেখুন ↗
       </a>
       <p class="verify-note">
-        যাত্রার আগে ২০২৬ সা...
+        যাত্রার আগে ২০২৬ সালের পূজার সময়সূচি, রাস্তা বন্ধ ও পরিবহণের তথ্য যাচাই করে নাও।
+        স্টেশনের তথ্য আনুমানিক; ছবিগুলি রেফারেন্স ছবি, সব ছবি বর্তমান বছরের নাও হতে পারে।
       </p>
     </div>
   </dialog>
+
+  <script src="script.js?v=4"></script>
 </body>
 </html>
