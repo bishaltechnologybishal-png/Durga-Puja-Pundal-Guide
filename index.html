@@ -3,59 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>শারদোৎসব পরিক্রমা | Durga Puja Guide</title>
-
-  <!-- Google Fonts & FontAwesome Icons -->
+  <title>শারদোৎসব পরিক্রমা</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- External Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-badge"><i class="fa-solid fa-om"></i> শুভ শারদোৎসব</div>
-    <h1>কলকাতা ও সংলগ্ন দুর্গোৎসব পরিক্রমা</h1>
-    <p>কাশফুলের ছোঁয়া আর ঢাকের কাঠি—খুঁজে নিন উত্তর, দক্ষিণ, মধ্য, বেহালা, সল্টলেক ও কল্যাণীর সেরা সেরা পুজো প্যান্ডেল, নিকটবর্তী মেট্রো, ট্রেন ও গুগল ম্যাপস লোকেশন।</p>
-    
-    <!-- Live Search Bar -->
-    <div class="search-wrapper">
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="প্যান্ডেল, এলাকা বা মেট্রোর নাম দিয়ে খুঁজুন (যেমন: বাগবাজার, একডালিয়া, কল্যাণী)...">
-    </div>
+  <!-- টপ ব্যানার ও দুর্গা-কাশফুল হিরো সেকশন -->
+  <header class="puja-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="trishul-icon">🔱</div>
+      <h1>শারদোৎসব পরিক্রমা</h1>
+      <p class="tagline">কাশফুলের দোলা, ঢাকের আওয়াজ আর আলোর উৎসব—তোমার পুজো সফর সহজ করতে</p>
 
-    <!-- Category Filters -->
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">সব পুজো (All)</button>
-      <button class="filter-btn" data-filter="North">উত্তর কলকাতা</button>
-      <button class="filter-btn" data-filter="South">দক্ষিণ কলকাতা</button>
-      <button class="filter-btn" data-filter="Central">সেন্ট্রাল কলকাতা</button>
-      <button class="filter-btn" data-filter="Behala">বেহালা চত্বর</button>
-      <button class="filter-btn" data-filter="Salt Lake">সল্টলেক / শ্রীভূমি</button>
-      <button class="filter-btn" data-filter="Kalyani">কল্যাণী</button>
+      <!-- স্মার্ট সার্চ বার -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-ico"></i>
+        <input type="text" id="pandalSearch" placeholder="প্যান্ডেল, এলাকা বা মেট্রোর নাম দিয়ে খুঁজুন (উদাঃ বাগবাজার, কল্যাণী, একডালিয়া)...">
+      </div>
+
+      <!-- এরিয়া ফিল্টার বাটন -->
+      <div class="chip-container">
+        <button class="chip active" data-zone="all">সব পুজো</button>
+        <button class="chip" data-zone="North">উত্তর কলকাতা</button>
+        <button class="chip" data-zone="South">দক্ষিণ কলকাতা</button>
+        <button class="chip" data-zone="Central">সেন্ট্রাল</button>
+        <button class="chip" data-zone="Salt Lake">সল্টলেক / শ্রীভূমি</button>
+        <button class="chip" data-zone="Behala">বেহালা</button>
+        <button class="chip" data-zone="Kalyani">কল্যাণী</button>
+      </div>
     </div>
   </header>
 
-  <!-- Main Grid Section -->
-  <main class="container">
-    <div class="section-title">
-      <h2>সেরা দুর্গোৎসব তালিকা</h2>
-    </div>
-
-    <div class="grid" id="pandalGrid">
-      <!-- JavaScript will populate cards here -->
+  <!-- প্যান্ডেল গ্রিড সেকশন -->
+  <main class="main-wrapper">
+    <div class="counter-text" id="counterText">মোট ৩৫টি শীর্ষ পুজো পাওয়া গেছে</div>
+    <div class="pandal-grid" id="grid">
+      <!-- script.js থেকে কার্ড রেন্ডার হবে -->
     </div>
   </main>
 
   <footer>
-    <p>শারদ শুভেচ্ছা সহ প্রস্তুতকৃত | পুজো পরিক্রমা সহায়িকা</p>
+    <p>মা আসছে | শুভ শারদীয়া 🪷</p>
   </footer>
 
-  <!-- External JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
