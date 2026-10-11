@@ -40,14 +40,31 @@ button { font-family: inherit; }
   content: "";
   position: absolute;
   inset: 0;
+  z-index: -3;
+  background: linear-gradient(180deg, #1a0505 0%, var(--bg) 100%);
+}
+
+/* দুর্গার ছবি (images/hero.jpg) ডান দিকে, বাঁ দিকে মিলিয়ে যাওয়া */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 66%;
+  z-index: -2;
+  background: url("images/hero.jpg") 55% 30% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 38%, #000 100%);
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
   z-index: -1;
-  /* নিজের ছবি চাইলে hero.jpg নামে ফাইল রাখো; না থাকলে নিচের ছবি দেখাবে */
   background:
-    linear-gradient(90deg, rgba(10,3,3,.96) 0%, rgba(20,5,5,.78) 36%, rgba(20,5,5,.15) 68%, rgba(10,3,3,.5) 100%),
-    linear-gradient(180deg, rgba(10,3,3,.35) 0%, rgba(10,3,3,0) 40%, var(--bg) 100%),
-    url("hero.jpg") right center / cover no-repeat,
-    url("https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Mata%20Images%20-%20A%20Durga%20Puja%20pandal%20in%20Kolkata.jpg?width=1400") right center / cover no-repeat,
-    #1a0505;
+    linear-gradient(180deg, rgba(10,3,3,.25) 0%, rgba(10,3,3,0) 45%, rgba(10,3,3,.85) 100%),
+    linear-gradient(90deg, rgba(10,3,3,.55) 0%, rgba(10,3,3,0) 45%);
 }
 
 .top-nav {
@@ -65,11 +82,12 @@ button { font-family: inherit; }
   text-decoration: none;
 }
 
-.brand-icon { font-size: 34px; filter: drop-shadow(0 0 8px rgba(255,190,40,.6)); }
+.brand-logo { height: 46px; width: auto; mix-blend-mode: screen; }
 
 .brand-text {
-  font-size: clamp(24px, 3.4vw, 38px);
-  font-weight: 700;
+  font-family: "Galada", "Hind Siliguri", sans-serif;
+  font-size: clamp(26px, 3.6vw, 40px);
+  font-weight: 400;
   line-height: 1.1;
   text-shadow: 0 2px 10px rgba(0,0,0,.7);
 }
@@ -111,16 +129,18 @@ button { font-family: inherit; }
 .shubho {
   margin: 0 0 -26px 28px;
   color: #fff;
-  font-size: 34px;
-  font-weight: 700;
+  font-family: "Galada", "Hind Siliguri", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
   text-align: left;
   text-shadow: 0 2px 8px #000;
 }
 
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(64px, 11vw, 104px);
-  font-weight: 700;
+  font-family: "Galada", "Hind Siliguri", sans-serif;
+  font-size: clamp(64px, 11vw, 108px);
+  font-weight: 400;
   line-height: 1.15;
   background: linear-gradient(180deg, #ffe681 0%, #ffc21a 55%, #e68a00 100%);
   -webkit-background-clip: text;
@@ -253,12 +273,10 @@ button { font-family: inherit; }
   background: var(--border-soft);
 }
 
-.zone-chip i {
-  font-style: normal;
-  font-size: 30px;
-  line-height: 1;
-  /* আইকনে সোনালি আভা */
-  filter: grayscale(1) sepia(1) saturate(6) hue-rotate(-8deg) brightness(1.15);
+.zone-icon {
+  width: 46px;
+  height: auto;
+  mix-blend-mode: screen;
 }
 
 .zone-chip:hover,
@@ -283,8 +301,9 @@ button { font-family: inherit; }
 .section-heading h2 {
   margin: 0;
   color: var(--gold);
-  font-size: clamp(28px, 4vw, 38px);
-  font-weight: 700;
+  font-family: "Galada", "Hind Siliguri", sans-serif;
+  font-size: clamp(30px, 4.2vw, 42px);
+  font-weight: 400;
   text-shadow: 0 2px 10px rgba(0,0,0,.7);
 }
 
@@ -460,13 +479,7 @@ footer small { display: block; margin-top: 6px; color: var(--muted); font-size: 
 
 @media (max-width: 640px) {
   .hero { min-height: 0; padding: 14px 14px 20px; }
-  .hero::before {
-    background:
-      linear-gradient(180deg, rgba(10,3,3,.8) 0%, rgba(20,5,5,.55) 50%, var(--bg) 100%),
-      url("hero.jpg") 70% center / cover no-repeat,
-      url("https://commons.wikimedia.org/wiki/Special:FilePath/Durga%20Mata%20Images%20-%20A%20Durga%20Puja%20pandal%20in%20Kolkata.jpg?width=1000") 70% center / cover no-repeat,
-      #1a0505;
-  }
+  .hero::after { width: 100%; opacity: .5; -webkit-mask-image: none; mask-image: none; }
   .top-nav { flex-direction: column; align-items: flex-start; gap: 8px; }
   .nav-links { width: 100%; justify-content: space-between; }
   .hero-copy { margin: 14px auto 20px; }
@@ -475,4 +488,116 @@ footer small { display: block; margin-top: 6px; color: var(--muted); font-size: 
   .search-wrap { padding-left: 12px; }
   .search-wrap input { font-size: 14px; padding: 10px 6px; }
   #searchButton { padding: 10px 16px; font-size: 15px; }
-  .btn-i
+  .btn-icon { display: none; }
+  .zone-chip { min-width: 96px; font-size: 13px; }
+  .pandal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .section-heading .line { display: none; }
+  .card-image { height: 96px; }
+}
+
+/* ============ প্যান্ডেল বিস্তারিত ডায়ালগ ============ */
+.modal {
+  box-sizing: border-box;
+  width: min(680px, calc(100% - 24px));
+  max-width: 680px;
+  max-height: 88dvh;
+  margin: auto;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid #a96c27;
+  border-radius: 18px;
+  background: #120907;
+  color: #fff4dc;
+}
+
+.modal::backdrop { background: rgba(0, 0, 0, 0.82); }
+
+.modal-image {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 30vh, 280px);
+  object-fit: cover;
+}
+
+.modal-body {
+  box-sizing: border-box;
+  padding: 20px;
+  overflow-wrap: anywhere;
+}
+
+.modal-tag {
+  display: inline-block;
+  padding: 2px 12px;
+  border: 1px solid var(--gold-deep);
+  border-radius: 999px;
+  color: #ffe9a8;
+  font-size: 13px;
+}
+
+.modal-body h2 {
+  margin: 10px 0 16px;
+  color: #ffd54a;
+  font-size: clamp(22px, 5vw, 30px);
+  line-height: 1.35;
+}
+
+.modal-body p {
+  margin: 12px 0;
+  color: #f6e9d6;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.close-btn {
+  position: sticky;
+  top: 8px;
+  float: right;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 8px 8px -50px 0;
+  border: 1px solid #d5a33c;
+  border-radius: 50%;
+  background: #180c08;
+  color: #fff;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.map-btn {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin: 18px 0 12px;
+  padding: 12px 16px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffe45b, #f5a900);
+  color: #281200;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.verify-note {
+  font-size: 12px !important;
+  color: #c7b5a1 !important;
+}
+
+@media (max-width: 600px) {
+  .modal { width: calc(100% - 20px); max-height: 84dvh; border-radius: 15px; }
+  .modal-image { height: 180px; }
+  .modal-body { padding: 16px; }
+  .modal-body p { font-size: 14px; }
+  .map-btn { min-height: 48px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
