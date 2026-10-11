@@ -1,353 +1,260 @@
-// সম্পূর্ণ প্যান্ডেল ডেটাবেস
-const pandals = [
-  // উত্তর কলকাতা (North)
-  {
-    name: "টালা প্রত্যয়",
-    zone: "North",
-    metro: "বেলগাছিয়া / শ্যামবাজার মেট্রো",
-    train: "কলকাতা স্টেশন (চিতপুর) / টালা স্টেশন",
-    walk: "বেলগাছিয়া মেট্রো থেকে প্রায় ৭-১০ মিনিট হাঁটা পথ (৮০০ মিটার)",
-    map: "https://maps.google.com/?cid=11726144247438210038"
-  },
-  {
-    name: "বাগবাজার সর্বজনীন",
-    zone: "North",
-    metro: "শ্যামবাজার মেট্রো",
-    train: "বাগবাজার চক্ররেল স্টেশন",
-    walk: "শ্যামবাজার ১ নং গেট থেকে প্রায় ৮ মিনিট হাঁটা পথ (৬৫০ মিটার)",
-    map: "https://maps.google.com/?cid=3135137856474226898"
-  },
-  {
-    name: "কুমোরটুলি সর্বজনীন ও পার্ক",
-    zone: "North",
-    metro: "শোভাবাজার সুতানুটি মেট্রো",
-    train: "শোভাবাজার বাজার চক্ররেল স্টেশন",
-    walk: "শোভাবাজার মেট্রো থেকে প্রায় ৫-৭ মিনিট হাঁটা পথ (৫০০ মিটার)",
-    map: "https://maps.google.com/?cid=10306922731007759124"
-  },
-  {
-    name: "শোভাবাজার রাজবাড়ী",
-    zone: "North",
-    metro: "শোভাবাজার সুতানুটি মেট্রো",
-    train: "শোভাবাজার চক্ররেল স্টেশন",
-    walk: "মেট্রো স্টেশন থেকে ৩ মিনিট হাঁটা পথ (২৫০ মিটার)",
-    map: "https://maps.google.com/?cid=10504149912207972374"
-  },
-  {
-    name: "হাতিবাগান সর্বজনীন ও নবীনপল্লী",
-    zone: "North",
-    metro: "শ্যামবাজার / গিরিশ পার্ক মেট্রো",
-    train: "বিধাননগর রোড রেল স্টেশন",
-    walk: "হাতিবাগান মোড় থেকে মাত্র ২ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=8683911336487123911"
-  },
-  {
-    name: "কাশী বোস লেন দুর্গোৎসব",
-    zone: "North",
-    metro: "গিরিশ পার্ক / শোভাবাজার মেট্রো",
-    train: "কলকাতা রেল স্টেশন",
-    walk: "বিধান সরণি কর্নওয়ালিস মোড় থেকে ৪ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=15378221803207001415"
-  },
-  {
-    name: "দমদম পার্ক তরুণ দল ও ভারত চক্র",
-    zone: "North",
-    metro: "দমদম মেট্রো স্টেশন",
-    train: "দমদম জংশন",
-    walk: "ভিআইপি রোড দমদম পার্ক স্টপ থেকে ৪-৫ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=7679506939318791663"
-  },
-
-  // সেন্ট্রাল কলকাতা (Central)
-  {
-    name: "কলেজ স্কোয়ার সর্বজনীন",
-    zone: "Central",
-    metro: "সেন্ট্রাল / মহাত্মা গান্ধী রোড মেট্রো",
-    train: "শিয়ালদহ রেল স্টেশন",
-    walk: "সেন্ট্রাল মেট্রো থেকে ৫-৭ মিনিট হাঁটা পথ (৬০০ মিটার)",
-    map: "https://maps.google.com/?cid=12681855571301219231"
-  },
-  {
-    name: "মহম্মদ আলী পার্ক",
-    zone: "Central",
-    metro: "মহাত্মা গান্ধী রোড মেট্রো",
-    train: "শিয়ালদহ রেল স্টেশন",
-    walk: "এমজি রোড মেট্রো থেকে মাত্র ৩ মিনিট হাঁটা পথ (২৫০ মিটার)",
-    map: "https://maps.google.com/?cid=7260356945061295625"
-  },
-  {
-    name: "সন্তোষ মিত্র স্কোয়ার (লেবুতলা পার্ক)",
-    zone: "Central",
-    metro: "সেন্ট্রাল / শিয়ালদহ মেট্রো",
-    train: "শিয়ালদহ রেল স্টেশন",
-    walk: "শিয়ালদহ স্টেশন বা সেন্ট্রাল মেট্রো থেকে ৭-৮ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=12140411649988225573"
-  },
-  {
-    name: "চোরবাগান সর্বজনীন",
-    zone: "Central",
-    metro: "গিরিশ পার্ক মেট্রো",
-    train: "শিয়ালদহ রেল স্টেশন",
-    walk: "গিরিশ পার্ক থেকে মুক্তারাম বাবু স্ট্রিটে ৩ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=11840521458753992955"
-  },
-
-  // দক্ষিণ কলকাতা (South)
-  {
-    name: "একডালিয়া এভারগ্রীন ক্লাব",
-    zone: "South",
-    metro: "কালীঘাট মেট্রো",
-    train: "বালিগঞ্জ জংশন রেল স্টেশন",
-    walk: "বালিগঞ্জ স্টেশন থেকে ৮ মিনিট / গড়িয়াহাট মোড় থেকে ২ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=2453400002576213274"
-  },
-  {
-    name: "সিংহী পার্ক সর্বজনীন",
-    zone: "South",
-    metro: "কালীঘাট মেট্রো",
-    train: "বালিগঞ্জ জংশন রেল স্টেশন",
-    walk: "একডালিয়া এভারগ্রীনের ঠিক উল্টোদিকে, মাত্র ৩ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=3534454885611457058"
-  },
-  {
-    name: "বালিগঞ্জ কালচারাল ও হিন্দুস্তান পার্ক",
-    zone: "South",
-    metro: "কালীঘাট / যতীন দাস পার্ক মেট্রো",
-    train: "বালিগঞ্জ জংশন",
-    walk: "গড়িয়াহাট মোড় থেকে লেক ভিউ রোড ধরে ৫ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=7714142424994848867"
-  },
-  {
-    name: "দেশপ্রিয় পার্ক ও ত্রিধারা সম্মিলনী",
-    zone: "South",
-    metro: "কালীঘাট মেট্রো",
-    train: "বালিগঞ্জ জংশন",
-    walk: "কালীঘাট মেট্রো থেকে রাসবিহারী অ্যাভিনিউ ধরে ৭-৮ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=15849733765660152345"
-  },
-  {
-    name: "মুদিয়ালী ক্লাব ও শিব মন্দির",
-    zone: "South",
-    metro: "রবীন্দ্র সরোবর / কালীঘাট মেট্রো",
-    train: "টালিগঞ্জ লোকাল রেল স্টেশন",
-    walk: "রবীন্দ্র সরোবর মেট্রো থেকে সাদার্ন অ্যাভিনিউ ধরে ৬-৮ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=6131863925669705200"
-  },
-  {
-    name: "বাদামতলা আষাঢ় সংঘ ও ৬৬ পল্লী",
-    zone: "South",
-    metro: "কালীঘাট মেট্রো",
-    train: "টালিগঞ্জ লোকাল রেল স্টেশন",
-    walk: "কালীঘাট মেট্রো নেপাল ভট্টাচার্য স্ট্রিট এক্সিট থেকে মাত্র ২ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=16800617733808211335"
-  },
-  {
-    name: "চেতলা অগ্রণী ক্লাব",
-    zone: "South",
-    metro: "কালীঘাট / যতীন দাস পার্ক মেট্রো",
-    train: "মাঝেরহাট রেল স্টেশন",
-    walk: "কালীঘাট ট্রাম ডিপো ও ব্রিজ পেরিয়ে ৫-৬ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=17397391353249272919"
-  },
-  {
-    name: "সুরুচি সংঘ (নিউ আলিপুর)",
-    zone: "South",
-    metro: "কালীঘাট / রবীন্দ্র সরোবর মেট্রো",
-    train: "নিউ আলিপুর রেল স্টেশন / মাঝেরহাট",
-    walk: "নিউ আলিপুর স্টেশন থেকে ৪ মিনিট হাঁটা পথ (৩০০ মিটার)",
-    map: "https://maps.google.com/?cid=2414811456230413570"
-  },
-  {
-    name: "নাকতলা উদয়ন সংঘ",
-    zone: "South",
-    metro: "গীতাঞ্জলি (নাকতলা) মেট্রো",
-    train: "গড়িয়া রেল স্টেশন",
-    walk: "গীতাঞ্জলি মেট্রো থেকে ৪-৫ মিনিট হাঁটা পথ (৩৫০ মিটার)",
-    map: "https://maps.google.com/?cid=11068095488902765199"
-  },
-  {
-    name: "বাবুবাগান ও যোধপুর পার্ক",
-    zone: "South",
-    metro: "রবীন্দ্র সরোবর মেট্রো",
-    train: "ঢাকুরিয়া রেল স্টেশন",
-    walk: "ঢাকুরিয়া স্টেশন সংলগ্ন, স্টেশন থেকে মাত্র ২ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=12280677332198589211"
-  },
-
-  // বেহালা চত্বর (Behala)
-  {
-    name: "বেহালা নতুন দল",
-    zone: "Behala",
-    metro: "তারাতলা মেট্রো / বেহালা বাজার মেট্রো",
-    train: "মাঝেরহাট রেল স্টেশন",
-    walk: "বেহালা ট্রাম ডিপো থেকে ডায়মন্ড হারবার রোড হয়ে ৪-৫ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=17124898636201060852"
-  },
-  {
-    name: "বড়িশা ক্লাব দুর্গাপূজা",
-    zone: "Behala",
-    metro: "বেহালা চৌরাস্তা মেট্রো / সখেরবাজার মেট্রো",
-    train: "মাঝেরহাট রেল স্টেশন",
-    walk: "সখেরবাজার মোড় থেকে জেমস লং সরণি ধরে ৫ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=16236335024405066801"
-  },
-  {
-    name: "বেহালা ক্লাব দুর্গাপূজা",
-    zone: "Behala",
-    metro: "তারাতলা মেট্রো",
-    train: "মাঝেরহাট রেল স্টেশন",
-    walk: "তারাতলা বা পর্ণশ্রী মোড় থেকে ৫ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/maps?q=Behala+Club+Durgapuja"
-  },
-  {
-    name: "হরিদেবপুর ৪১ পল্লী ও অজেয় সংহতি",
-    zone: "Behala",
-    metro: "মহানায়ক উত্তম কুমার (টালিগঞ্জ) মেট্রো",
-    train: "টালিগঞ্জ লোকাল রেল স্টেশন",
-    walk: "করুণাময়ী হরিদেবপুর অটো স্ট্যান্ড থেকে ৪ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/maps?q=Haridebpur+41+Pally+Durga+Puja"
-  },
-
-  // সল্টলেক ও শ্রীভূমি (Salt Lake)
-  {
-    name: "শ্রীভূমি স্পোর্টিং ক্লাব",
-    zone: "Salt Lake",
-    metro: "সল্টলেক স্টেডিয়াম মেট্রো / বেলগাছিয়া মেট্রো",
-    train: "বিধাননগর রোড রেল স্টেশন",
-    walk: "ভিআইপি রোড লেকটাউন মোড় থেকে ৩ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=13498846934416172605"
-  },
-  {
-    name: "সল্টলেক এফডি ব্লক",
-    zone: "Salt Lake",
-    metro: "করুণাময়ী মেট্রো / সেন্ট্রাল পার্ক মেট্রো",
-    train: "বিধাননগর রোড স্টেশন",
-    walk: "করুণাময়ী বাস টার্মিনাস থেকে ৭ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=5590044104116974140"
-  },
-  {
-    name: "সল্টলেক বিজে ব্লক ও একে ব্লক",
-    zone: "Salt Lake",
-    metro: "সিটি সেন্টার মেট্রো / সেন্ট্রাল পার্ক মেট্রো",
-    train: "বিধাননগর রোড স্টেশন",
-    walk: "সল্টলেক সিটি সেন্টার ১ থেকে ৫-৬ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=5898045514729557278"
-  },
-  {
-    name: "নিউটাউন সর্বজনীন",
-    zone: "Salt Lake",
-    metro: "বিমানবন্দর মেট্রো (প্রস্তাবিত)",
-    train: "বিধাননগর রোড রেল স্টেশন",
-    walk: "নিউটাউন মেলা গ্রাউন্ড সংলগ্ন বাস স্টপ থেকে ২ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/?cid=15780927754519669568"
-  },
-
-  // কল্যাণী (Kalyani)
-  {
-    name: "কল্যাণী আইটিআই মোড় (লুমিনাস ক্লাব)",
-    zone: "Kalyani",
-    metro: "মেট্রো নেই (লোকাল ট্রেন প্রধান মাধ্যম)",
-    train: "কল্যাণী রেল স্টেশন / কল্যাণী ঘোষপাড়া স্টেশন",
-    walk: "কল্যাণী ঘোষপাড়া বা মেইন স্টেশন থেকে টোটোয় ৫-৭ মিনিট (আইটিআই মোড়)",
-    map: "https://maps.google.com/maps?q=Kalyani+ITI+More+Durga+Puja"
-  },
-  {
-    name: "কল্যাণী সেন্ট্রাল পার্ক সার্বজনীন",
-    zone: "Kalyani",
-    metro: "মেট্রো নেই",
-    train: "কল্যাণী রেল স্টেশন",
-    walk: "কল্যাণী স্টেশন থেকে অটো/টোটোয় সেন্ট্রাল পার্ক সংলগ্ন (৫ মিনিট)",
-    map: "https://maps.google.com/maps?q=Kalyani+Central+Park+Durga+Puja"
-  },
-  {
-    name: "কল্যাণী এ-৯ স্কয়ার ক্লাব",
-    zone: "Kalyani",
-    metro: "মেট্রো নেই",
-    train: "কল্যাণী রেল স্টেশন",
-    walk: "কল্যাণী এ ব্লক বাজার থেকে ৩-৪ মিনিট হাঁটা পথ",
-    map: "https://maps.google.com/maps?q=Kalyani+A9+Durga+Puja"
-  }
-];
-
-// DOM সিলেক্টর
-const grid = document.getElementById('pandalGrid');
-const searchInput = document.getElementById('searchInput');
-const filterBtns = document.querySelectorAll('.filter-btn');
-
-let currentFilter = 'all';
-
-// কার্ড রেন্ডার ফাংশন
-function renderPandals(data) {
-  grid.innerHTML = '';
-  if (data.length === 0) {
-    grid.innerHTML = `<div class="no-results"><i class="fa-regular fa-face-frown" style="font-size: 2.5rem; margin-bottom: 0.5rem; display:block;"></i>কোনো প্যান্ডেল খুঁজে পাওয়া যায়নি। অন্য নাম বা এলাকা দিয়ে চেষ্টা করুন।</div>`;
-    return;
-  }
-
-  data.forEach(pandal => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-header">
-        <span class="card-zone">${pandal.zone}</span>
-        <h3 class="card-title">${pandal.name}</h3>
-      </div>
-      <div class="card-body">
-        <div class="info-row">
-          <i class="fa-solid fa-train-subway"></i>
-          <div class="info-text">
-            <strong>মেট্রো:</strong> ${pandal.metro}
-          </div>
-        </div>
-        <div class="info-row">
-          <i class="fa-solid fa-train"></i>
-          <div class="info-text">
-            <strong>লোকাল ট্রেন:</strong> ${pandal.train}
-          </div>
-        </div>
-        <div class="info-row">
-          <i class="fa-solid fa-person-walking"></i>
-          <div class="info-text">
-            <strong>হাঁটার দূরত্ব:</strong> ${pandal.walk}
-          </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <a href="${pandal.map}" target="_blank" class="map-btn">
-          <i class="fa-solid fa-location-dot"></i> Google Maps-এ দেখুন
-        </a>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Hind Siliguri', sans-serif;
 }
 
-// ফিল্টার এবং সার্চ লজিক
-function filterData() {
-  const query = searchInput.value.toLowerCase().trim();
-  const filtered = pandals.filter(item => {
-    const matchesFilter = (currentFilter === 'all') || (item.zone.toLowerCase() === currentFilter.toLowerCase());
-    const matchesSearch = item.name.toLowerCase().includes(query) ||
-                          item.metro.toLowerCase().includes(query) ||
-                          item.train.toLowerCase().includes(query) ||
-                          item.zone.toLowerCase().includes(query) ||
-                          item.walk.toLowerCase().includes(query);
-    return matchesFilter && matchesSearch;
-  });
-  renderPandals(filtered);
+body {
+  background: #fbf7ee;
+  color: #2b2b2b;
 }
 
-// ইভেন্ট লিসেনার
-searchInput.addEventListener('input', filterData);
+/* হিরো সেকশন - দুর্গা প্রতিমা ও কাশফুলের ব্যাকগ্রাউন্ড */
+.puja-hero {
+  position: relative;
+  min-height: 520px;
+  background: linear-gradient(180deg, rgba(140, 15, 15, 0.82) 0%, rgba(60, 5, 5, 0.92) 100%),
+              url('https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1.2rem;
+  color: #fff;
+  border-bottom: 5px solid #d4af37;
+}
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.getAttribute('data-filter');
-    filterData();
-  });
-});
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  z-index: 2;
+}
 
-// পেজ লোড হওয়ার সময় প্রথম রেন্ডার
-renderPandals(pandals);
+.trishul-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+  filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.6));
+}
+
+.puja-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffdf79;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.6);
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 1.15rem;
+  color: #faebd7;
+  margin: 0.6rem 0 2rem;
+}
+
+/* সার্চ বক্স */
+.search-box {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+}
+
+.search-ico {
+  position: absolute;
+  left: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9c1515;
+  font-size: 1.2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1.1rem 1.4rem 1.1rem 3.4rem;
+  border-radius: 40px;
+  border: 2px solid #d4af37;
+  outline: none;
+  font-size: 1.05rem;
+  background: #ffffff;
+  color: #222;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+  border-color: #f1c40f;
+}
+
+/* চিপ বাটন */
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 223, 121, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chip:hover, .chip.active {
+  background: #ffdf79;
+  color: #7b0d0d;
+  border-color: #ffdf79;
+  transform: scale(1.04);
+}
+
+/* গ্রিড কন্টেইনার */
+.main-wrapper {
+  max-width: 1220px;
+  margin: -35px auto 40px;
+  padding: 0 1.2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.counter-text {
+  background: #fff;
+  width: fit-content;
+  margin: 0 auto 1.8rem;
+  padding: 0.4rem 1.3rem;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #8c0f0f;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  border: 1px solid #ebd9b5;
+}
+
+.pandal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.6rem;
+}
+
+/* প্যান্ডেল কার্ড */
+.p-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid #f0e6d2;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.p-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(140, 15, 15, 0.14);
+  border-color: #d4af37;
+}
+
+.card-top {
+  background: linear-gradient(135deg, #991313 0%, #680505 100%);
+  color: white;
+  padding: 1.1rem 1.3rem;
+  position: relative;
+}
+
+.card-top h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-right: 60px;
+  line-height: 1.3;
+}
+
+.zone-tag {
+  position: absolute;
+  right: 1.1rem;
+  top: 1.1rem;
+  background: #ffdf79;
+  color: #6a0b0b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+}
+
+.card-info {
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-grow: 1;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.info-item i {
+  color: #a01515;
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+  width: 18px;
+  text-align: center;
+}
+
+.info-item strong {
+  color: #4a0808;
+}
+
+.card-action {
+  padding: 1rem 1.3rem;
+  background: #faf7f0;
+  border-top: 1px solid #eee5d0;
+}
+
+.map-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #a01515;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.65rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.map-link:hover {
+  background: #790c0c;
+  color: #ffdf79;
+}
+
+.empty-view {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 3rem;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #790c0c;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media(max-width: 600px) {
+  .puja-hero h1 { font-size: 2.2rem; }
+  .pandal-grid { grid-template-columns: 1fr; }
+}
