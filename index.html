@@ -11,7 +11,7 @@
     <div class="hero-content">
       <p class="eyebrow">শারদ উৎসব • ২০২৬</p>
       <h1>দুর্গাপূজা প্যান্ডেল গাইড</h1>
-      <p class="subtitle">কলকাতা ও আশপাশের পুজো ঘোরার সঙ্গী</p>
+      <p class="subtitle">কলকাতা ও আশপাশের সেরা পুজো প্যান্ডেল খুঁজে নাও</p>
       <a href="#pandals" class="hero-button">প্যান্ডেল দেখো ↓</a>
     </div>
   </header>
@@ -23,17 +23,13 @@
     </section>
 
     <section class="search-section" id="pandals">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="প্যান্ডেলের নাম লিখে খোঁজো..."
-        oninput="searchPandals()"
-        aria-label="প্যান্ডেল খুঁজুন"
-      >
+      <input id="searchInput" type="search"
+        placeholder="প্যান্ডেল বা এলাকার নাম লিখে খোঁজো..."
+        oninput="searchPandals()">
       <button type="button" onclick="searchPandals()">খুঁজুন</button>
     </section>
 
-    <nav class="zone-filters" aria-label="এলাকা অনুযায়ী ফিল্টার">
+    <nav class="zone-filters">
       <button class="zone-btn active" onclick="filterByZone('all', this)">সব প্যান্ডেল</button>
       <button class="zone-btn" onclick="filterByZone('Kalyani', this)">কল্যাণী</button>
       <button class="zone-btn" onclick="filterByZone('Salt Lake', this)">সল্টলেক</button>
@@ -44,37 +40,33 @@
       <button class="zone-btn" onclick="filterByZone('Behala', this)">বেহালা</button>
     </nav>
 
-    <div class="results-line">
-      <span id="resultCount">প্যান্ডেল লোড হচ্ছে...</span>
-    </div>
-
-    <section class="pandal-grid" id="pandalContainer" aria-live="polite"></section>
-
-    <p class="no-results" id="noResults" hidden>
-      দুঃখিত, এই নামে কোনো প্যান্ডেল পাওয়া যায়নি।
-    </p>
+    <p class="results-line" id="resultCount"></p>
+    <section class="pandal-grid" id="pandalContainer"></section>
+    <p class="no-results" id="noResults" hidden>কোনো প্যান্ডেল পাওয়া যায়নি।</p>
   </main>
 
   <div class="modal" id="pandalModal" aria-hidden="true">
     <div class="modal-backdrop" onclick="closeModal()"></div>
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="close-modal" type="button" onclick="closeModal()" aria-label="বন্ধ করুন">×</button>
-      <div class="modal-image" id="modalImg">🎪</div>
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button class="close-modal" onclick="closeModal()" aria-label="বন্ধ করুন">×</button>
+      <img id="modalImg" class="modal-image" src="" alt="দুর্গাপূজার প্রতিমা">
       <div class="modal-body">
         <span class="modal-zone" id="modalZone"></span>
         <h2 id="modalTitle"></h2>
         <p><strong>নিকটবর্তী রেলস্টেশন:</strong> <span id="modalRailway"></span></p>
-        <p><strong>নিকটবর্তী মেট্রো:</strong> <span id="modalMetro"></span></p>
+        <p><strong>নিকটবর্তী মেট্রো স্টেশন:</strong> <span id="modalMetro"></span></p>
         <p><strong>বিশেষ আকর্ষণ:</strong> <span id="modalFamous"></span></p>
         <p id="modalDesc"></p>
-        <a id="modalMap" class="map-button" href="#" target="_blank" rel="noopener noreferrer">Google Maps-এ পথ দেখো ↗</a>
+        <a id="modalMap" class="map-button" href="#" target="_blank" rel="noopener noreferrer">
+          Google Maps-এ পথ দেখো ↗
+        </a>
       </div>
     </div>
   </div>
 
   <footer>
     <p>শুভ শারদীয়া ২০২৬ ❤️</p>
-    <p class="footer-small">যাত্রার আগে যাতায়াতের তথ্য ও পুজোর সময়সূচি যাচাই করে নাও।</p>
+    <p class="footer-small">যাত্রার আগে যাতায়াতের তথ্য যাচাই করে নাও।</p>
   </footer>
 
   <script src="script.js"></script>
