@@ -8,13 +8,12 @@
 
 body {
     font-family: 'Hind Siliguri', sans-serif;
-    background: #090202; /* ডিপ ডার্ক পূজো থিম */
+    background: #090202;
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* টপ নেভিগেশন বার */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -41,14 +40,8 @@ body {
     margin-left: 20px;
     font-size: 0.95rem;
     font-weight: 600;
-    transition: 0.2s;
 }
 
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-/* দুর্গোৎসব মেগা হিরো ব্যানার */
 .puja-banner {
     position: relative;
     text-align: center;
@@ -70,7 +63,6 @@ body {
     font-size: 2.2rem;
     color: #ffd700;
     font-weight: 700;
-    text-shadow: 0 3px 15px rgba(0,0,0,0.8);
 }
 
 .guide-sub {
@@ -104,10 +96,8 @@ body {
     font-weight: 700;
     border-radius: 30px;
     font-size: 1.1rem;
-    box-shadow: 0 0 12px #ffcc00;
 }
 
-/* মেগা সার্চ সেকশন */
 .search-section {
     width: 100%;
     max-width: 720px;
@@ -121,7 +111,6 @@ body {
     border-radius: 40px;
     padding: 4px;
     border: 3px solid #ffcc00;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .search-ico {
@@ -143,21 +132,14 @@ body {
 .search-btn {
     background: #ffcc00;
     border: none;
-    outline: none;
     color: #000;
     padding: 12px 28px;
     font-size: 1rem;
     font-weight: 700;
     border-radius: 40px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.search-btn:hover {
-    background: #ffd700;
-}
-
-/* ক্যাটাগরি ফিল্টার চিপস */
 .filter-wrapper {
     background: #140505;
     padding: 15px 0;
@@ -174,7 +156,7 @@ body {
 }
 
 .category-scroll::-webkit-scrollbar {
-    display: none; /* ক্রোম/সাফারিতে স্ক্রোলবার হাইড */
+    display: none;
 }
 
 .cat-chip {
@@ -187,17 +169,14 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.25s ease-in-out;
 }
 
 .cat-chip:hover, .cat-chip.active {
     background: #ffcc00;
     color: #000000;
     border-color: #ffcc00;
-    box-shadow: 0 3px 10px rgba(255, 204, 0, 0.4);
 }
 
-/* কন্টেন্ট এরিয়া */
 .content-area {
     max-width: 1240px;
     margin: 40px auto;
@@ -221,17 +200,14 @@ body {
     font-size: 2rem;
     color: #ffd700;
     font-weight: 700;
-    text-transform: uppercase;
 }
 
-/* প্যান্ডেল গ্রিড */
 .pandal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 25px;
 }
 
-/* কার্ড স্টাইল */
 .card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 215, 0, 0.18);
@@ -243,14 +219,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     transition: 0.3s ease-in-out;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 .card:hover {
     transform: translateY(-8px);
     border-color: #ffd700;
     background: rgba(255, 255, 255, 0.09);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
 }
 
 .card-img-wrapper {
@@ -315,11 +289,6 @@ body {
     margin-top: 15px;
 }
 
-.view-btn:hover {
-    background: #ffe680;
-}
-
-/* পপ-আপ মডাল */
 .modal {
     display: none;
     position: fixed;
@@ -343,7 +312,6 @@ body {
     width: 100%;
     position: relative;
     color: #fff;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -364,11 +332,6 @@ body {
     font-size: 32px;
     color: #ffd700;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.close-btn:hover {
-    color: #ffffff;
 }
 
 .modal-details {
@@ -405,14 +368,8 @@ body {
     border-radius: 8px;
     font-weight: bold;
     border: 1px solid #ff6666;
-    transition: 0.25s;
 }
 
-.map-btn:hover {
-    background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
-}
-
-/* ফুটার */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -432,28 +389,12 @@ footer {
     font-size: 0.85rem;
 }
 
-/* মোবাইল রেসপন্সিভনেস */
 @media (max-width: 600px) {
-    .top-nav {
-        padding: 12px 15px;
-    }
-    .logo {
-        font-size: 1.15rem;
-    }
-    .nav-links a {
-        margin-left: 10px;
-        font-size: 0.8rem;
-    }
-    .durga-utsav-title {
-        font-size: 2.6rem;
-    }
-    .guide-title {
-        font-size: 1.6rem;
-    }
-    .guide-sub {
-        font-size: 0.95rem;
-    }
-    .pandal-grid {
-        grid-template-columns: 1fr;
-    }
+    .top-nav { padding: 12px 15px; }
+    .logo { font-size: 1.15rem; }
+    .nav-links a { margin-left: 10px; font-size: 0.8rem; }
+    .durga-utsav-title { font-size: 2.6rem; }
+    .guide-title { font-size: 1.6rem; }
+    .guide-sub { font-size: 0.95rem; }
+    .pandal-grid { grid-template-columns: 1fr; }
 }
