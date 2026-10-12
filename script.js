@@ -1,44 +1,180 @@
 const pandals = [
-    // --- কল্যাণী ও নদীয়া ---
-    { id: 1, name: "Kalyani ITI More", zone: "Kalyani", landmark: "Kalyani ITI More / Kalyani Ghoshpara / Kalyani A Block", railway: "Kalyani Main / Ghoshpara Halt", metro: "নাই (টোটো ও অটো প্রধান)", image: "https://images.unsplash.com/photo-1548625361-195fe21b6d0e?auto=format&fit=crop&w=700&q=80", famous: "আন্তর্জাতিক স্থাপত্য ও রাজকীয় মণ্ডপসজ্জা", desc: "কল্যাণীর ১ নম্বর আকর্ষণ। ঐতিহ্যবাহী অতিকায় রাজপ্রাসাদের নিখুঁত রেপ্লিকা দেখতে দূরদূরান্ত থেকে মানুষ আসেন। ঘোষপাড়া বা কল্যাণী মেইন স্টেশন থেকে টোটোয় ৭-১০ মিনিট।", map: "https://maps.google.com/?q=Kalyani+ITI+More+Durga+Puja" },
-    { id: 2, name: "Kalyani Central Park", zone: "Kalyani", landmark: "Central Park, Kalyani / Kalyani Main Station", railway: "Kalyani Main / Ghoshpara Halt", metro: "নাই", image: "https://images.unsplash.com/photo-1576487247299-e244b7d56637?auto=format&fit=crop&w=700&q=80", famous: "প্রকাণ্ড থিম মণ্ডপ ও লোক-ঐতিহ্য", desc: "কল্যাণীর অন্যতম বড় ও প্রথাগত পূজা। কল্যাণী মেইন বা ঘোষপাড়া হল্ট থেকে টোটোয় ৫ মিনিট।", map: "https://maps.google.com/?q=Kalyani+Central+Park+Durga+Puja" },
+  { id: 1, name: "Kalyani ITI More", zone: "Kalyani" },
+  { id: 2, name: "Kalyani Central Park", zone: "Kalyani" },
+  { id: 3, name: "Salt Lake FD Block", zone: "Salt Lake" },
+  { id: 4, name: "Salt Lake AK Block", zone: "Salt Lake" },
+  { id: 5, name: "Salt Lake BJ Block", zone: "Salt Lake" },
+  { id: 6, name: "New Town Sarbojanin", zone: "New Town" },
+  { id: 7, name: "Sree Bhumi Sporting Club", zone: "North Kolkata" },
+  { id: 8, name: "Tala Prattoy", zone: "North Kolkata" },
+  { id: 9, name: "Tala Barowari", zone: "North Kolkata" },
+  { id: 10, name: "Dum Dum Park Tarun Dal", zone: "North Kolkata" },
+  { id: 11, name: "Dum Dum Park Bharat Chakra", zone: "North Kolkata" },
+  { id: 12, name: "Dum Dum Park Tarun Sangha", zone: "North Kolkata" },
+  { id: 13, name: "Telengabagan", zone: "North Kolkata" },
+  { id: 14, name: "Manicktala Chaltabagan", zone: "North Kolkata" },
+  { id: 15, name: "Shimla Byam Samity", zone: "North Kolkata" },
+  { id: 16, name: "Hatibagan Sarbojonin", zone: "North Kolkata" },
+  { id: 17, name: "Hatibagan Nabin Pally", zone: "North Kolkata" },
+  { id: 18, name: "Sikdar Bagan Sadharan", zone: "North Kolkata" },
+  { id: 19, name: "Nalin Sarkar Street", zone: "North Kolkata" },
+  { id: 20, name: "Kashi Bose Lane", zone: "Central Kolkata" },
+  { id: 21, name: "Shobhabazar Rajbari", zone: "North Kolkata" },
+  { id: 22, name: "Beniatola Sarbojanin", zone: "North Kolkata" },
+  { id: 23, name: "Ahiritola Sarbojanin", zone: "North Kolkata" },
+  { id: 24, name: "Kumartuli Sarbojanin", zone: "North Kolkata" },
+  { id: 25, name: "Kumartuli Park", zone: "North Kolkata" },
+  { id: 26, name: "Jagat Mukherjee Park", zone: "North Kolkata" },
+  { id: 27, name: "Bagbazar Sarbojonin", zone: "North Kolkata" },
+  { id: 28, name: "Santosh Mitra Square", zone: "Central Kolkata" },
+  { id: 29, name: "College Square", zone: "Central Kolkata" },
+  { id: 30, name: "Mohammad Ali Park", zone: "Central Kolkata" },
+  { id: 31, name: "Chorbagan Sarbojanin", zone: "North Kolkata" },
+  { id: 32, name: "Millennium Park", zone: "Central Kolkata" },
+  { id: 33, name: "Naktala Udayan Sangha", zone: "South Kolkata" },
+  { id: 34, name: "Jodhpur Park", zone: "South Kolkata" }
+];
 
-    // --- সল্টলেক ও নিউ টাউন ---
-    { id: 3, name: "Salt Lake FD Block", zone: "Salt Lake", landmark: "FD Block Play Ground / Karunamoyee / Sector 5 / GD Block / Central Park / Salt Lake City Centre 1", railway: "Bidhannagar Road Station", metro: "Karunamoyee / Central Park / City Centre Metro", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80", famous: "মনোরম মেগা থিম ও প্রকাণ্ড মণ্ডপসজ্জা", desc: "সল্টলেকের রাজমুকুট। এফডি ব্লকের বিশাল উদ্যানে রাজপ্রাসাদ বা ঐতিহাসিক মন্দিরের অতিকায় রূপ ধারণ করে এই পুজো। করুণাময়ী বা সিটি সেন্টার মেট্রো থেকে ৫-৭ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?cid=5590044104116974140" },
-    { id: 4, name: "Salt Lake AK Block", zone: "Salt Lake", landmark: "AK Block Play Ground / Salt Lake City Centre 1 / GD Block / Sector II", railway: "Bidhannagar Road Station", metro: "City Centre Metro / Sector V / Karunamoyee", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80", famous: "হস্তশিল্প ও বাংলার মাটির কৃষ্টি-সংস্কৃতি", desc: "লোকশিল্প ও বাংলার নিখুঁত প্রাচীন থিমের শৈল্পিক মেলবন্ধন। সিটি সেন্টার ১ মেট্রো স্টেশন ও করুণাময়ী থেকে খুব কাছে।", map: "https://maps.google.com/?q=Salt+Lake+AK+Block+Durga+Puja" },
-    { id: 5, name: "Salt Lake BJ Block", zone: "Salt Lake", landmark: "BJ Block / Salt Lake City Centre 1 / Salt Lake Sector 5 / Karunamoyee", railway: "Bidhannagar Road Station", metro: "Karunamoyee / City Centre Metro", image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহ্যবাহী সাংস্কৃতিক শৈলী ও মনোরম পরিবেশ", desc: "পরিবার ও বন্ধুদের নিয়ে ঘোরার দারুণ জায়গা। সিটি সেন্টার ১ মেট্রো স্টেশন থেকে খুব কাছে।", map: "https://maps.google.com/?cid=5898045514729557278" },
-    { id: 6, name: "New Town Sarbojanin", zone: "New Town", landmark: "New Town Ak Block / Axis Mall / City Centre 2 / Salt Lake Sector 5 / Biswa Bangla Gate / Eco Park", railway: "Bidhannagar Road Station", metro: "Salt Lake Sector V / Airport Metro Link", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80", famous: "আধুনিক ইকো-বান্ধব মণ্ডপ ও বিশাল মেলা প্রাঙ্গণ", desc: "নিউ টাউন মেলা প্রাঙ্গণে আয়োজিত সুবিশাল পূজা। খোলা চত্বর ও চোখ ধাঁধানো পরিবেশ। অ্যাক্সিস মল ও বিশ্ব বাংলা গেটের খুব কাছেই অবস্থিত।", map: "https://maps.google.com/?cid=15780927754519669568" },
+let selectedZone = "all";
+let searchText = "";
 
-    // --- উত্তর কলকাতা ও দমদম ---
-    { id: 7, name: "Sree Bhumi Sporting Club", zone: "North Kolkata", landmark: "Sree Bhumi / VIP Road / Lake Town / Ultadanga / Bidhannagar Road", railway: "Bidhannagar Road Station (2 km)", metro: "Dum Dum / Belgachia Metro", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=700&q=80", famous: "অবিশ্বাস্য আলোকসজ্জা ও আন্তর্জাতিক স্মৃতিস্তম্ভের রেপ্লিকা", desc: "ভিআইপি রোডে লেকটাউন ঢোকার মুখে। প্রতি বছর অতিকায় মণ্ডপের রেপ্লিকা তৈরি করে দেশজুড়ে আলোড়ন ফেলে। উল্টোডাঙা বা বিধাননগর স্টেশন থেকে সহজেই পৌঁছানো যায়।", map: "https://maps.google.com/?cid=13498846934416172605" },
-    { id: 8, name: "Tala Prattoy", zone: "North Kolkata", landmark: "Tala Prattoy / Tala Park / Shyambazar / Tala Circular Rd / Belgachia / Manicktala", railway: "Kolkata Station (Chitpur)", metro: "Belgachia / Shyambazar Metro", image: "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=700&q=80", famous: "আধুনিক ইনস্টলেশন আর্ট ও শৈল্পিক স্থাপত্য", desc: "প্যান্ডেল আর্টের জগতে এক অনন্য দৃষ্টান্ত। অভিনব শিল্প ভাবনা ও প্রতিমার রূপ দেখতে মানুষের উপচে পড়া ভিড় হয়। বেলগাছিয়া মেট্রো ও মানিকতলা থেকে ৭-১০ মিনিট।", map: "https://maps.google.com/?cid=11726144247438210038" },
-    { id: 9, name: "Tala Barowari", zone: "North Kolkata", landmark: "Tala Barowari / Shyambazar / Tala / Belgachia Metro / Manikpally / Manicktala", railway: "Kolkata Railway Station", metro: "Shyambazar / Belgachia Metro", image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহ্য ও সংস্কৃতির চমৎকার সহাবস্থান", desc: "উত্তর কলকাতার অন্যতম প্রাচীন পুজো। লোকশিল্পের ছোঁয়া সবসময় দেখতে পাওয়া যায়। বেলগাছিয়া বা শ্যামবাজার মেট্রো ও মানিকতলা থেকে ৫-৭ মিনিট।", map: "https://maps.google.com/?q=Tala+Barowari+Durga+Puja" },
-    { id: 10, name: "Dum Dum Park Tarun Dal", zone: "North Kolkata", landmark: "Dum Dum Park / VIP Road / Kestopur / Salt Lake Sector V", railway: "Dum Dum Junction / Bidhannagar Road", metro: "Dum Dum / Belgachia Metro", image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=700&q=80", famous: "উদ্ভাবনী শিল্প ও সমকালীন চমৎকার থিম", desc: "দমদম পার্ক এলাকার অত্যন্ত জনপ্রিয় ও শৈল্পিক পুজো। ভিআইপি রোড ধরে ঢোকা অত্যন্ত সহজ।", map: "https://maps.google.com/?q=Dum+Dum+Park+Tarun+Dal" },
-    { id: 11, name: "Dum Dum Park Bharat Chakra", zone: "North Kolkata", landmark: "Dum Dum Park / Kestopur / VIP Road / Salt Lake / Ultadanga", railway: "Dum Dum Junction / Bidhannagar Road", metro: "Dum Dum Metro / Belgachia", image: "https://images.unsplash.com/photo-1548625361-195fe21b6d0e?auto=format&fit=crop&w=700&q=80", famous: "দৃষ্টি নন্দন কালার স্কিম ও সামাজিক থিম", desc: "বাস্তব সামাজিক সমস্যাকে অদ্ভুত সুন্দর শিল্পকর্মের মাধ্যমে মণ্ডপে তুলে ধরা হয়।", map: "https://maps.google.com/?q=Dum+Dum+Park+Bharat+Chakra" },
-    { id: 12, name: "Dum Dum Park Tarun Sangha", zone: "North Kolkata", landmark: "Dum Dum Park / VIP Road / Dum Dum Stn / Belgachia Metro / Ultadanga", railway: "Dum Dum Junction / Bidhannagar Road", metro: "Dum Dum / Belgachia Metro", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80", famous: "অনন্য মণ্ডপ স্থাপত্য ও চোখ ধাঁধানো আলো", desc: "দমদম পার্কের পাশাপাশি অবস্থিত মেগা আর্ট ক্লাস্টার। প্রতিমার অপূর্ব রূপ দর্শকদের মনে দাগ কাটে।", map: "https://maps.google.com/?q=Dum+Dum+Park+Tarun+Sangha" },
-    { id: 13, name: "Telengabagan", zone: "North Kolkata", landmark: "Ultadanga / Telengabagan / VIP Road / Kankurgachi / Shyambazar / Manicktala", railway: "Bidhannagar Road Station", metro: "Shyambazar / Belgachia Metro", image: "https://images.unsplash.com/photo-1576487247299-e244b7d56637?auto=format&fit=crop&w=700&q=80", famous: "নৈসর্গিক আর্ট ও মাটির অপরূপ শৈলী", desc: "উল্টোডাঙা হাডকো মোড়ের কাছে অত্যন্ত জনপ্রিয় থিম পুজো। শিয়ালদহ, মানিকতলা ও বিধাননগর স্টেশনের কাছে।", map: "https://maps.google.com/?cid=42156555121404116499" },
-    { id: 14, name: "Manicktala Chaltabagan", zone: "North Kolkata", landmark: "Manicktala / Chaltabagan / Girish Park / Shyambazar / Kankurgachi / Vivekananda Road / Sealdah", railway: "Sealdah Railway Station", metro: "Girish Park / Sovabazar Metro", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80", famous: "কাঁচ, পিতল ও অভিনব আলোকসজ্জার মেলবন্ধন", desc: "উত্তর ও মধ্য কলকাতার সংযোগস্থলের অত্যন্ত জনপ্রিয় মেগা পূজা। গিরীশ পার্ক বা শোভাবাজার মেট্রো এবং মানিকতলা মোড় থেকে খুব কাছে।", map: "https://maps.google.com/?cid=7414963125532025264" },
-    { id: 15, name: "Shimla Byam Samity", zone: "North Kolkata", landmark: "Shimla Street / Shimla Byam Samity / Girish Park / Shyambazar / Vivekananda Road / Manicktala", railway: "Sealdah Railway Station", metro: "Girish Park Metro", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহাসিক বনেদি ব্যায়াম বীররস থিম", desc: "নেতাজী সুভাষচন্দ্র বসুর স্মৃতিবিজড়িত অন্যতম ঐতিহাসিক পুজো। গিরীশ পার্ক মেট্রো ও মানিকতলা থেকে ৩ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=Simla+Byam+Samity" },
-    { id: 16, name: "Hatibagan Sarbojonin", zone: "North Kolkata", landmark: "Hatibagan / Shyambazar / Girish Park / Aurobindo Sarani", railway: "Bidhannagar Road Station", metro: "Shyambazar / Girish Park Metro", image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=700&q=80", famous: "শহুরে লোকশিল্প ও দৃষ্টিনন্দন থিম মণ্ডপ", desc: "হাতিবাগানের প্রাণকেন্দ্রে অনন্য থিম ও মণ্ডপসজ্জা। হাতিবাগান মোড় ও শ্যামবাজার থেকে মাত্র ৩ মিনিট।", map: "https://maps.google.com/?cid=8683911336487123911" },
-    { id: 17, name: "Hatibagan Nabin Pally", zone: "North Kolkata", landmark: "Hatibagan Nabin Pally / Shyambazar / Girish Park / Aurobindo Sarani", railway: "Bidhannagar Road Station", metro: "Shyambazar / Girish Park Metro", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=700&q=80", famous: "শৈল্পিক গ্রামীণ আবহের থিম ও মণ্ডপ", desc: "হাতিবাগানের অত্যন্ত ফেমাস ও সুশৃঙ্খল প্যান্ডেল। হাতিবাগান মোড় থেকে ৫ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=Hatibagan+Nabin+Pally" },
-    { id: 18, name: "Sikdar Bagan Sadharan", zone: "North Kolkata", landmark: "Sikdar Bagan / Shyambazar / Hati Bagan / Girish Park / Aurobindo Sarani", railway: "কলকাতা রেল স্টেশন", metro: "Shyambazar Metro / Girish Park", image: "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=700&q=80", famous: "সূক্ষ্ম কারুশিল্প ও দৃষ্টিনন্দন প্রতিমা", desc: "উত্তর কলকাতার ঐতিহ্যবাহী প্রাচীন পুজো। শ্যামবাজার ৫ পয়েন্ট মোড় বা হাতিবাগান থেকে ৮-১০ মিনিট।", map: "https://maps.google.com/?q=Sikdar+Bagan+Sadharan+Durga+Puja" },
-    { id: 19, name: "Nalin Sarkar Street", zone: "North Kolkata", landmark: "Nalin Sarkar Street / Shyambazar / Hatibagan / Girish Park / Aurobindo Sarani", railway: "Bidhannagar Road Station", metro: "Shyambazar Metro / Girish Park", image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=700&q=80", famous: "অপূর্ব সামাজিক ও প্রাচীন রূপকার থিম", desc: "হাতিবাগান ও শ্যামবাজারের অত্যন্ত কাছের একটি পুজো। হাতিবাগান মোড় থেকে ৭-৮ মিনিট।", map: "https://maps.google.com/?cid=11840521458753992955" },
-    { id: 20, name: "Kashi Bose Lane", zone: "North Kolkata", landmark: "Kashi Bose Lane / Shyambazar / Hatibagan / Girish Park / Aurobindo Sarani", railway: "Kolkata Railway Station", metro: "Shyambazar / Girish Park Metro", image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=700&q=80", famous: "গভীর ভাবনামূলক থিম ও ঐতিহ্যবাহী প্রতিমা", desc: "হাতিবাগানের প্রাণকেন্দ্রে অত্যন্ত বিখ্যাত ও পুরস্কারপ্রাপ্ত পুজো। হাতিবাগান মোড় থেকে ৫ মিনিট।", map: "https://maps.google.com/?cid=15378221803207001415" },
-    { id: 21, name: "Shobhabazar Rajbari", zone: "North Kolkata", landmark: "Shobhabazar Rajbari / Sovabazar / Ahiritola / Bagbazar / Kumartuli / Rani Rashmoni Ghat", railway: "Sutanuti Railway Halt", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহাসিক রাজবাড়ির প্রাচীন সাবেকি পুজো", desc: "ঐতিহাসিক শোভাবাজার রাজবাড়ির অত্যন্ত গৌরবময় বনেদি বাড়ির দুর্গাপূজা। নাটমন্দিরে ঐতিহ্যবাহী প্রতিমা দর্শনের মেগা আয়োজন। শোভাবাজার সুতানুটি মেট্রো স্টেশন থেকে ৩ মিনিট।", map: "https://maps.google.com/?q=Shobhabazar+Rajbari" },
-    { id: 22, name: "Beniatola Sarbojanin", zone: "North Kolkata", landmark: "Beniatola / Shobhabazar Rajbari / Sovabazar / Ahiritola / Bagbazar / Kumartuli", railway: "Sutanuti Railway Halt", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1548625361-195fe21b6d0e?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহাসিক রাজবাড়ী সংলগ্ন ঐতিহ্যবাহী পূজা", desc: "শোভাবাজার-আহিরীটোলা এলাকার জনপ্রিয় ঐতিহ্যবাহী পূজা। প্রাচীন কারুশিল্পের মেলবন্ধন মণ্ডপে দেখা যায়। শোভাবাজার মেট্রো থেকে ৫ মিনিট।", map: "https://maps.google.com/?q=Beniatola+Sarbojanin" },
-    { id: 23, name: "Ahiritola Sarbojanin", zone: "North Kolkata", landmark: "Ahiritola Ghat / Sovabazar / Bagbazar / Kumartuli / Shobhabazar Rajbari / Rani Rashmoni Ghat / Millennium Park", railway: "Ahiritola Ghat / Howrah Station", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহ্য ও সংস্কৃতির মেলবন্ধন", desc: "উত্তর কলকাতার গঙ্গাপাড়ের অন্যতম ব্যস্ত ও নান্দনিক পূজামণ্ডপ। শোভাবাজার বা আহিরীটোলা ঘাট থেকে ৫-৭ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?cid=17481266612396472594" },
-    { id: 24, name: "Kumartuli Sarbojanin", zone: "North Kolkata", landmark: "Kumartuli Sarbojanin / Sovabazar / Kumartuli Artisans Area / Ahiritola / Bagbazar / Shobhabazar Rajbari / Rani Rashmoni Ghat", railway: "Sovabazar Ahiritola Station", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1576487247299-e244b7d56637?auto=format&fit=crop&w=700&q=80", famous: "অপূর্ব মাটির কারুকাজ ও সাবেকি প্রতিমা", desc: "মৃৎশিল্পীদের পাড়ায় গড়ে ওঠা অন্যতম ঐতিহ্যবাহী পুজো। প্রতিমার রূপ ও সাজসজ্জা অনবদ্য। শোভাবাজার মেট্রো থেকে মাত্র ৭ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=Kumartuli+Sarbojanin" },
-    { id: 25, name: "Kumartuli Park", zone: "North Kolkata", landmark: "Kumartuli Park / Sovabazar / Kumartuli Artisans Area / Ahiritola / Bagbazar / Shobhabazar Rajbari / Rani Rashmoni Ghat / Millennium Park", railway: "Sovabazar Ahiritola Station", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80", famous: "আধুনিক ইনস্টলেশন আর্ট ও শৈল্পিক স্থাপত্য", desc: "মৃৎশিল্পীদের আঙিনায় গড়ে ওঠা অনন্য পূজামণ্ডপ। প্রতিমা ও মণ্ডপের মাটির অলঙ্করণ সবসময় দর্শকদের মুগ্ধ করে। শোভাবাজার মেট্রো থেকে ৫-৭ মিনিট।", map: "https://maps.google.com/?cid=10306922731007759124" },
-    { id: 26, name: "Jagat Mukherjee Park", zone: "North Kolkata", landmark: "Jagat Mukherjee Park / Sovabazar / Kumartuli Artisans Area / Ahiritola / Bagbazar / Shobhabazar Rajbari / Rani Rashmoni Ghat / Millennium Park", railway: "Sovabazar Ahiritola Station", metro: "Sovabazar Sutanuti Metro", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80", famous: "পানির ওপর শৈল্পিক মণ্ডপ ও আধুনিক ইনস্টলেশন", desc: "উত্তর কলকাতার ঐতিহ্য ও গঙ্গার ওপেন ভাইব সমৃদ্ধ পূজো। শোভাবাজার মেট্রো ও গঙ্গার ঘাটের নিকটবর্তী। শোভাবাজার মেট্রো থেকে ৭ মিনিট।", map: "https://maps.google.com/?q=Jagat+Mukherjee+Park" },
-    { id: 27, name: "Bagbazar Sarbojonin", zone: "North Kolkata", landmark: "Shyambazar / Bagbazar Ghat / Kumartuli / Sovabazar / Millennium Park / Rani Rashmoni Ghat", railway: "Bagbazar Stn / Kolkata Terminal", metro: "Shyambazar Metro", image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=700&q=80", famous: "সবচেয়ে প্রাচীন সাবেকি দুর্গাপূজা ও বিশালাকার মেলা", desc: "শতবর্ষের ঐতিহ্যবাহী সাবেকি দুর্গাপূজার সেরা ঠিকানা। সাবেকি ডাকের সাজের দেবী প্রতিমা ও ভোরের আরতি দেখতে বহু দূর থেকে মানুষ আসেন। শ্যামবাজার মোড় থেকে হেঁটে সরাসরি পৌঁছানো যায়।", map: "https://maps.google.com/?q=Bagbazar+Sarbojonin" },
+const container = document.getElementById("pandalContainer");
+const resultCount = document.getElementById("resultCount");
+const noResults = document.getElementById("noResults");
+const searchInput = document.getElementById("searchInput");
+const modal = document.getElementById("pandalModal");
 
-    // --- मध्य কলকাতা ও ঘাট ---
-    { id: 28, name: "Santosh Mitra Square", zone: "Central Kolkata", landmark: "Lebutala Park / Bowbazar / Sealdah Station / Sealdah / Chandni Chowk / Central Metro", railway: "Sealdah Station (হাঁটা পথ)", metro: "Sealdah / Central / Bowbazar Metro", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=700&q=80", famous: "গ্র্যান্ড রিয়েলিস্টিক থিম ও লেজার লাইট শো", desc: "শিয়ালদহ স্টেশন ও লেবুতলা পার্কের একদম কাছে। চোখ ধাঁধানো মেগা থিম আর্টের জন্য বিখ্যাত। শিয়ালদহ স্টেশন থেকে ৫ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=Santosh+Mitra+Square" },
-    { id: 29, name: "College Square", zone: "Central Kolkata", landmark: "College Street / Sealdah Station / Sealdah / MG Road / Central Metro", railway: "Howrah / Sealdah Station", metro: "Mahatma Gandhi Road / Central Metro / Sealdah", image: "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=700&q=80", famous: "দিঘির জলে রাজপ্রাসাদের আলোর চমৎকার প্রতিফলন", desc: "দিঘির চারপাশ ঘিরে চন্দননগরের অবিশ্বাস্য আলোকসজ্জা এবং জলের ওপর ভাসমান মণ্ডপের রূপ দেখতে রাতভর ভিড় থাকে। শিয়ালদহ বা মহাত্মা গান্ধী রোড মেট্রো থেকে অতি নিকটে।", map: "https://maps.google.com/?q=College+Square+Kolkata" },
-    { id: 30, name: "Mohammad Ali Park", zone: "Central Kolkata", landmark: "MG Road Metro / Chittaranjan Ave / Central Metro / Girish Park / Sealdah", railway: "Sealdah Station", metro: "Mahatma Gandhi Road Metro / Central / Sealdah", image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহাসিক ভারতীয় মন্দিরের নিখুঁত রেপ্লিকা", desc: "সেন্ট্রাল অ্যাভিনিউয়ের ওপর বিশাল পার্ক জুড়ে ভারতীয় ঐতিহ্যের নানা সুপ্রাচীন স্থাপত্য মণ্ডপ হিসেবে ফুটে ওঠে। এমজি রোড মেট্রো ও শিয়ালদহের নিকটে।", map: "https://maps.google.com/?q=Mohammad+Ali+Park" },
-    { id: 31, name: "Chorbagan Sarbojanin", zone: "Central Kolkata", landmark: "Chorbagan / Girish Park Metro / Chittaranjan Avenue / Vivekananda Rd / MG Road / Sealdah", railway: "Sealdah Railway Station", metro: "Girish Park / Central Metro / MG Road", image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=700&q=80", famous: "আধুনিক শিল্প ও ঐতিহ্যবাহী নান্দনিক মণ্ডপ", desc: "গিরীশ পার্ক মেট্রো স্টেশনের কাছে অবস্থিত অত্যন্ত নান্দনিক ও প্রশংসিত পুজো। গিরীশ পার্ক ও মানিকতলা থেকে ৫ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=Chorbagan+Sarbojanin" },
-    { id: 32, name: "Millennium Park", zone: "Central Kolkata", landmark: "Kolkata Strand Road / Babu Ghat / High Court / BBD Bag / Howrah Bridge / Millennium Park / Sealdah / Ahiritola / Bagbazar", railway: "Howrah / BB Bag / Sealdah", metro: "Esplanade / Chandni Chowk Metro / Sealdah", image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=700&q=80", famous: "গঙ্গার ঘাট ও রিল্যাক্সিং ওপেন-এয়ার স্পট", desc: "পুজো ঘোরার ফাঁকে একটু বিশ্রাম, গঙ্গার হাওয়া খাওয়া বা বন্ধুদের সাথে বসার জন্য একদম সেরা স্পট! বাবুঘাট এবং স্ট্র্যান্ড রোড সংলগ্ন। শিয়ালদা বা সেন্ট্রাল থেকে সহজেই আসা যায়।", map: "https://maps.google.com/?q=Millennium+Park+Kolkata" },
+function getMapUrl(pandal) {
+  const query = `${pandal.name}, Kolkata, West Bengal`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
 
-    // --- দক্ষিণ কলকাতা ---
-    { id: 33, name: "Naktala Udayan Sangha", zone: "South Kolkata", landmark: "Garia / Naktala / Gitanjali Metro / Tollygunge / Jatin Das Park / Kalighat", railway: "গড়িয়া রেল স্টেশন", metro: "Gitanjali (Naktala) / Kudghat Metro / Kalighat", image: "https://images.unsplash.com/photo-1548625361-195fe21b6d0e?auto=format&fit=crop&w=700&q=80", famous: "বিশাল স্কেল ইনস্টলেশন আর্ট ও জমজমাট পরিবেশ", desc: "দক্ষিণ কলকাতার জনপ্রিয়তম থিম পুজোর অন্যতম। আলো ও শিল্পের এক বিস্ময়কর আবহ তৈরি করা হয়। গীতাঞ্জলি মেট্রো ও গড়িয়া থেকে মাত্র ৪ মিনিট।", map: "https://maps.google.com/?q=Naktala+Udayan+Sangha" },
-    { id: 34, name: "Jodhpur Park", zone: "South Kolkata", landmark: "Jodhpur Park / Dhakuria Stn / Gariahat South / Jadavpur / Kalighat / Jatin Das Park", railway: "Dhakuria Railway Station", metro: "Rabindra Sarobar / Kalighat Metro / Gariahat", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80", famous: "অনন্য মণ্ডপ স্থাপত্য ও লোকসংস্কৃতি", desc: "দক্ষিণ কলকাতার অত্যন্ত মেগা ও শৈল্পিক পুজো। ঢাকুরিয়া স্টেশন সংলগ্ন ঐতিহ্যবাহী পূজা প্রাঙ্গণ। ঢাকুরিয়া স্টেশন থেকে ৪ মিনিট।", ma
+function getZoneLabel(zone) {
+  const labels = {
+    "Kalyani": "কল্যাণী",
+    "Salt Lake": "সল্টলেক",
+    "New Town": "নিউ টাউন",
+    "North Kolkata": "উত্তর কলকাতা",
+    "Central Kolkata": "মধ্য কলকাতা",
+    "South Kolkata": "দক্ষিণ কলকাতা",
+    "Behala": "বেহালা"
+  };
+
+  return labels[zone] || zone;
+}
+
+function renderPandals() {
+  const filteredPandals = pandals.filter((pandal) => {
+    const matchesZone =
+      selectedZone === "all" || pandal.zone === selectedZone;
+
+    const searchableText =
+      `${pandal.name} ${pandal.zone} ${getZoneLabel(pandal.zone)}`.toLowerCase();
+
+    const matchesSearch = searchableText.includes(searchText.toLowerCase());
+
+    return matchesZone && matchesSearch;
+  });
+
+  container.innerHTML = "";
+
+  filteredPandals.forEach((pandal) => {
+    const card = document.createElement("article");
+    card.className = "pandal-card";
+
+    card.innerHTML = `
+      <div class="card-art" aria-hidden="true">🪔</div>
+      <div class="card-content">
+        <span class="zone-tag">${getZoneLabel(pandal.zone)}</span>
+        <h3>${escapeHTML(pandal.name)}</h3>
+        <p>প্যান্ডেল ও প্রতিমা দর্শনের জন্য বিস্তারিত দেখো।</p>
+        <div class="card-actions">
+          <button type="button" class="details-button">বিস্তারিত</button>
+          <a class="small-map-link"
+             href="${getMapUrl(pandal)}"
+             target="_blank"
+             rel="noopener noreferrer">ম্যাপ ↗</a>
+        </div>
+      </div>
+    `;
+
+    card.querySelector(".details-button").addEventListener("click", () => {
+      openModal(pandal);
+    });
+
+    container.appendChild(card);
+  });
+
+  resultCount.textContent = `মোট ${filteredPandals.length}টি প্যান্ডেল`;
+  noResults.hidden = filteredPandals.length !== 0;
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, (character) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    };
+
+    return entities[character];
+  });
+}
+
+function searchPandals() {
+  searchText = searchInput.value.trim();
+  renderPandals();
+}
+
+function filterByZone(zone, button) {
+  selectedZone = zone;
+
+  document.querySelectorAll(".zone-btn").forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  if (button) {
+    button.classList.add("active");
+  }
+
+  renderPandals();
+}
+
+function openModal(pandal) {
+  document.getElementById("modalImg").textContent = "🪔";
+  document.getElementById("modalTitle").textContent = pandal.name;
+  document.getElementById("modalZone").textContent = getZoneLabel(pandal.zone);
+  document.getElementById("modalRailway").textContent =
+    "যাত্রার আগে Google Maps-এ যাচাই করুন";
+  document.getElementById("modalMetro").textContent =
+    "নিকটবর্তী স্টেশন ও পরিষেবা যাচাই করুন";
+  document.getElementById("modalFamous").textContent =
+    "প্যান্ডেল ও প্রতিমা দর্শন";
+  document.getElementById("modalDesc").textContent =
+    "এটি প্যান্ডেল গাইডের তালিকাভুক্ত একটি পুজো। ২০২৬ সালের পুজোর সময়সূচি, ভিড় এবং যাতায়াতের সর্বশেষ তথ্য যাওয়ার আগে যাচাই করে নাও।";
+
+  const mapLink = document.getElementById("modalMap");
+  mapLink.href = getMapUrl(pandal);
+
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  document.querySelector(".close-modal").focus();
+}
+
+function closeModal() {
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
+
+renderPandals();
