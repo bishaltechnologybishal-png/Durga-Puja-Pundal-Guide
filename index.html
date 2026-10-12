@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>দুর্গাপূজা প্যান্ডেল গাইড 2026</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Durga Puja Pandal Guide 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,291 +13,121 @@
         }
 
         body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background: #090202;
+            font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a0808 0%, #0d0d1a 100%);
             color: #ffffff;
+            padding: 20px;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: rgba(15, 3, 3, 0.95);
-            border-bottom: 2px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-
-        .nav-links a {
-            color: #ffe680;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .puja-banner {
-            position: relative;
+        header {
             text-align: center;
-            padding: 50px 20px 60px;
-            border-bottom: 4px solid #ffd700;
-            background: linear-gradient(180deg, rgba(30, 2, 2, 0.75) 0%, rgba(9, 2, 2, 0.98) 100%),
-                        url('https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-        }
-
-        .top-symbols {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ffcc00;
-            letter-spacing: 3px;
-        }
-
-        .guide-title {
-            font-size: 2.2rem;
-            color: #ffd700;
-            font-weight: 700;
-        }
-
-        .guide-sub {
-            color: #faebd7;
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-        }
-
-        .subho-box {
-            margin-bottom: 25px;
-            display: inline-block;
-        }
-
-        .subho-text {
-            font-size: 1.3rem;
-            color: #ffea80;
-            display: block;
-        }
-
-        .durga-utsav-title {
-            font-size: 3.2rem;
-            color: #ff3333;
-            font-weight: 700;
-            text-shadow: 0 0 20px #ffcc00, 0 3px 10px #000000;
-        }
-
-        .year-badge {
-            background: #ffd700;
-            color: #000;
-            padding: 3px 18px;
-            font-weight: 700;
-            border-radius: 30px;
-            font-size: 1.1rem;
-        }
-
-        .search-section {
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .search-input-wrapper {
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-            border-radius: 40px;
-            padding: 4px;
-            border: 3px solid #ffcc00;
+            margin-bottom: 35px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
+            border-radius: 16px;
+            border: 2px solid #ffcc00;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
 
-        .search-ico {
-            color: #555555;
-            font-size: 1.2rem;
-            margin-left: 20px;
-        }
-
-        #searchInput {
-            flex-grow: 1;
-            border: none;
-            outline: none;
-            padding: 12px 10px;
-            font-size: 1rem;
-            color: #111111;
-            background: transparent;
-        }
-
-        .search-btn {
-            background: #ffcc00;
-            border: none;
-            color: #000;
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 40px;
-            cursor: pointer;
-        }
-
-        .filter-wrapper {
-            background: #140505;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
-        }
-
-        .category-scroll {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .category-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        .cat-chip {
-            flex: 0 0 auto;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1.5px solid rgba(255, 215, 0, 0.3);
-            color: #ffeb3b;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .cat-chip:hover, .cat-chip.active {
-            background: #ffcc00;
-            color: #000000;
-            border-color: #ffcc00;
-        }
-
-        .content-area {
-            max-width: 1240px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
-        .section-divider {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .ornament {
-            color: #ffd700;
-            font-size: 1.5rem;
-        }
-
-        .grid-title {
-            font-size: 1.9rem;
-            color: #ffd700;
-            font-weight: 700;
-        }
-
-        .pandal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 22px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-top: 4px solid #ffd700;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: #ffd700;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
-        }
-
-        .card-img-wrapper {
-            position: relative;
-            height: 180px;
-            background: #200505;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .zone-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ffcc00;
-            color: #000;
-            padding: 3px 10px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 15px;
-        }
-
-        .card-content {
-            padding: 18px;
-        }
-
-        .card-content h3 {
-            font-size: 1.2rem;
-            color: #ffffff;
+        header::before {
+            content: "🔱 🪔 🥁 🪔 🔱";
+            display: block;
+            font-size: 24px;
             margin-bottom: 8px;
         }
 
-        .landmark-tag {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.12);
+        h1 {
+            font-size: 2.2rem;
             color: #ffd700;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255, 215, 0, 0.25);
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
 
-        .specialty-text {
-            font-size: 0.88rem;
-            color: #cccccc;
-            line-height: 1.4;
+        header p {
+            color: #ffe680;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 14px 22px;
+            font-size: 15px;
+            border: 2px solid #ffd700;
+            border-radius: 30px;
+            outline: none;
+            background: #ffffff;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-top: 4px solid #ffd700;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.25);
+        }
+
+        .card h3 {
+            color: #ffd700;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffeb3b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            width: fit-content;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .view-btn {
-            display: block;
-            width: 100%;
+            margin-top: 15px;
             padding: 10px;
             background: #ffcc00;
             color: #000;
-            text-align: center;
-            font-weight: 700;
+            border: none;
             border-radius: 8px;
-            margin-top: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
         }
 
+        .view-btn:hover {
+            background: #ffe680;
+        }
+
+        /* Modal Popup */
         .modal {
             display: none;
             position: fixed;
@@ -306,7 +135,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.88);
+            background: rgba(0, 0, 0, 0.85);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -317,55 +146,40 @@
             background: #1a0a0a;
             border: 2px solid #ffd700;
             border-radius: 16px;
-            padding: 22px;
+            padding: 25px;
             max-width: 520px;
             width: 100%;
             position: relative;
             color: #fff;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
             max-height: 90vh;
             overflow-y: auto;
-        }
-
-        .modal-media img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1.5px solid #ffd700;
-            margin-bottom: 15px;
         }
 
         .close-btn {
             position: absolute;
             right: 18px;
-            top: 10px;
-            font-size: 32px;
+            top: 12px;
+            font-size: 28px;
             color: #ffd700;
             cursor: pointer;
         }
 
         .modal-details {
-            margin: 18px 0;
+            margin: 20px 0;
+            line-height: 1.8;
         }
 
         .modal-details p {
-            font-size: 0.92rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 8px;
             margin-bottom: 8px;
+            color: #dddddd;
         }
 
         .modal-details strong {
             color: #ffd700;
-        }
-
-        .tag {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.15);
-            color: #ffeb3b;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
         }
 
         .map-btn {
@@ -380,97 +194,27 @@
             border: 1px solid #ff6666;
         }
 
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            background: #090202;
-            border-top: 2px solid #ffd700;
-            margin-top: 40px;
-        }
-
-        .footer-msg {
-            color: #ffcc00;
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-        }
-
-        .copyright {
-            color: #888888;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 600px) {
-            .top-nav { padding: 12px 15px; }
-            .logo { font-size: 1.15rem; }
-            .nav-links a { margin-left: 10px; font-size: 0.8rem; }
-            .durga-utsav-title { font-size: 2.5rem; }
-            .guide-title { font-size: 1.5rem; }
-            .pandal-grid { grid-template-columns: 1fr; }
+        .map-btn:hover {
+            background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
         }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <div class="logo">🎪 প্যান্ডেল গাইড</div>
-        <div class="nav-links">
-            <a href="#"><i class="fa-solid fa-house"></i> হোম</a>
-            <a href="#"><i class="fa-solid fa-heart"></i> পছন্দের তালিকা</a>
-            <a href="#"><i class="fa-solid fa-circle-info"></i> আমাদের সম্পর্কে</a>
-        </div>
-    </nav>
-
-    <header class="puja-banner">
-        <div class="banner-content">
-            <div class="top-symbols">🔱 🪔 🥁 🪔 🔱</div>
-            <h2 class="guide-title">দুর্গাপূজা প্যান্ডেল গাইড</h2>
-            <p class="guide-sub">কলকাতা, সল্টলেক, বেহালা ও কল্যাণীয়সহ সকল সেরা পূজা প্যান্ডেল এক ক্লিকে খুঁজে নাও</p>
-            
-            <div class="subho-box">
-                <span class="subho-text">শুভ</span>
-                <h1 class="durga-utsav-title">দুর্গাপূজা</h1>
-                <span class="year-badge">2026</span>
-            </div>
-
-            <div class="search-section">
-                <div class="search-input-wrapper">
-                    <i class="fa-solid fa-magnifying-glass search-ico"></i>
-                    <input type="text" id="searchInput" onkeyup="searchPandals()" placeholder="প্যান্ডেল, স্টেশন বা ল্যান্ডমার্ক (যেমন: Manicktala, Sealdah, Kalighat, Jatin Das Park)...">
-                    <button class="search-btn" onclick="searchPandals()"><i class="fa-solid fa-magnifying-glass"></i> সার্চ</button>
-                </div>
-            </div>
-        </div>
+    <header>
+        <h1>🎪 দুর্গাপূজা প্যান্ডেল গাইড</h1>
+        <p>কলকাতা, সল্টলেক, বেহালা ও কল্যাণীয়সহ সকল সেরা পূজা প্যান্ডেল এক ক্লিকে খুঁজে নাও</p>
+        <input type="text" id="searchInput" onkeyup="searchPandals()" placeholder="এলাকা, প্যান্ডেল বা স্টেশন (যেমন: Sealdah, Manicktala, Kalighat, Jatin Das Park, Kalyani)...">
     </header>
 
-    <div class="filter-wrapper">
-        <div class="category-scroll">
-            <button class="cat-chip active" onclick="filterByZone('all')"><i class="fa-solid fa-globe"></i> অল</button>
-            <button class="cat-chip" onclick="filterByZone('Kalyani')"><i class="fa-solid fa-gopuram"></i> কল্যাণী</button>
-            <button class="cat-chip" onclick="filterByZone('New Town')"><i class="fa-solid fa-city"></i> নিউ টাউন</button>
-            <button class="cat-chip" onclick="filterByZone('Salt Lake')"><i class="fa-solid fa-building"></i> সল্টলেক</button>
-            <button class="cat-chip" onclick="filterByZone('North Kolkata')"><i class="fa-solid fa-place-of-worship"></i> উত্তর কলকাতা</button>
-            <button class="cat-chip" onclick="filterByZone('Central Kolkata')"><i class="fa-solid fa-landmark"></i> মধ্য কলকাতা</button>
-            <button class="cat-chip" onclick="filterByZone('South Kolkata')"><i class="fa-solid fa-archway"></i> দক্ষিণ কলকাতা</button>
-            <button class="cat-chip" onclick="filterByZone('Behala')"><i class="fa-solid fa-map-pin"></i> বেহালা</button>
-        </div>
-    </div>
-
-    <main class="content-area">
-        <div class="section-divider">
-            <span class="ornament">✨</span>
-            <h2 class="grid-title">ফেমাস প্যান্ডেল সমূহ</h2>
-            <span class="ornament">✨</span>
-        </div>
-
-        <div class="pandal-grid" id="pandalContainer"></div>
+    <main>
+        <div class="container" id="pandalContainer"></div>
     </main>
 
+    <!-- Modal Popup for Details -->
     <div id="pandalModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="modal-media">
-                <img id="modalImg" src="" alt="Pandal Feature">
-            </div>
             <h2 id="modalTitle"></h2>
             <span id="modalZone" class="tag"></span>
             
@@ -481,30 +225,92 @@
                 <p><strong>ℹ️ বিবরণ ও রুট গাইড:</strong> <span id="modalDesc"></span></p>
             </div>
 
-            <a id="modalMap" href="#" target="_blank" class="map-btn"><i class="fa-solid fa-location-dot"></i> Google Maps-এ লোকেশন দেখুন</a>
+            <a id="modalMap" href="#" target="_blank" class="map-btn">📍 Google Maps-এ লোকেশন দেখুন</a>
         </div>
     </div>
-
-    <footer>
-        <p class="footer-msg">✨ মায়ের আগমনে সকলের জীবন হোক আলোকিত ✨</p>
-        <p class="copyright">© 2026 দুর্গাপূজা প্যান্ডেল গাইড | সর্বস্বত্ব সংরক্ষিত</p>
-    </footer>
 
     <script>
         const pandals = [
             // --- কল্যাণী ও নদীয়া ---
-            { id: 1, name: "Kalyani ITI More", zone: "Kalyani", landmark: "Kalyani ITI More / Ghoshpara / A Block", railway: "Kalyani Main / Ghoshpara Halt", metro: "নাই (টোটো প্রধান)", image: "https://images.unsplash.com/photo-1548625361-195fe21b6d0e?auto=format&fit=crop&w=700&q=80", famous: "আন্তর্জাতিক স্থাপত্য ও রাজকীয় মণ্ডপসজ্জা", desc: "কল্যাণীর ১ নম্বর আকর্ষণ। বিশাল রাজপ্রাসাদের নিখুঁত রেপ্লিকা দেখতে দূরদূরান্ত থেকে মানুষ আসেন।", map: "https://maps.google.com/?q=Kalyani+ITI+More+Durga+Puja" },
-            { id: 2, name: "Kalyani Central Park", zone: "Kalyani", landmark: "Central Park / Kalyani Main Station", railway: "Kalyani Main / Ghoshpara Halt", metro: "নাই", image: "https://images.unsplash.com/photo-1576487247299-e244b7d56637?auto=format&fit=crop&w=700&q=80", famous: "প্রকাণ্ড থিম মণ্ডপ ও মেলা", desc: "কল্যাণীর অন্যতম ঐতিহ্যবাহী বড় পূজা। কল্যাণীয় মেইন স্টেশন থেকে টোটোয় ৫ মিনিট।", map: "https://maps.google.com/?q=Kalyani+Central+Park+Durga+Puja" },
+            { id: 1, name: "Kalyani ITI More", zone: "Kalyani (Nadia)", railway: "Kalyani Main Station / Ghoshpara Halt", metro: "নাই (ট্রেন ও টোটো প্রধান)", famous: "Grand Architecture & Mega Themes", desc: "কল্যাণীর এক নম্বর আকর্ষণ। কল্যাণী মেইন স্টেশন থেকে অটো বা টোটো নিয়ে সরাসরি যাওয়া যায়।", map: "https://maps.google.com/?q=Kalyani+ITI+More+Durga+Puja" },
+            { id: 2, name: "Luminous Park (A9)", zone: "Kalyani (Nadia)", railway: "Kalyani Main Station", metro: "নাই", famous: "Lighting & Creative Artwork", desc: "চমৎকার আলোকসজ্জা এবং মনোরম খোলা পরিবেশের জন্য পরিচিত। এ ব্লক বাজার থেকে কাছে।", map: "https://maps.google.com/?q=Kalyani+A9+Luminous+Park" },
+            { id: 3, name: "Kalyani Central Park", zone: "Kalyani (Nadia)", railway: "Kalyani Main / Ghoshpara Halt", metro: "নাই", famous: "Theme Pandal & Cultural Events", desc: "কল্যাণীর অন্যতম বড় ও ঐতিহ্যবাহী পূজা প্যান্ডেল।", map: "https://maps.google.com/?q=Kalyani+Central+Park+Durga+Puja" },
 
-            // --- সল্টলেক ও নিউ টাউন ---
-            { id: 3, name: "Salt Lake FD Block", zone: "Salt Lake", landmark: "FD Block Play Ground / Karunamoyee / Sector 5 / City Centre 1", railway: "Bidhannagar Road Station", metro: "Karunamoyee / City Centre Metro", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80", famous: "মনোরম মেগা থিম ও প্রকাণ্ড মণ্ডপসজ্জা", desc: "সল্টলেকের রাজমুকুট। করুণাময়ী বা সিটি সেন্টার মেট্রো থেকে ৫-৭ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?cid=5590044104116974140" },
-            { id: 4, name: "Salt Lake AK Block", zone: "Salt Lake", landmark: "AK Block / City Centre 1 / Karunamoyee", railway: "Bidhannagar Road Station", metro: "City Centre Metro / Sector V", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=700&q=80", famous: "হস্তশিল্প ও বাংলার মাটির কৃষ্টি-সংস্কৃতি", desc: "লোকশিল্প ও বাংলার নিখুঁত প্রাচীন থিমের শৈল্পিক মেলবন্ধন।", map: "https://maps.google.com/?q=Salt+Lake+AK+Block+Durga+Puja" },
-            { id: 5, name: "Salt Lake BJ Block", zone: "Salt Lake", landmark: "BJ Block / City Centre 1 / Sector 5", railway: "Bidhannagar Road Station", metro: "Karunamoyee / City Centre Metro", image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহ্যবাহী সাংস্কৃতিক শৈলী ও পরিবেশ", desc: "সিটি সেন্টার ১ মেট্রো স্টেশন থেকে খুব কাছেই অবস্থিত।", map: "https://maps.google.com/?cid=5898045514729557278" },
-            { id: 6, name: "New Town Sarbojanin", zone: "New Town", landmark: "New Town AK Block / Axis Mall / City Centre 2 / Biswa Bangla Gate", railway: "Bidhannagar Road Station", metro: "Sector V / Airport Link", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80", famous: "আধুনিক ইকো-বান্ধব মণ্ডপ ও মেলা", desc: "অ্যাক্সিস মল ও বিশ্ব বাংলা গেটের খুব কাছে নিউ টাউন মেলা প্রাঙ্গণে আয়োজিত সুবিশাল পূজা।", map: "https://maps.google.com/?cid=15780927754519669568" },
+            // --- নিউ টাউন & সল্টলেক ---
+            { id: 4, name: "New Town Sarbojanin", zone: "New Town", railway: "Bidhannagar Road Station", metro: "Salt Lake Sector V Metro", famous: "Modern Eco-themed Pandal", desc: "অ্যাক্সিস মল (Axis Mall) ও সিটি সেন্টার ২-এর কাছে নিউ টাউন মেলা গ্রাউন্ডে মেগা আয়োজন।", map: "https://maps.google.com/?q=New+Town+Sarbojanin+Durga+Puja" },
+            { id: 5, name: "FD Block, Salt Lake", zone: "Salt Lake", railway: "Bidhannagar Road Station", metro: "Karunamoyee / Sector V Metro", famous: "Family-friendly Grand Themes", desc: "সল্টলেকের সবচেয়ে ফেমাস ও সুশৃঙ্খল প্যান্ডেল। করুণাময়ী বা সিটি সেন্টার ১ থেকে সহজেই যাওয়া যায়।", map: "https://maps.google.com/?q=FD+Block+Durga+Puja+Salt+Lake" },
+            { id: 6, name: "BJ Block, Salt Lake", zone: "Salt Lake", railway: "Bidhannagar Road Station", metro: "Karunamoyee Metro", famous: "Traditional & Cultural Decor", desc: "সিটি সেন্টার ১ এর কাছে পরিবার ও বন্ধুদের নিয়ে ঘোরার দারুণ জায়গা।", map: "https://maps.google.com/?q=BJ+Block+Durga+Puja+Salt+Lake" },
+            { id: 7, name: "AK Block, Salt Lake", zone: "Salt Lake", railway: "Bidhannagar Road Station", metro: "City Centre Metro", famous: "লোকশিল্প ও হস্তশিল্পের থিম", desc: "সিটি সেন্টার ১ ও করুণাময়ী সংলগ্ন শৈল্পিক প্যান্ডেল।", map: "https://maps.google.com/?q=AK+Block+Salt+Lake+Durga+Puja" },
 
             // --- উত্তর কলকাতা (মানিকতলা ও সংলগ্ন) ---
-            { id: 7, name: "Sree Bhumi Sporting Club", zone: "North Kolkata", landmark: "Sree Bhumi / VIP Road / Lake Town / Ultadanga / Manicktala", railway: "Bidhannagar Road Station", metro: "Dum Dum / Belgachia Metro", image: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=700&q=80", famous: "আন্তর্জাতিক স্মৃতিস্তম্ভের রেপ্লিকা ও আলো", desc: "ভিআইপি রোডে লেকটাউন মুখে। উল্টোডাঙা বা বিধাননগর স্টেশন থেকে সহজেই পৌঁছানো যায়।", map: "https://maps.google.com/?cid=13498846934416172605" },
-            { id: 8, name: "Manicktala Chaltabagan", zone: "North Kolkata", landmark: "Manicktala / Chaltabagan / Girish Park / Vivekananda Road / Sealdah", railway: "Sealdah Railway Station", metro: "Girish Park / Sovabazar Metro", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80", famous: "কাঁচ, পিতল ও অভিনব আলোকসজ্জা", desc: "মানিকতলা মোড়, গিরীশ পার্ক মেট্রো এবং শিয়ালদহের একদম কাছে অত্যন্ত জনপ্রিয় মেগা পূজা।", map: "https://maps.google.com/?cid=7414963125532025264" },
-            { id: 9, name: "Shimla Byam Samity", zone: "North Kolkata", landmark: "Manicktala / Shimla Street / Girish Park / Vivekananda Road", railway: "Sealdah Railway Station", metro: "Girish Park Metro", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80", famous: "ঐতিহাসিক বনেদি ব্যায়াম বীররস থিম", desc: "নেতাজী সুভাষচন্দ্র বসুর স্মৃতিবিজড়িত পুজো। গিরীশ পার্ক ও মানিকতলা থেকে ৩ মিনিট।", map: "https://maps.google.com/?q=Simla+Byam+Samity" },
-            { id: 10, name: "Telengabagan", zone: "North Kolkata", landmark: "Ultadanga / Telengabagan / Manicktala / Kankurgachi", railway: "Bidhannagar Road Station", metro: "Shyambazar / Belgachia Metro", image: "https://images.unsplash.com/photo-1576487247299-e244b7d56637?auto=format&fit=crop&w=700&q=80", famous: "নৈসর্গিক আর্ট ও মাটির অপরূপ শৈলী", desc: "উল্টোডাঙা হাডকো মোড়ের কাছে জনপ্রিয় থিম পুজো। মানিকতলা ও বিধাননগরের নিকটে।", map: "https://maps.google.com/?cid=42156555121404116499" },
-            { id: 11, name: "Tala Prattoy", zone: "North Kolkata", landmark: "Tala Prattoy / Shyambazar / Belg
+            { id: 8, name: "Sree Bhumi Sporting Club", zone: "Lake Town / North Kolkata", railway: "Bidhannagar Road Station (2 km)", metro: "Dum Dum / Belgachia Metro", famous: "Grand Lighting & Iconic Replicas", desc: "ভিআইপি রোডে লেকটাউন মুখে। উল্টোডাঙা বা বিধাননগর স্টেশন থেকে সহজেই পৌঁছানো যায়।", map: "https://maps.google.com/?q=Sree+Bhumi+Sporting+Club+Lake+Town" },
+            { id: 9, name: "Manicktala Chaltabagan", zone: "Manicktala / North Kolkata", railway: "Sealdah Railway Station", metro: "Girish Park / Sovabazar Metro", famous: "কাঁচ, পিতল ও আলোকসজ্জা", desc: "মানিকতলা মোড়, গিরীশ পার্ক ও শিয়ালদহের একদম কাছে অত্যন্ত জনপ্রিয় পূজা।", map: "https://maps.google.com/?q=Manicktala+Chaltabagan+Durga+Puja" },
+            { id: 10, name: "Shimla Byam Samity", zone: "Manicktala / North Kolkata", railway: "Sealdah Railway Station", metro: "Girish Park Metro", famous: "ঐতিহাসিক বনেদি ব্যায়াম বীররস থিম", desc: "নেতাজী সুভাষচন্দ্র বসুর স্মৃতিবিজড়িত পুজো। গিরীশ পার্ক ও মানিকতলা থেকে ৩ মিনিট।", map: "https://maps.google.com/?q=Simla+Byam+Samity" },
+            { id: 11, name: "Telengabagan", zone: "Ultadanga / Manicktala", railway: "Bidhannagar Road Station", metro: "Shyambazar / Belgachia Metro", famous: "নৈসর্গিক আর্ট ও মাটির কাজ", desc: "উল্টোডাঙা হাডকো মোড়ে অবস্থিত। মানিকতলা ও বিধাননগর স্টেশন থেকে কাছে।", map: "https://maps.google.com/?q=Telengabagan+Durga+Puja" },
+            { id: 12, name: "Tala Prattoy", zone: "North Kolkata", railway: "Kolkata Station (Chitpur)", metro: "Belgachia / Shyambazar Metro", famous: "আধুনিক ইনস্টলেশন আর্ট", desc: "অভিনব শিল্প ভাবনার সেরা নিদর্শন। বেলগাছিয়া মেট্রো ও মানিকতলা থেকে খুব কাছে।", map: "https://maps.google.com/?q=Tala+Prattoy+Durga+Puja" },
+            { id: 13, name: "Hatibagan Sarbojonin", zone: "North Kolkata", railway: "Bidhannagar Road Station", metro: "Shyambazar / Girish Park Metro", famous: "শহুরে লোকশিল্প ও থিম", desc: "হাতিবাগান মোড়ে অবস্থিত। শ্যামবাজার ও মানিকতলা থেকে সহজে আসা যায়।", map: "https://maps.google.com/?q=Hatibagan+Sarbojonin+Durga+Puja" },
+            { id: 14, name: "Kashi Bose Lane", zone: "North Kolkata", railway: "Kolkata Railway Station", metro: "Shyambazar / Girish Park Metro", famous: "গভীর ভাবনামূলক থিম ও ভাস্কর্য", desc: "হাতিবাগান ও মানিকতলা চত্বরের অত্যন্ত জনপ্রিয় মেগা পুজো।", map: "https://maps.google.com/?q=Kashi+Bose+Lane+Durga+Puja" },
+            { id: 15, name: "Bagbazar Sarbojonin", zone: "North Kolkata", railway: "Bagbazar Stn / Kolkata Terminal", metro: "Shyambazar Metro", famous: "শতবর্ষের ঐতিহ্যবাহী সাবেকি একচালা", desc: "শতবর্ষের ঐতিহ্যবাহী সাবেকি ডাকের সাজের দেবী প্রতিমা। শ্যামবাজার মেট্রো থেকে হেঁটে যাওয়া যায়।", map: "https://maps.google.com/?q=Bagbazar+Sarbojonin" },
+            { id: 16, name: "Shobhabazar Rajbari", zone: "North Kolkata", railway: "Sovabazar Ahiritola Station", metro: "Sovabazar Sutanuti Metro", famous: "ঐতিহাসিক বনেদি বাড়ির প্রাচীন সাবেকি পুজো", desc: "শোভাবাজার রাজবাড়ির নাটমন্দিরে ঐতিহাসির প্রতিমা দর্শন। সুতানুটি মেট্রো থেকে ৩ মিনিট।", map: "https://maps.google.com/?q=Shobhabazar+Rajbari" },
+            { id: 17, name: "Kumartuli Park", zone: "North Kolkata", railway: "Sovabazar Ahiritola Station", metro: "Sovabazar Sutanuti Metro", famous: "Artistic Fusion & Clay Art", desc: "প্রতিমা বানানোর কারিগরদের এলাকা সংলগ্ন অসাধারণ থিম প্যান্ডেল।", map: "https://maps.google.com/?q=Kumartuli+Park" },
+
+            // --- মধ্য কলকাতা (শিয়ালদা ও কলেজ স্কোয়ার) ---
+            { id: 18, name: "College Square", zone: "Central Kolkata", railway: "Sealdah / Howrah Station", metro: "Mahatma Gandhi Road / Central Metro", famous: "দিঘির জলে আলোর প্রতিফলন", desc: "দিঘির জলে আলোর প্রতিফলনের অনবদ্য সৌন্দর্য। শিয়ালদা ও এমজি রোড মেট্রোর খুব কাছে।", map: "https://maps.google.com/?q=College+Square+Kolkata" },
+            { id: 19, name: "Santosh Mitra Square", zone: "Central Kolkata", railway: "Sealdah Station (হাঁটা পথ)", metro: "Chandni Chowk / Central / Sealdah Metro", famous: "Unique Architectural Replicas", desc: "শিয়ালদহ স্টেশন ও লেবুতলা পার্কের একদম কাছে। নিখুঁত স্থাপত্যের জন্য জনপ্রিয়।", map: "https://maps.google.com/?q=Santosh+Mitra+Square" },
+            { id: 20, name: "Mohammad Ali Park", zone: "Central Kolkata", railway: "Sealdah Station", metro: "Mahatma Gandhi Road Metro", famous: "ঐতিহাসিক ভারতীয় মন্দিরের রেপ্লিকা", desc: "সি আর অ্যাভিনিউয়ের ওপর বিশাল পার্ক জুড়ে মন্দির শৈলী। শিয়ালদা থেকে খুব কাছে।", map: "https://maps.google.com/?q=Mohammad+Ali+Park" },
+            { id: 21, name: "Millennium Park", zone: "Central Kolkata", railway: "Howrah / Sealdah / BBD Bag", metro: "Esplanade / Chandni Chowk Metro", famous: "গঙ্গার ঘাট ও রিল্যাক্সিং স্পট", desc: "পুজো পরিক্রমার মাঝে গঙ্গার হাওয়া খাওয়া ও আড্ডার চমৎকার স্পট।", map: "https://maps.google.com/?q=Millennium+Park+Kolkata" },
+
+            // --- দক্ষিণ কলকাতা (কালীঘাট ও যতীন দাস পার্ক সংলগ্ন) ---
+            { id: 22, name: "Chetla Agrani Club", zone: "South Kolkata", railway: "Majerhat Railway Station", metro: "Kalighat / Jatin Das Park Metro", famous: "Innovative Concept & Theme Idol", desc: "দক্ষিণ কলকাতার শীর্ষ থিম পূজার কেন্দ্রবিন্দু। কালীঘাট মেট্রো স্টেশন থেকে সহজে যাওয়া যায়।", map: "https://maps.google.com/?q=Chetla+Agrani+Club" },
+            { id: 23, name: "Suruchi Sangha", zone: "South Kolkata", railway: "Majerhat / New Alipore Station", metro: "Kalighat / Rabindra Sarobar Metro", famous: "State Culture Themes & Art", desc: "ভারতের বিভিন্ন রাজ্যের বৈচিত্র্যময় সংস্কৃতি তুলে ধরে। কালীঘাট ও তারাতলা থেকে কাছে।", map: "https://maps.google.com/?q=Suruchi+Sangha" },
+            { id: 24, name: "Tridhara Sammilani", zone: "South Kolkata", railway: "Ballygunge Junction", metro: "Kalighat / Jatin Das Park Metro", famous: "Modern Art & Traditional Fusion", desc: "রাসবিহারী ও লেক মলের কাছে। কালীঘাট মেট্রো থেকে খুব কাছের পথ।", map: "https://maps.google.com/?q=Tridhara+Sammilani" },
+            { id: 25, name: "Ekdalia Evergreen Club", zone: "South Kolkata", railway: "Ballygunge Railway Station", metro: "Kalighat / Jatin Das Park Metro", famous: "Traditional Pratima & Chandeliers", desc: "বিশাল ঝাড়বাতি এবং খাঁটি সাবেকি প্রতিমা। গড়িয়াহাট মোড় ও কালীঘাট থেকে কাছে।", map: "https://maps.google.com/?q=Ekdalia+Evergreen+Club" },
+            { id: 26, name: "Singhi Park", zone: "South Kolkata", railway: "Ballygunge Junction", metro: "Kalighat / Jatin Das Park Metro", famous: "মন্দির নির্মাণশৈলী", desc: "একডালিয়া এভারগ্রীনের ঠিক বিপরীতে অবস্থিত ঐতিহ্যবাহী পূজা।", map: "https://maps.google.com/?q=Singhi+Park+Durga+Puja" },
+            { id: 27, name: "Badamtala Ashar Sangha", zone: "South Kolkata", railway: "Tollygunge Local Stn", metro: "Kalighat / Jatin Das Park Metro", famous: "পুরস্কারপ্রাপ্ত কনসেপ্ট আর্ট", desc: "কালীঘাট ও যতীন দাস পার্ক মেট্রোর একদম মুখে নেপাল ভট্টাচার্য স্ট্রিট থেকে ২ মিনিট।", map: "https://maps.google.com/?q=Badamtala+Ashar+Sangha" },
+            { id: 28, name: "66 Pally", zone: "South Kolkata", railway: "Tollygunge Local Stn", metro: "Kalighat / Jatin Das Park Metro", famous: "অনন্য শৈল্পিক মণ্ডপ ও আধুনিক ভাবনা", desc: "কালীঘাট ও যতীন দাস পার্কের সংলগ্ন মোড় থেকে মাত্র ৩-৫ মিনিট হাঁটা পথ।", map: "https://maps.google.com/?q=66+Pally+Durga+Puja" },
+            { id: 29, name: "Maddox Square", zone: "South Kolkata", railway: "Ballygunge Junction", metro: "Jatin Das Park / Kalighat / Hazra Metro", famous: "খোলা মাঠের আড্ডা ও সাবেকি পূজা", desc: "কলকাতার আড্ডার চিরন্তন ঠিকানা। যতীন দাস পার্ক মেট্রো ও হাজরা থেকে খুব কাছে।", map: "https://maps.google.com/?q=Maddox+Square+Durga+Puja" },
+            { id: 30, name: "Bakul Bagan Sarbojanin", zone: "South Kolkata", railway: "Sealdah Railway Station", metro: "Jatin Das Park / Kalighat Metro", famous: "প্রাকৃতিক উপাদান দিয়ে মণ্ডপসজ্জা", desc: "ভবানীপুর অঞ্চলের ঐতিহ্যবাহী পুজো। যতীন দাস পার্ক মেট্রো স্টেশন থেকে ৫ মিনিট।", map: "https://maps.google.com/?q=Bakul+Bagan+Sarbojanin" },
+            { id: 31, name: "Deshapriya Park", zone: "South Kolkata", railway: "Ballygunge Junction", metro: "Kalighat / Jatin Das Park Metro", famous: "বিশালাকার মেগা থিম ও জনসমুদ্র", desc: "রাসবিহারী অ্যাভিনিউয়ের ওপর বিশাল আয়োজন। কালীঘাট মেট্রো থেকে ৭-৮ মিনিট।", map: "https://maps.google.com/?q=Deshapriya+Park+Durga+Puja" },
+            { id: 32, name: "Mudiali Club", zone: "South Kolkata", railway: "Tollygunge Station", metro: "Rabindra Sarobar / Kalighat Metro", famous: "জ্যামিতিক কারুকার্য ও শান্ত পরিবেশ", desc: "সাদার্ন অ্যাভিনিউ লেক চত্বরে অবস্থিত। কালীঘাট মেট্রো থেকে কাছে।", map: "https://maps.google.com/?q=Mudiali+Club+Durga+Puja" },
+            { id: 33, name: "Naktala Udayan Sangha", zone: "South Kolkata", railway: "Garia Railway Station", metro: "Gitanjali (Naktala) Metro", famous: "গ্র্যান্ড স্কেল ইনস্টলেশন ও আলো", desc: "দক্ষিণ কলকাতার তুমুল জনপ্রিয় মেগা পুজো। গীতাঞ্জলি মেট্রো থেকে ৪ মিনিট।", map: "https://maps.google.com/?q=Naktala+Udayan+Sangha" },
+
+            // --- বেহালা ---
+            { id: 34, name: "Behala Nutan Dal", zone: "Behala", railway: "Majerhat Railway Station", metro: "Taratala / Behala Bazar Metro", famous: "ভাবনামূলক দর্শন ও সমকালীন ভাস্কর্য", desc: "বেহালা চত্বরের এক নম্বর আকর্ষণ। বেহালা ট্রাম ডিপো থেকে হেঁটে মাত্র ৪ মিনিট।", map: "https://maps.google.com/?q=Behala+Nutan+Dal+Durga+Puja" }
+        ];
+
+        const container = document.getElementById('pandalContainer');
+
+        function displayPandals(data) {
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #ffd700; font-size: 18px; padding: 20px;">কোনো প্যান্ডেল পাওয়া যায়নি!</p>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.onclick = () => openModal(item.id);
+                card.innerHTML = `
+                    <div>
+                        <h3>🎪 ${item.name}</h3>
+                        <span class="tag">📍 ${item.zone}</span>
+                        <p style="font-size: 14px; color: #ccc;"><strong>✨ বিশেষত্ব:</strong> ${item.famous}</p>
+                    </div>
+                    <div class="view-btn">🔍 বিস্তারিত ও লোকেশন দেখুন</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openModal(id) {
+            const item = pandals.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById('modalTitle').innerText = '🎪 ' + item.name;
+            document.getElementById('modalZone').innerText = '📍 ' + item.zone;
+            document.getElementById('modalRailway').innerText = item.railway;
+            document.getElementById('modalMetro').innerText = item.metro;
+            document.getElementById('modalFamous').innerText = item.famous;
+            document.getElementById('modalDesc').innerText = item.d
