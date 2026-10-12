@@ -35,9 +35,30 @@ const pandals = [
   { id: 34, name: "Jodhpur Park", zone: "South Kolkata", railway: "Lake Gardens Station", metro: "Rabindra Sarobar মেট্রো", famous: "থিম প্যান্ডেল" }
 ];
 
-// নির্ভরযোগ্য ও সর্বদা সচল ইমেজ লিংক
-const durgaImage = "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=800&q=80";
-const fallbackImage = "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80";
+// ===== ছবির ব্যবস্থা =====
+// কোনো প্যান্ডেলের আসল ছবি থাকলে ডেটায় img: "images/নাম.jpg" যোগ করো।
+// ছবি না থাকলে বা লিংক নষ্ট হলে দুর্গা ঠাকুরের ছবি দেখাবে (বিল্ডিং নয়)।
+const placeholderSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#c0392b"/></linearGradient></defs>
+<rect width="400" height="300" fill="url(#g)"/>
+<circle cx="200" cy="120" r="90" fill="#ffe29a" opacity="0.7"/>
+<g stroke="#7b1e1e" stroke-width="6" stroke-linecap="round">
+<line x1="200" y1="130" x2="110" y2="70"/><line x1="200" y1="130" x2="95" y2="110"/>
+<line x1="200" y1="130" x2="100" y2="155"/><line x1="200" y1="130" x2="130" y2="195"/>
+<line x1="200" y1="130" x2="290" y2="70"/><line x1="200" y1="130" x2="305" y2="110"/>
+<line x1="200" y1="130" x2="300" y2="155"/><line x1="200" y1="130" x2="270" y2="195"/>
+</g>
+<circle cx="200" cy="85" r="26" fill="#f5c9a0"/>
+<path d="M170 80 Q200 40 230 80 L225 62 L200 48 L175 62 Z" fill="#d4a017"/>
+<path d="M165 120 L235 120 L255 285 L145 285 Z" fill="#b71c1c"/>
+<text x="200" y="292" text-anchor="middle" font-size="16" fill="#fff">দুর্গা মা</text>
+</svg>`;
+
+const placeholderImage = "data:image/svg+xml;utf8," + encodeURIComponent(placeholderSVG);
+
+function getImage(pandal) {
+  return pandal.img || placeholderImage;
+}
 
 let selectedZone = "all";
 let searchText = "";
@@ -82,7 +103,7 @@ function renderPandals() {
   const filtered = pandals.filter(pandal => {
     const matchesZone = selectedZone === "all" || pandal.zone === selectedZone;
 
-    // নাম, অঞ্চল, স্টেশন, মেট্রো এবং বিশেষত্ব মিলিয়ে সার্চ
+    // নাম, অঞ্চল, স্টেশন, মেট্রো এবং বিশেষত্ব মিলিয়ে সার্চ
     const searchableText = [
       pandal.name,
       pandal.zone,
@@ -103,7 +124,7 @@ function renderPandals() {
     card.className = "pandal-card";
 
     card.innerHTML = `
-      <img class="card-art" src="${durgaImage}" alt="${escapeHTML(pandal.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'">
+      <img class="card-art" src="${escapeHTML(getImage(pandal))}" alt="${escapeHTML(pandal.name)}" loading="lazy">
       <div class="card-content">
         <span class="zone-tag">${escapeHTML(getZoneLabel(pandal.zone))}</span>
         <h3>${escapeHTML(pandal.name)}</h3>
@@ -115,6 +136,13 @@ function renderPandals() {
         </div>
       </div>
     `;
+
+    // ছবি লোড না হলে দুর্গা ঠাকুরের ছবি দেখাবে
+    const cardImg = card.querySelector(".card-art");
+    cardImg.onerror = () => {
+      cardImg.onerror = null;
+      cardImg.src = placeholderImage;
+    };
 
     card.querySelector(".details-button").addEventListener("click", () => openModal(pandal));
     container.appendChild(card);
@@ -145,8 +173,11 @@ function filterByZone(zone, button) {
 function openModal(pandal) {
   const modalImg = document.getElementById("modalImg");
   if (modalImg) {
-    modalImg.src = durgaImage;
-    modalImg.onerror = () => { modalImg.src = fallbackImage; };
+    modalImg.onerror = () => {
+      modalImg.onerror = null;
+      modalImg.src = placeholderImage;
+    };
+    modalImg.src = getImage(pandal);
   }
 
   const title = document.getElementById("modalTitle");
