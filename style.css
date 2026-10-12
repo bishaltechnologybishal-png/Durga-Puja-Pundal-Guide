@@ -7,118 +7,319 @@
 }
 
 body {
-    font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1a0808 0%, #0d0d1a 100%);
+    font-family: 'Hind Siliguri', sans-serif;
+    background: #090202; /* ডিপ ডার্ক পূজো থিম */
     color: #ffffff;
-    padding: 20px;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-header {
+/* টপ নেভিগেশন বার */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(15, 3, 3, 0.95);
+    border-bottom: 2px solid #d4af37;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.nav-links a {
+    color: #ffe680;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* দুর্গোৎসব মেগা হিরো ব্যানার */
+.puja-banner {
+    position: relative;
     text-align: center;
-    margin-bottom: 35px;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, #800000 0%, #4a0000 100%);
-    border-radius: 16px;
-    border: 2px solid #ffcc00;
+    padding: 60px 20px 70px;
+    border-bottom: 4px solid #ffd700;
+    background: linear-gradient(180deg, rgba(30, 2, 2, 0.52) 0%, rgba(9, 2, 2, 0.98) 100%),
+                url('https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
-header::before {
-    content: "🔱 🪔 🥁 🪔 🔱";
-    display: block;
-    font-size: 22px;
-    margin-bottom: 8px;
+.top-symbols {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+    letter-spacing: 3px;
 }
 
-h1 {
+.guide-title {
     font-size: 2.2rem;
     color: #ffd700;
-    margin-bottom: 8px;
+    font-weight: 700;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.8);
 }
 
-header p {
-    color: #ffe680;
-    margin-bottom: 20px;
+.guide-sub {
+    color: #faebd7;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
 }
 
-#searchInput {
-    width: 100%;
-    max-width: 550px;
-    padding: 14px 22px;
-    font-size: 15px;
-    border: 2px solid #ffd700;
-    border-radius: 30px;
-    outline: none;
-    background: #ffffff;
+.subho-box {
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.subho-text {
+    font-size: 1.3rem;
+    color: #ffea80;
+    display: block;
+}
+
+.durga-utsav-title {
+    font-size: 3.5rem;
+    color: #ff3333;
+    font-weight: 700;
+    text-shadow: 0 0 20px #ffcc00, 0 3px 10px #000000;
+}
+
+.year-badge {
+    background: #ffd700;
     color: #000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    padding: 3px 18px;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 0 12px #ffcc00;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1150px;
+/* মেগা সার্চ সেকশন */
+.search-section {
+    width: 100%;
+    max-width: 720px;
     margin: 0 auto;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    border-top: 4px solid #ffd700;
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 4px;
+    border: 3px solid #ffcc00;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.search-ico {
+    color: #555555;
+    font-size: 1.2rem;
+    margin-left: 20px;
+}
+
+#searchInput {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 12px 10px;
+    font-size: 1rem;
+    color: #111111;
+    background: transparent;
+}
+
+.search-btn {
+    background: #ffcc00;
+    border: none;
+    outline: none;
+    color: #000;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 40px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.2s;
+}
+
+.search-btn:hover {
+    background: #ffd700;
+}
+
+/* ক্যাটাগরি ফিল্টার চিপস */
+.filter-wrapper {
+    background: #140505;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none; /* ক্রোম/সাফারিতে স্ক্রোলবার হাইড */
+}
+
+.cat-chip {
+    flex: 0 0 auto;
+    background: rgba(255, 215, 0, 0.05);
+    border: 1.5px solid rgba(255, 215, 0, 0.3);
+    color: #ffeb3b;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+.cat-chip:hover, .cat-chip.active {
+    background: #ffcc00;
+    color: #000000;
+    border-color: #ffcc00;
+    box-shadow: 0 3px 10px rgba(255, 204, 0, 0.4);
+}
+
+/* কন্টেন্ট এরিয়া */
+.content-area {
+    max-width: 1240px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.ornament {
+    color: #ffd700;
+    font-size: 1.5rem;
+}
+
+.grid-title {
+    font-size: 2rem;
+    color: #ffd700;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* প্যান্ডেল গ্রিড */
+.pandal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 25px;
+}
+
+/* কার্ড স্টাইল */
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 215, 0, 0.18);
+    border-top: 4px solid #ffd700;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     border-color: #ffd700;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
 }
 
-.card h3 {
-    color: #ffd700;
+.card-img-wrapper {
+    position: relative;
+    height: 180px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.zone-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ffcc00;
+    color: #000;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 15px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
     font-size: 1.25rem;
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin-bottom: 8px;
 }
 
-.tag {
+.landmark-tag {
     display: inline-block;
-    background: rgba(255, 215, 0, 0.15);
-    color: #ffeb3b;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 12px;
-    width: fit-content;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 215, 0, 0.12);
+    color: #ffd700;
+    padding: 3px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.specialty-text {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.4;
 }
 
 .view-btn {
-    margin-top: 15px;
+    display: block;
+    width: 100%;
     padding: 10px;
     background: #ffcc00;
     color: #000;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
     text-align: center;
-    transition: 0.2s;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 15px;
 }
 
 .view-btn:hover {
     background: #ffe680;
 }
 
-/* Modal Popup Overlay */
+/* পপ-আপ মডাল */
 .modal {
     display: none;
     position: fixed;
@@ -126,7 +327,7 @@ header p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.88);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -138,33 +339,60 @@ header p {
     border: 2px solid #ffd700;
     border-radius: 16px;
     padding: 25px;
-    max-width: 500px;
+    max-width: 540px;
     width: 100%;
     position: relative;
     color: #fff;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-media img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1.5px solid #ffd700;
+    margin-bottom: 15px;
 }
 
 .close-btn {
     position: absolute;
     right: 18px;
-    top: 12px;
-    font-size: 28px;
+    top: 10px;
+    font-size: 32px;
     color: #ffd700;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
 }
 
 .modal-details {
     margin: 20px 0;
-    line-height: 1.8;
 }
 
 .modal-details p {
-    font-size: 14.5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 8px;
-    margin-bottom: 8px;
-    color: #dddddd;
+    margin-bottom: 10px;
+}
+
+.modal-details strong {
+    color: #ffd700;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.15);
+    color: #ffeb3b;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
 }
 
 .map-btn {
@@ -177,8 +405,55 @@ header p {
     border-radius: 8px;
     font-weight: bold;
     border: 1px solid #ff6666;
+    transition: 0.25s;
 }
 
 .map-btn:hover {
     background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+}
+
+/* ফুটার */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #090202;
+    border-top: 2px solid #ffd700;
+    margin-top: 50px;
+}
+
+.footer-msg {
+    color: #ffcc00;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    color: #888888;
+    font-size: 0.85rem;
+}
+
+/* মোবাইল রেসপন্সিভনেস */
+@media (max-width: 600px) {
+    .top-nav {
+        padding: 12px 15px;
+    }
+    .logo {
+        font-size: 1.15rem;
+    }
+    .nav-links a {
+        margin-left: 10px;
+        font-size: 0.8rem;
+    }
+    .durga-utsav-title {
+        font-size: 2.6rem;
+    }
+    .guide-title {
+        font-size: 1.6rem;
+    }
+    .guide-sub {
+        font-size: 0.95rem;
+    }
+    .pandal-grid {
+        grid-template-columns: 1fr;
+    }
 }
