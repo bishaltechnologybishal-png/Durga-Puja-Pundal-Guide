@@ -35,7 +35,9 @@ const pandals = [
   { id: 34, name: "Jodhpur Park", zone: "South Kolkata", railway: "Lake Gardens Station", metro: "Rabindra Sarobar মেট্রো", famous: "থিম প্যান্ডেল" }
 ];
 
-const durgaImage = "https://images.unsplash.com/photo-1604608672516-8f7b2f7f3b4a?auto=format&fit=crop&w=900&q=80";
+// নির্ভরযোগ্য ও সর্বদা সচল ইমেজ লিংক
+const durgaImage = "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=800&q=80";
+const fallbackImage = "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80";
 
 let selectedZone = "all";
 let searchText = "";
@@ -75,10 +77,23 @@ function escapeHTML(value) {
 }
 
 function renderPandals() {
+  const query = searchText.toLowerCase();
+
   const filtered = pandals.filter(pandal => {
     const matchesZone = selectedZone === "all" || pandal.zone === selectedZone;
-    const text = `${pandal.name} ${pandal.zone} ${getZoneLabel(pandal.zone)}`.toLowerCase();
-    return matchesZone && text.includes(searchText.toLowerCase());
+
+    // নাম, অঞ্চল, স্টেশন, মেট্রো এবং বিশেষত্ব মিলিয়ে সার্চ
+    const searchableText = [
+      pandal.name,
+      pandal.zone,
+      getZoneLabel(pandal.zone),
+      pandal.railway,
+      pandal.metro,
+      pandal.famous
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = query === "" || searchableText.includes(query);
+    return matchesZone && matchesSearch;
   });
 
   container.innerHTML = "";
@@ -88,12 +103,12 @@ function renderPandals() {
     card.className = "pandal-card";
 
     card.innerHTML = `
-      <img class="card-art" src="${durgaImage}" alt="দুর্গাপূজার প্রতিমা" loading="lazy">
+      <img class="card-art" src="${durgaImage}" alt="${escapeHTML(pandal.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'">
       <div class="card-content">
         <span class="zone-tag">${escapeHTML(getZoneLabel(pandal.zone))}</span>
         <h3>${escapeHTML(pandal.name)}</h3>
-        <p>নিকটবর্তী রেলস্টেশন: ${escapeHTML(pandal.railway)}</p>
-        <p>নিকটবর্তী মেট্রো: ${escapeHTML(pandal.metro)}</p>
+        <p><strong>🚆 রেলস্টেশন:</strong> ${escapeHTML(pandal.railway)}</p>
+        <p><strong>🚇 মেট্রো:</strong> ${escapeHTML(pandal.metro)}</p>
         <div class="card-actions">
           <button type="button" class="details-button">বিস্তারিত</button>
           <a class="small-map-link" href="${getMapUrl(pandal)}" target="_blank" rel="noopener noreferrer">ম্যাপ ↗</a>
@@ -105,13 +120,19 @@ function renderPandals() {
     container.appendChild(card);
   });
 
-  resultCount.textContent = `মোট ${filtered.length}টি প্যান্ডেল`;
-  noResults.hidden = filtered.length !== 0;
+  if (resultCount) {
+    resultCount.textContent = `মোট ${filtered.length}টি প্যান্ডেল`;
+  }
+  if (noResults) {
+    noResults.hidden = filtered.length !== 0;
+  }
 }
 
 function searchPandals() {
-  searchText = searchInput.value.trim();
-  renderPandals();
+  if (searchInput) {
+    searchText = searchInput.value.trim();
+    renderPandals();
+  }
 }
 
 function filterByZone(zone, button) {
@@ -122,24 +143,47 @@ function filterByZone(zone, button) {
 }
 
 function openModal(pandal) {
-  document.getElementById("modalImg").src = durgaImage;
-  document.getElementById("modalTitle").textContent = pandal.name;
-  document.getElementById("modalZone").textContent = getZoneLabel(pandal.zone);
-  document.getElementById("modalRailway").textContent = pandal.railway;
-  document.getElementById("modalMetro").textContent = pandal.metro;
-  document.getElementById("modalFamous").textContent = pandal.famous;
-  document.getElementById("modalDesc").textContent =
-    "যাত্রার আগে নিকটবর্তী স্টেশন, ট্রেন ও মেট্রোর পরিষেবা এবং পুজোর সময়সূচি যাচাই করে নাও।";
-  document.getElementById("modalMap").href = getMapUrl(pandal);
+  const modalImg = document.getElementById("modalImg");
+  if (modalImg) {
+    modalImg.src = durgaImage;
+    modalImg.onerror = () => { modalImg.src = fallbackImage; };
+  }
 
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
+  const title = document.getElementById("modalTitle");
+  if (title) title.textContent = pandal.name;
+
+  const zone = document.getElementById("modalZone");
+  if (zone) zone.textContent = getZoneLabel(pandal.zone);
+
+  const railway = document.getElementById("modalRailway");
+  if (railway) railway.textContent = pandal.railway;
+
+  const metro = document.getElementById("modalMetro");
+  if (metro) metro.textContent = pandal.metro;
+
+  const famous = document.getElementById("modalFamous");
+  if (famous) famous.textContent = pandal.famous;
+
+  const desc = document.getElementById("modalDesc");
+  if (desc) {
+    desc.textContent = "যাত্রার আগে নিকটবর্তী স্টেশন, ট্রেন ও মেট্রোর পরিষেবা এবং পুজোর সময়সূচি যাচাই করে নাও।";
+  }
+
+  const mapBtn = document.getElementById("modalMap");
+  if (mapBtn) mapBtn.href = getMapUrl(pandal);
+
+  if (modal) {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+  }
   document.body.classList.add("modal-open");
 }
 
 function closeModal() {
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden", "true");
+  if (modal) {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
   document.body.classList.remove("modal-open");
 }
 
@@ -147,4 +191,5 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeModal();
 });
 
+// পেজ লোড হলেই কার্ডগুলো প্রদর্শন করবে
 renderPandals();
