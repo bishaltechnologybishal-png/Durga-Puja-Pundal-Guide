@@ -35,62 +35,31 @@ input {
   font: inherit;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
 .hero {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 390px;
   padding: 60px 20px;
   text-align: center;
-  overflow: hidden;
   background:
     radial-gradient(ellipse at top, rgba(150, 64, 25, 0.4), transparent 65%),
     linear-gradient(135deg, #32170f, #120d0b 70%);
   border-bottom: 1px solid var(--border);
 }
 
-.hero::before,
-.hero::after {
-  position: absolute;
-  color: rgba(231, 183, 91, 0.12);
-  font-size: 130px;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.hero::before {
-  content: "✺";
-  top: 20px;
-  left: 5%;
-}
-
-.hero::after {
-  content: "✺";
-  right: 5%;
-  bottom: 10px;
-}
-
 .hero-content {
-  position: relative;
-  z-index: 1;
   max-width: 800px;
 }
 
 .eyebrow {
   color: var(--gold-light);
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
 .hero h1 {
@@ -101,24 +70,17 @@ a {
 }
 
 .subtitle {
-  margin: 15px 0 28px;
   color: var(--muted);
-  font-size: 1.05rem;
 }
 
 .hero-button {
   display: inline-block;
+  margin-top: 15px;
   padding: 11px 24px;
   border-radius: 30px;
   background: var(--gold);
   color: #21150b;
   font-weight: 800;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.hero-button:hover {
-  background: var(--gold-light);
-  transform: translateY(-2px);
 }
 
 main {
@@ -132,14 +94,10 @@ main {
 }
 
 .intro h2 {
-  margin: 0 0 8px;
   color: var(--gold-light);
-  font-size: clamp(1.4rem, 4vw, 2rem);
 }
 
 .intro p {
-  margin: 0 auto;
-  max-width: 680px;
   color: var(--muted);
 }
 
@@ -161,31 +119,19 @@ main {
   color: var(--cream);
 }
 
-.search-section input::placeholder {
-  color: #a99a8b;
-}
-
 .search-section input:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(231, 183, 91, 0.1);
 }
 
 .search-section button,
 .details-button {
+  padding: 10px 17px;
   border: none;
   border-radius: 10px;
-  padding: 11px 19px;
   background: var(--gold);
-  color: #20150d;
+  color: #20150b;
   font-weight: 800;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.search-section button:hover,
-.details-button:hover {
-  background: var(--gold-light);
-  transform: translateY(-1px);
 }
 
 .zone-filters {
@@ -203,7 +149,6 @@ main {
   background: #211916;
   color: var(--cream);
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .zone-btn:hover,
@@ -227,29 +172,24 @@ main {
 }
 
 .pandal-card {
-  min-width: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--dark-card);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .pandal-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(231, 183, 91, 0.65);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  border-color: var(--gold);
 }
 
 .card-art {
-  display: grid;
-  min-height: 125px;
-  place-items: center;
-  background:
-    radial-gradient(circle at center, rgba(231, 183, 91, 0.16), transparent 55%),
-    linear-gradient(135deg, #422319, #211410);
-  font-size: 54px;
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #422319;
 }
 
 .card-content {
@@ -267,15 +207,11 @@ main {
 }
 
 .card-content h3 {
-  margin: 12px 0 8px;
   color: var(--cream);
   font-size: 1.1rem;
-  line-height: 1.5;
 }
 
 .card-content p {
-  min-height: 48px;
-  margin: 0 0 16px;
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -284,20 +220,11 @@ main {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-.details-button {
-  padding: 8px 14px;
-  font-size: 0.9rem;
+  margin-top: 14px;
 }
 
 .small-map-link {
   color: var(--gold-light);
-  font-size: 0.9rem;
-}
-
-.small-map-link:hover {
-  text-decoration: underline;
 }
 
 .no-results {
@@ -309,8 +236,6 @@ main {
 [hidden] {
   display: none !important;
 }
-
-/* Modal */
 
 .modal {
   position: fixed;
@@ -342,7 +267,6 @@ main {
   border: 1px solid var(--border);
   border-radius: 18px;
   background: #201713;
-  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
 }
 
 .close-modal {
@@ -350,10 +274,8 @@ main {
   z-index: 2;
   top: 10px;
   right: 12px;
-  display: grid;
   width: 40px;
   height: 40px;
-  place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   background: rgba(20, 12, 9, 0.8);
@@ -363,13 +285,11 @@ main {
 }
 
 .modal-image {
-  display: grid;
-  min-height: 140px;
-  place-items: center;
-  background:
-    radial-gradient(circle, rgba(231, 183, 91, 0.2), transparent 65%),
-    linear-gradient(135deg, #422319, #211410);
-  font-size: 64px;
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #422319;
 }
 
 .modal-body {
@@ -377,9 +297,7 @@ main {
 }
 
 .modal-body h2 {
-  margin: 12px 0;
   color: var(--gold-light);
-  line-height: 1.4;
 }
 
 .modal-body p {
@@ -401,20 +319,12 @@ main {
   font-weight: 800;
 }
 
-.map-button:hover {
-  background: var(--gold-light);
-}
-
 footer {
   padding: 25px 15px;
   border-top: 1px solid var(--border);
   background: #100c0a;
   color: var(--gold-light);
   text-align: center;
-}
-
-footer p {
-  margin: 4px 0;
 }
 
 .footer-small {
@@ -432,15 +342,6 @@ footer p {
   .hero {
     min-height: 330px;
     padding: 45px 16px;
-  }
-
-  .hero::before,
-  .hero::after {
-    font-size: 75px;
-  }
-
-  main {
-    width: 92%;
   }
 
   .search-section {
@@ -472,11 +373,7 @@ footer p {
   }
 
   .card-art {
-    min-height: 100px;
-  }
-
-  .card-content p {
-    min-height: auto;
+    height: 210px;
   }
 
   .modal {
