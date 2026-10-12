@@ -1,41 +1,47 @@
 const pandals = [
   { id: 1, name: "Kalyani ITI More", zone: "Kalyani", railway: "Kalyani Station", metro: "প্রযোজ্য নয়", famous: "প্যান্ডেল ও প্রতিমা দর্শন" },
   { id: 2, name: "Kalyani Central Park", zone: "Kalyani", railway: "Kalyani Station", metro: "প্রযোজ্য নয়", famous: "থিম প্যান্ডেল" },
-  { id: 3, name: "Salt Lake FD Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "সেক্টর V / সল্টলেক এলাকার নিকটবর্তী স্টেশন যাচাই করুন", famous: "থিম প্যান্ডেল" },
-  { id: 4, name: "Salt Lake AK Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "সল্টলেক এলাকার নিকটবর্তী স্টেশন যাচাই করুন", famous: "প্রতিমা দর্শন" },
-  { id: 5, name: "Salt Lake BJ Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "সল্টলেক এলাকার নিকটবর্তী স্টেশন যাচাই করুন", famous: "থিম প্যান্ডেল" },
-  { id: 6, name: "New Town Sarbojanin", zone: "New Town", railway: "নিকটবর্তী রেলস্টেশন যাচাই করুন", metro: "চালু পরিষেবা ও নিকটবর্তী স্টেশন যাচাই করুন", famous: "থিম প্যান্ডেল" },
-  { id: 7, name: "Sree Bhumi Sporting Club", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "Belgachia Metro / নিকটবর্তী স্টেশন যাচাই করুন", famous: "বৃহৎ থিম প্যান্ডেল" },
-  { id: 8, name: "Tala Prattoy", zone: "North Kolkata", railway: "Bagbazar / শিয়ালদহ এলাকার রেল পরিষেবা যাচাই করুন", metro: "শ্যামবাজার মেট্রো", famous: "শৈল্পিক থিম" },
+  { id: 3, name: "Salt Lake FD Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "City Centre / করুণাময়ী মেট্রো", famous: "থিম প্যান্ডেল ও সিটি সেন্টার ১ সংলগ্ন" },
+  { id: 4, name: "Salt Lake AK Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "City Centre মেট্রো", famous: "প্রতিমা দর্শন ও সিটি সেন্টার সংলগ্ন" },
+  { id: 5, name: "Salt Lake BJ Block", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "City Centre মেট্রো", famous: "থিম প্যান্ডেল ও সিটি সেন্টার ১ সংলগ্ন" },
+  { id: 6, name: "New Town Sarbojanin", zone: "New Town", railway: "Bidhan Nagar Road Station", metro: "Sector V / Airport Link", famous: "অ্যাক্সিস মল (Axis Mall) ও সিটি সেন্টার ২ সংলগ্ন মেগা থিম" },
+  { id: 7, name: "Sree Bhumi Sporting Club", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "Belgachia / Dum Dum Metro", famous: "বৃহৎ থিম প্যান্ডেল ও আলোকসজ্জা" },
+  { id: 8, name: "Tala Prattoy", zone: "North Kolkata", railway: "Kolkata Station (Chitpur)", metro: "শ্যামবাজার মেট্রো", famous: "শৈল্পিক থিম" },
   { id: 9, name: "Tala Barowari", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শ্যামবাজার মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
   { id: 10, name: "Dum Dum Park Tarun Dal", zone: "North Kolkata", railway: "Dum Dum Junction", metro: "দমদম মেট্রো", famous: "থিম প্যান্ডেল" },
   { id: 11, name: "Dum Dum Park Bharat Chakra", zone: "North Kolkata", railway: "Dum Dum Junction", metro: "দমদম মেট্রো", famous: "থিম প্যান্ডেল" },
   { id: 12, name: "Dum Dum Park Tarun Sangha", zone: "North Kolkata", railway: "Dum Dum Junction", metro: "দমদম মেট্রো", famous: "থিম প্যান্ডেল" },
   { id: 13, name: "Telengabagan", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "শ্যামবাজার মেট্রো", famous: "শৈল্পিক প্রতিমা" },
-  { id: 14, name: "Manicktala Chaltabagan", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
-  { id: 15, name: "Shimla Byam Samity", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
+  { id: 14, name: "Manicktala Chaltabagan", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী পুজো ও আলোকসজ্জা" },
+  { id: 15, name: "Shimla Byam Samity", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী বীররস পুজো" },
   { id: 16, name: "Hatibagan Sarbojonin", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "শ্যামবাজার মেট্রো", famous: "প্রতিমা দর্শন" },
   { id: 17, name: "Hatibagan Nabin Pally", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "শ্যামবাজার মেট্রো", famous: "থিম প্যান্ডেল" },
   { id: 18, name: "Sikdar Bagan Sadharan", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "প্যান্ডেল ও প্রতিমা দর্শন" },
   { id: 19, name: "Nalin Sarkar Street", zone: "North Kolkata", railway: "Bidhan Nagar Road Station", metro: "শ্যামবাজার মেট্রো", famous: "থিম প্যান্ডেল" },
   { id: 20, name: "Kashi Bose Lane", zone: "Central Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
-  { id: 21, name: "Shobhabazar Rajbari", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "ঐতিহাসিক রাজবাড়ির পুজো" },
+  { id: 21, name: "Shobhabazar Rajbari", zone: "North Kolkata", railway: "Bagbazar / Sutanuti Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "ঐতিহাসিক বনেদি রাজবাড়ির পুজো ও নাটমন্দির" },
   { id: 22, name: "Beniatola Sarbojanin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "গিরিশ পার্ক মেট্রো", famous: "প্রতিমা দর্শন" },
-  { id: 23, name: "Ahiritola Sarbojanin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
+  { id: 23, name: "Ahiritola Sarbojanin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "ঐতিহ্যবাহী পুজো ও গঙ্গার ঘাট" },
   { id: 24, name: "Kumartuli Sarbojanin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "কুমোরটুলির প্রতিমা" },
-  { id: 25, name: "Kumartuli Park", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "থিম প্যান্ডেল" },
+  { id: 25, name: "Kumartuli Park", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "থিম প্যান্ডেল ও মাটির কাজ" },
   { id: 26, name: "Jagat Mukherjee Park", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "থিম প্যান্ডেল" },
-  { id: 27, name: "Bagbazar Sarbojonin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
-  { id: 28, name: "Santosh Mitra Square", zone: "Central Kolkata", railway: "Sealdah Station", metro: "চাঁদনি চক / সেন্ট্রাল মেট্রো", famous: "বৃহৎ থিম প্যান্ডেল" },
-  { id: 29, name: "College Square", zone: "Central Kolkata", railway: "Sealdah Station", metro: "Central Metro", famous: "জলাশয়ের প্রতিফলনে আলোকসজ্জা" },
-  { id: 30, name: "Mohammad Ali Park", zone: "Central Kolkata", railway: "Sealdah Station", metro: "Central Metro", famous: "থিম প্যান্ডেল" },
+  { id: 27, name: "Bagbazar Sarbojonin", zone: "North Kolkata", railway: "Bagbazar Station", metro: "শোভাবাজার-সুতানুটি মেট্রো", famous: "শতবর্ষের ঐতিহ্যবাহী সাবেকি একচালা পুজো" },
+  { id: 28, name: "Santosh Mitra Square", zone: "Central Kolkata", railway: "Sealdah Station", metro: "চাঁদনি চক / সেন্ট্রাল / শিয়ালদহ মেট্রো", famous: "বৃহৎ থিম প্যান্ডেল ও লেজার শো" },
+  { id: 29, name: "College Square", zone: "Central Kolkata", railway: "Sealdah Station", metro: "Central / MG Road Metro", famous: "জলাশয়ের প্রতিফলনে চোখ ধাঁধানো আলোকসজ্জা" },
+  { id: 30, name: "Mohammad Ali Park", zone: "Central Kolkata", railway: "Sealdah Station", metro: "Central / MG Road Metro", famous: "ঐতিহাসিক মন্দিরের থিম প্যান্ডেল" },
   { id: 31, name: "Chorbagan Sarbojanin", zone: "North Kolkata", railway: "Sealdah Station", metro: "গিরিশ পার্ক মেট্রো", famous: "ঐতিহ্যবাহী পুজো" },
-  { id: 32, name: "Millennium Park", zone: "Central Kolkata", railway: "BBD Bag Station", metro: "BBD Bag মেট্রো", famous: "নদীর ধারের দর্শনীয় স্থান" },
-  { id: 33, name: "Naktala Udayan Sangha", zone: "South Kolkata", railway: "New Garia / Baghajatin এলাকার রেল পরিষেবা যাচাই করুন", metro: "নাকতলা মেট্রো", famous: "থিম প্যান্ডেল" },
-  { id: 34, name: "Jodhpur Park", zone: "South Kolkata", railway: "Lake Gardens Station", metro: "Rabindra Sarobar মেট্রো", famous: "থিম প্যান্ডেল" }
+  { id: 32, name: "Millennium Park", zone: "Central Kolkata", railway: "BBD Bag / Howrah Station", metro: "BBD Bag / Esplanade মেট্রো", famous: "নদীর ধারের দর্শনীয় স্থান ও আড্ডার স্পট" },
+  { id: 33, name: "Naktala Udayan Sangha", zone: "South Kolkata", railway: "Garia Railway Station", metro: "গীতাঞ্জলি (নাকতলা) মেট্রো", famous: "বিশাল মেগা স্কেল থিম প্যান্ডেল" },
+  { id: 34, name: "Jodhpur Park", zone: "South Kolkata", railway: "Dhakuria / Lake Gardens Station", metro: "Rabindra Sarobar মেট্রো", famous: "থিম প্যান্ডেল ও সাংস্কৃতিক পরিবেশ" },
+  { id: 35, name: "Deshapriya Park", zone: "South Kolkata", railway: "Ballygunge Junction", metro: "Kalighat / Jatin Das Park Metro", famous: "বিশালাকার মেগা থিম, রাসবিহারী ও লেক মলের কাছে" },
+  { id: 36, name: "Rani Rashmoni Bhavan", zone: "South Kolkata", railway: "Sealdah Railway Station", metro: "Jatin Das Park / Kalighat Metro", famous: "ঐতিহাসিক রানী রাসমণি ভবনের সুপ্রাচীন বনেদি সাবেকি পুজো" },
+  { id: 37, name: "City Centre Salt Lake (FD/BJ/AK Block Area)", zone: "Salt Lake", railway: "Bidhan Nagar Road Station", metro: "City Centre Metro", famous: "সিটি সেন্টার ১ ও সল্টলেকের ব্লক পূজার প্রাণকেন্দ্র" },
+  { id: 38, name: "Axis Mall New Town (Sarbojanin Area)", zone: "New Town", railway: "Bidhan Nagar Road Station", metro: "Sector V / New Town", famous: "অ্যাক্সিস মল ও নিউ টাউন মেলা প্রাঙ্গণ মেগা পুজো" }
 ];
 
-const durgaImage = "https://images.unsplash.com/photo-1604608672516-8f7b2f7f3b4a?auto=format&fit=crop&w=900&q=80";
+// নির্ভরযোগ্য ও সর্বদা সচল ইমেজ লিঙ্ক
+const durgaImage = "https://images.unsplash.com/photo-1602488285514-f9efd19c362a?auto=format&fit=crop&w=800&q=80";
+const fallbackImage = "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=800&q=80";
 
 let selectedZone = "all";
 let searchText = "";
@@ -75,10 +81,23 @@ function escapeHTML(value) {
 }
 
 function renderPandals() {
+  const query = searchText.toLowerCase();
+
   const filtered = pandals.filter(pandal => {
     const matchesZone = selectedZone === "all" || pandal.zone === selectedZone;
-    const text = `${pandal.name} ${pandal.zone} ${getZoneLabel(pandal.zone)}`.toLowerCase();
-    return matchesZone && text.includes(searchText.toLowerCase());
+    
+    // নাম, এলাকা, রেল স্টেশন, মেট্রো স্টেশন এবং বিবরণ সব মিলিয়ে নিখুঁত সার্চ হবে
+    const searchableText = [
+      pandal.name,
+      pandal.zone,
+      getZoneLabel(pandal.zone),
+      pandal.railway,
+      pandal.metro,
+      pandal.famous
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = query === "" || searchableText.includes(query);
+    return matchesZone && matchesSearch;
   });
 
   container.innerHTML = "";
@@ -88,12 +107,12 @@ function renderPandals() {
     card.className = "pandal-card";
 
     card.innerHTML = `
-      <img class="card-art" src="${durgaImage}" alt="দুর্গাপূজার প্রতিমা" loading="lazy">
+      <img class="card-art" src="${durgaImage}" alt="${escapeHTML(pandal.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'">
       <div class="card-content">
         <span class="zone-tag">${escapeHTML(getZoneLabel(pandal.zone))}</span>
         <h3>${escapeHTML(pandal.name)}</h3>
-        <p>নিকটবর্তী রেলস্টেশন: ${escapeHTML(pandal.railway)}</p>
-        <p>নিকটবর্তী মেট্রো: ${escapeHTML(pandal.metro)}</p>
+        <p><strong>🚆 নিকটবর্তী রেলস্টেশন:</strong> ${escapeHTML(pandal.railway)}</p>
+        <p><strong>🚇 নিকটবর্তী মেট্রো:</strong> ${escapeHTML(pandal.metro)}</p>
         <div class="card-actions">
           <button type="button" class="details-button">বিস্তারিত</button>
           <a class="small-map-link" href="${getMapUrl(pandal)}" target="_blank" rel="noopener noreferrer">ম্যাপ ↗</a>
@@ -105,13 +124,19 @@ function renderPandals() {
     container.appendChild(card);
   });
 
-  resultCount.textContent = `মোট ${filtered.length}টি প্যান্ডেল`;
-  noResults.hidden = filtered.length !== 0;
+  if (resultCount) {
+    resultCount.textContent = `মোট ${filtered.length}টি প্যান্ডেল`;
+  }
+  if (noResults) {
+    noResults.hidden = filtered.length !== 0;
+  }
 }
 
 function searchPandals() {
-  searchText = searchInput.value.trim();
-  renderPandals();
+  if (searchInput) {
+    searchText = searchInput.value.trim();
+    renderPandals();
+  }
 }
 
 function filterByZone(zone, button) {
@@ -122,24 +147,49 @@ function filterByZone(zone, button) {
 }
 
 function openModal(pandal) {
-  document.getElementById("modalImg").src = durgaImage;
-  document.getElementById("modalTitle").textContent = pandal.name;
-  document.getElementById("modalZone").textContent = getZoneLabel(pandal.zone);
-  document.getElementById("modalRailway").textContent = pandal.railway;
-  document.getElementById("modalMetro").textContent = pandal.metro;
-  document.getElementById("modalFamous").textContent = pandal.famous;
-  document.getElementById("modalDesc").textContent =
-    "যাত্রার আগে নিকটবর্তী স্টেশন, ট্রেন ও মেট্রোর পরিষেবা এবং পুজোর সময়সূচি যাচাই করে নাও।";
-  document.getElementById("modalMap").href = getMapUrl(pandal);
+  const modalImg = document.getElementById("modalImg");
+  if (modalImg) {
+    modalImg.src = durgaImage;
+    modalImg.onerror = () => { modalImg.src = fallbackImage; };
+  }
 
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
+  const title = document.getElementById("modalTitle");
+  if (title) title.textContent = pandal.name;
+
+  const zone = document.getElementById("modalZone");
+  if (zone) zone.textContent = getZoneLabel(pandal.zone);
+
+  const railway = document.getElementById("modalRailway");
+  if (railway) railway.textContent = pandal.railway;
+
+  const metro = document.getElementById("modalMetro");
+  if (metro) metro.textContent = pandal.metro;
+
+  const famous = document.getElementById("modalFamous");
+  if (famous) famous.textContent = pandal.famous;
+
+  const desc = document.getElementById("modalDesc");
+  if (desc) {
+    desc.textContent = "যাত্রার আগে নিকটবর্তী স্টেশন, ট্রেন ও মেট্রোর পরিষেবা এবং পুজোর সময়সূচি যাচাই করে নাও।";
+  }
+
+  const mapBtn = document.getElementById("modalMap");
+  if (mapBtn) mapBtn.href = getMapUrl(pandal);
+
+  if (modal) {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    modal.style.display = "flex";
+  }
   document.body.classList.add("modal-open");
 }
 
 function closeModal() {
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden", "true");
+  if (modal) {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    modal.style.display = "none";
+  }
   document.body.classList.remove("modal-open");
 }
 
@@ -147,4 +197,5 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeModal();
 });
 
+// পেজ লোড হলেই সাথে সাথে দেখাবে
 renderPandals();
